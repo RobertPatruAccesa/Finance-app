@@ -1,0 +1,22 @@
+{
+	"user": {
+		"id": "1",
+		"firstName": "Robert",
+		"lastName": "Patru",
+		"email": "robertpatru@gmail.com",
+		"password": "test1234"
+	},
+	"transaction": {
+		"userId": "1",
+		"transactionId": "1",
+		"amount": "100.00",
+		"type": "payment",
+		"date":"23.12.2022",
+		"description":"Electricity bill"
+	},
+	"budgest": {
+		"userId": "1",
+		"id": "1",
+		"amount": "10000.00"
+	}
+}
