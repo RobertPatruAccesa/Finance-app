@@ -10,6 +10,8 @@ export class AppComponent {
 	title = 'Finance-app';
 
 	constructor(private http: HttpClient) {
-		http.get('/api').subscribe(data => console.log(data))
+		http.get('/api/users').subscribe(data => {
+			console.log(data);
+		});
 	}
 }
