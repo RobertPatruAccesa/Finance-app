@@ -8,9 +8,8 @@
 
 :host {
 	height: 100%;
-	width: 20%;
-	// max-width: 300px;
-	position: fixed;
+	min-width: 300px;
+	max-width: 300px;
 
 	background-color: var(--black);
 	color: var(--white);
@@ -25,13 +24,23 @@
 		letter-spacing: 2px;
 	}
 
-	.main-buttons {
+	.logo:hover {
+		cursor: pointer;
+	}
+
+	.main-buttons,
+	.secondary-buttons {
 		flex: 4;
 		font-size: 20px;
 	}
 
-	.secondary-buttons {
-		flex: 4;
-		font-size: 20px;
+	app-button {
+		width: 220px;
+		padding: 0 20px;
+		border-radius: 5px;
+	}
+
+	.active {
+		background-color: var(--orange);
 	}
 }
