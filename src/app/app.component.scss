@@ -1,12 +1,14 @@
-:host {
-	display: flex;
-}
+// :host {
+// 	display: flex;
+// }
 
-app-sidebar {
-	flex: 1;
-	max-width: 300px;
-}
+// app-sidebar {
+// 	position: fixed;
+// 	flex: 1;
+// 	max-width: 300px;
+// }
 
 app-home {
-	flex: 5;
+	width: 80%;
+	margin-left: 20%;
 }
