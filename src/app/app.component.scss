@@ -1,0 +1,12 @@
+:host {
+	display: flex;
+}
+
+app-sidebar {
+	flex: 1;
+	max-width: 300px;
+}
+
+app-home {
+	flex: 5;
+}

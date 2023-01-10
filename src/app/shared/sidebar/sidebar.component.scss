@@ -1,0 +1,33 @@
+.align-center-x-Y-flexStart {
+	// === UTILITY CLASS ===
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+:host {
+	background-color: var(--black);
+	color: var(--white);
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+
+	.logo {
+		flex: 2;
+		letter-spacing: 2px;
+	}
+
+	.main-buttons {
+		flex: 4;
+		font-size: 20px;
+	}
+
+	.secondary-buttons {
+		flex: 4;
+		font-size: 20px;
+	}
+}

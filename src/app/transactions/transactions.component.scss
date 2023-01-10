@@ -1,0 +1,21 @@
+:host {
+	width: 100%;
+
+	.headlines-container,
+	.transaction-container {
+		display: flex;
+		text-align: center;
+		text-transform: uppercase;
+
+		.headline {
+			flex: 1;
+			font-size: 25px;
+			font-weight: bold;
+		}
+
+		.information {
+			flex: 1;
+			font-size: 20px;
+		}
+	}
+}
