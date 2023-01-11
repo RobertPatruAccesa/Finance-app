@@ -25,6 +25,7 @@
 	*ngFor="let transaction of transactions; let i = index"
 	[ngClass]="{ 'bg-color-gray': i % 2 === 0 }"
 	[routerLink]="transaction.transactionId"
+	
 >
 	<p class="information">{{ transaction.transactionId }}</p>
 	<p class="information description">{{ transaction.description }}</p>
