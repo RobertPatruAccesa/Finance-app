@@ -7,14 +7,6 @@
 }
 
 :host {
-<<<<<<< HEAD
-	height: 100%;
-	width: 20%;
-	// max-width: 300px;
-	position: fixed;
-
-=======
->>>>>>> parent of 272fdf0 (a)
 	background-color: var(--black);
 	color: var(--white);
 	height: 100%;
@@ -29,6 +21,10 @@
 		letter-spacing: 2px;
 	}
 
+	.logo:hover {
+		cursor: pointer;
+	}
+
 	.main-buttons {
 		flex: 4;
 		font-size: 20px;
@@ -37,5 +33,9 @@
 	.secondary-buttons {
 		flex: 4;
 		font-size: 20px;
+	}
+
+	.active {
+		background-color: var(--orange);
 	}
 }
