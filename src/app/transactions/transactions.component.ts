@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router} from '@angular/router'
 
 @Component({
   selector: 'app-transactions',
@@ -57,7 +58,12 @@ export class TransactionsComponent {
 			description: "Electricity bill"
 		}
 	]
+<<<<<<< HEAD
 =======
 
 >>>>>>> parent of 272fdf0 (a)
+=======
+
+	constructor (private route: ActivatedRoute, private router: Router) {	}
+>>>>>>> parent of 10994c2 (I'm stuck)
 }
