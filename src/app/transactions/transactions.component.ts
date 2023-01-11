@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./transactions.component.scss']
 })
 export class TransactionsComponent {
+<<<<<<< HEAD
 	transactions: any = [
 		{
 			userId: "1",
@@ -56,4 +57,7 @@ export class TransactionsComponent {
 			description: "Electricity bill"
 		}
 	]
+=======
+
+>>>>>>> parent of 272fdf0 (a)
 }

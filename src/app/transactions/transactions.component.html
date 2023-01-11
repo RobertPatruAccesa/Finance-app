@@ -13,7 +13,7 @@
 
 <div class="headlines-container">
 	<p class="headline">Transaction ID</p>
-	<p class="headline description">Description</p>
+	<p class="headline">Description</p>
 	<p class="headline">Amount</p>
 	<p class="headline">Date</p>
 </div>
@@ -24,11 +24,9 @@
 	class="transaction-container"
 	*ngFor="let transaction of transactions; let i = index"
 	[ngClass]="{ 'bg-color-gray': i % 2 === 0 }"
-	[routerLink]="transaction.transactionId"
-	
 >
-	<p class="information">{{ transaction.transactionId }}</p>
-	<p class="information description">{{ transaction.description }}</p>
-	<p class="information">{{ transaction.amount }}</p>
-	<p class="information">{{ transaction.date }}</p>
+	<p class="information">1</p>
+	<p class="information description">Paying Rent</p>
+	<p class="information">1000</p>
+	<p class="information">02.01.2023</p>
 </div>

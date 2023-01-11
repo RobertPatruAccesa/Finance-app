@@ -1,15 +1,8 @@
 :host {
 	width: 100%;
-	height: 100%;
-
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 
 	.headlines-container,
 	.transaction-container {
-		width: 100%;
-
 		display: flex;
 		text-align: center;
 		text-transform: uppercase;
@@ -24,6 +17,7 @@
 			flex: 1;
 			font-size: 20px;
 		}
+<<<<<<< HEAD
 
 		.description {
 			flex: 2;
@@ -42,6 +36,8 @@
 
 	.bg-color-gray {
 		background-color: rgb(250, 241, 241);
+=======
+>>>>>>> parent of 272fdf0 (a)
 	}
 
 	.filter-container {
