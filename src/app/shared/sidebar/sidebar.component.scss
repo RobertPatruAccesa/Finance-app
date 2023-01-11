@@ -9,8 +9,9 @@
 :host {
 <<<<<<< HEAD
 	height: 100%;
-	min-width: 300px;
-	max-width: 300px;
+	width: 20%;
+	// max-width: 300px;
+	position: fixed;
 
 =======
 >>>>>>> parent of 272fdf0 (a)
@@ -28,23 +29,13 @@
 		letter-spacing: 2px;
 	}
 
-	.logo:hover {
-		cursor: pointer;
-	}
-
-	.main-buttons,
-	.secondary-buttons {
+	.main-buttons {
 		flex: 4;
 		font-size: 20px;
 	}
 
-	app-button {
-		width: 220px;
-		padding: 0 20px;
-		border-radius: 5px;
-	}
-
-	.active {
-		background-color: var(--orange);
+	.secondary-buttons {
+		flex: 4;
+		font-size: 20px;
 	}
 }
