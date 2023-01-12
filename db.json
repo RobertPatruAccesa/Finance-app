@@ -6,7 +6,8 @@
 			"amount": "100.00",
 			"type": "payment",
 			"date": "23.12.2022",
-			"description": "Electricity bill"
+			"description": "Electricity bill",
+			"category": "Living cost"
 		},
 		{
 			"userId": "1",
@@ -14,7 +15,8 @@
 			"amount": "1000.00",
 			"type": "payment",
 			"date": "02.01.2023",
-			"description": "Paying Rent"
+			"description": "Paying Rent",
+			"category": "Living cost"
 		}
 	]
 }
