@@ -59,16 +59,11 @@
 		}
 	}
 
-	button {
-		width: 90%;
-		padding: 5px;
-		margin: auto;
-		margin-top: 20px;
-		border-radius: 5px;
-
+	app-button{
 		background-color: var(--black);
 		color: var(--white);
+		text-align: center;
+		border-radius: 5px;
 		font-size: 20px;
-		font-weight: bold;
 	}
 }

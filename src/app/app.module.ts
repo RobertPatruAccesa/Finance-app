@@ -9,11 +9,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { TransactionsModule } from './transactions/transactions.module';
+import { TransactionDetailsModule } from './transaction-details/transaction-details.module';
 
 @NgModule({
 	declarations: [AppComponent],
 	providers: [],
 	bootstrap: [AppComponent],
-	imports: [BrowserModule, HttpClientModule, SharedModule, HomeModule, CreateTransactionModule, TransactionsModule, RouterModule, FormsModule]
+	imports: [BrowserModule, HttpClientModule, SharedModule, HomeModule, CreateTransactionModule, TransactionsModule, TransactionDetailsModule, RouterModule, FormsModule]
 })
 export class AppModule {}
