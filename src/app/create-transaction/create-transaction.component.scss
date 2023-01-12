@@ -6,6 +6,7 @@
 		padding: 20px;
 
 		display: grid;
+		grid-gap: 10px;
 		grid-template-areas:
 			"description description"
 			"amount payment"
@@ -21,7 +22,7 @@
 
 			// width: 600px;
 			width: 100%;
-			margin: 10px 0;
+			// margin: 10px 0;
 
 			font-size: 18px;
 
@@ -56,5 +57,18 @@
 		.date-container {
 			grid-area: date;
 		}
+	}
+
+	button {
+		width: 90%;
+		padding: 5px;
+		margin: auto;
+		margin-top: 20px;
+		border-radius: 5px;
+
+		background-color: var(--black);
+		color: var(--white);
+		font-size: 20px;
+		font-weight: bold;
 	}
 }
