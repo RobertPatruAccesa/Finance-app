@@ -24,6 +24,11 @@
 		}
 	}
 
+	.transaction-container:hover {
+		cursor: pointer;
+		background-color: var(--blue);
+	}
+
 	.line {
 		background-color: gray;
 		width: 90%;

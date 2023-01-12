@@ -3,12 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { TransactionDetailsComponent } from './transaction-details/transaction-details.component';
+import { CreateTransactionComponent } from './create-transaction/create-transaction.component';
 
 const routes: Routes = [
 	{ path: '', component: HomeComponent },
 	{ path: 'transactions', component: TransactionsComponent },
 	{ path: 'transactions/:id', component: TransactionDetailsComponent },
-	{ path: 'create-transaction', component: HomeComponent }
+	{ path: 'create-transaction', component: CreateTransactionComponent }
 ];
 
 @NgModule({
