@@ -9,6 +9,6 @@ export class TransactionsService {
 	constructor(private http: HttpClient) {}
 
 	getAllTransactions() {
-		return this.http.get<Transaction[]>('/api/users');
+		return this.http.get<Transaction[]>('/api/transactions');
 	}
 }
