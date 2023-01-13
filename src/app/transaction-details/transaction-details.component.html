@@ -1,4 +1,4 @@
-<form (ngSubmit)="onEditForm()" #f="ngForm">
+<form  #f="ngForm">
 	<div class="group-container description-container">
 		<label for="descriptions">Description</label>
 		<textarea
@@ -37,6 +37,5 @@
 	</div>
 
 	<app-button text="CANCEL"></app-button>
-	<!-- <app-button text="EDIT TRANSACTION"></app-button> -->
-	<button type="submit">SUBMIT</button>
+	<app-button text="EDIT TRANSACTION" (click)="onEditForm()"></app-button>
 </form>

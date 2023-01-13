@@ -42,14 +42,13 @@ export class TransactionDetailsComponent implements OnInit {
 					// without using "any" the compiler says:  Type 'Transaction[]' is missing the following properties from type 'Transaction': id, userId, amount, type, and 3 more.
 					// I had to use "transaction" because I couldn't access the object keys within "data"
 					this.transaction = data;
-
-					console.log(this.transaction);
-
+					
 					this.transactionDescription = this.transaction.description;
 					this.transactionAmount = this.transaction.amount;
 					this.transactionCategory = this.transaction.category;
 					this.transactionType = this.transaction.type;
-					this.transactionDate = this.transaction.date;
+
+					this.transactionDate = new Date(this.transaction.date); // to see why this doesn't work
 				});
 			}
 		});

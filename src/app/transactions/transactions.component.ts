@@ -10,11 +10,16 @@ import { Transaction } from '../core/interfaces/transaction.interface';
 export class TransactionsComponent implements OnInit {
 	transactions: Transaction[] = [];
 
-	constructor(private transactionsService: TransactionsService) {}
+	constructor(private transactionsService: TransactionsService) {	}
+
 	ngOnInit(): void {
 		this.transactionsService.getAllTransactions().subscribe(data => {
 			this.transactions = data;
+			
+
 		});
+
+	
 	}
 
 }
