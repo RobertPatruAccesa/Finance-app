@@ -15,11 +15,10 @@ export class CreateTransactionComponent implements OnInit {
 	transactionDescription: string = '';
 	transactionAmount: number = 0;
 	transactionCategory: string = '';
-	transactionType: string = '';
+	transactionType: "payment" | "addition" = 'addition';
 	transactionDate: string | Date = '';
 
 	transaction: Transaction = {
-		// no idea why it doesn't work without using "any"
 		id: 'string',
 		userId: 'string',
 		amount: 0,
@@ -37,7 +36,7 @@ export class CreateTransactionComponent implements OnInit {
 		// this.transactionService.numberOfTransactions$.subscribe(data =>  console.log(data))
 
 		// This is a very unefficient way to count all the transactions
-		this.transactionService.getAllTransactions().subscribe(data => this.id = data.length.toString())
+		this.transactionService.getAllTransactions().subscribe(data => this.id = (data.length + 1).toString())
 	}
 
 	padTo2Digits(num: number) {
@@ -46,13 +45,25 @@ export class CreateTransactionComponent implements OnInit {
 	}
 
 	formatDate(date: Date = new Date()) {
-		return [date.getFullYear(), this.padTo2Digits(date.getMonth() + 1), this.padTo2Digits(date.getDate())].join(
-			'-'
+		// return [date.getFullYear(), this.padTo2Digits(date.getMonth() + 1), this.padTo2Digits(date.getDate())].join(
+		// 	'-'
+		// );
+		return [ this.padTo2Digits(date.getMonth() + 1), this.padTo2Digits(date.getDate()),date.getFullYear()].join(
+			'.'
 		);
 	}
 
 	onSubmitForm() {
-		console.log(this.transactionForm)
-		console.log(this.id)
+		this.transaction.userId = '1',
+		this.transaction.id = this.id;
+		this.transaction.amount = this.transactionAmount;
+		this.transaction.type = this.transactionType;
+		this.transaction.description = this.transactionDescription;
+		this.transaction.date = this.transactionDate;
+		this.transaction.category = this.transactionCategory;
+
+		console.log(this.transactionDate)
+
+		// this.transactionService.postTransaction(this.transaction).subscribe();
 	}
 }
