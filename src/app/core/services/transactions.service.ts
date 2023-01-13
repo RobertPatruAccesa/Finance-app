@@ -11,4 +11,8 @@ export class TransactionsService {
 	getAllTransactions() {
 		return this.http.get<Transaction[]>('/api/transactions');
 	}
+
+	getIndividualTransaction(id: string) {
+		return this.http.get<Transaction[]>(`/api/transactions/${id}`);
+	}
 }

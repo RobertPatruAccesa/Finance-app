@@ -16,4 +16,5 @@ export class TransactionsComponent implements OnInit {
 			this.transactions = data;
 		});
 	}
+
 }

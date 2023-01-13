@@ -1,9 +1,9 @@
 export interface Transaction {
+	id: string,
 	userId: string,
-	transactionId: string,
 	amount: number,
 	type: "payment" | "addition",
-	date: Date,
+	date: Date | string,
 	description: string,
 	category: string
 }

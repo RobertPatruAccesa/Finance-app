@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TransactionDetailsComponent } from './transaction-details.component';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -10,7 +11,7 @@ import { SharedModule } from '../shared/shared.module';
     TransactionDetailsComponent
   ],
   imports: [
-    CommonModule, SharedModule
+    CommonModule, SharedModule, FormsModule
   ]
 })
 export class TransactionDetailsModule { }

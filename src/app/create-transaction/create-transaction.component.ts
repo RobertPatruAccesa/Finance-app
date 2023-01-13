@@ -12,7 +12,8 @@ export class CreateTransactionComponent {
 		this.selectedDate = this.formatDate();
 	}
 
-	padTo2Digits(num: number) { // if "num" has less than two digits, then "0" it's added at the begining of num
+	padTo2Digits(num: number) { 
+		// if "num" has less than two digits, then "0" it's added at the begining of num
 		return num.toString().padStart(2, '0');
 	}
 

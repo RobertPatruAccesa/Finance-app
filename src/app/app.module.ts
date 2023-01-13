@@ -1,5 +1,5 @@
 import { CreateTransactionModule } from './create-transaction/create-transaction.module';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
