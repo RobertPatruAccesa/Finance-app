@@ -12,6 +12,7 @@ import { TransactionsModule } from './transactions/transactions.module';
 import { TransactionDetailsModule } from './transaction-details/transaction-details.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers } from './reducers/index';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -27,7 +28,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 		TransactionDetailsModule,
 		RouterModule,
 		FormsModule,
-		StoreModule.forRoot({}, {}),
+		StoreModule.forRoot(reducers),
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
 	]
 })
