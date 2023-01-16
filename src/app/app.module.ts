@@ -1,5 +1,5 @@
 import { CreateTransactionModule } from './create-transaction/create-transaction.module';
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -10,11 +10,25 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { TransactionsModule } from './transactions/transactions.module';
 import { TransactionDetailsModule } from './transaction-details/transaction-details.module';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
 	declarations: [AppComponent],
 	providers: [],
 	bootstrap: [AppComponent],
-	imports: [BrowserModule, HttpClientModule, SharedModule, HomeModule, CreateTransactionModule, TransactionsModule, TransactionDetailsModule, RouterModule, FormsModule]
+	imports: [
+		BrowserModule,
+		HttpClientModule,
+		SharedModule,
+		HomeModule,
+		CreateTransactionModule,
+		TransactionsModule,
+		TransactionDetailsModule,
+		RouterModule,
+		FormsModule,
+		StoreModule.forRoot({}, {}),
+		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+	]
 })
 export class AppModule {}

@@ -2,18 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Transaction } from '../interfaces/transaction.interface';
 import { Subject } from 'rxjs';
+import { transition } from '@angular/animations';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class TransactionsService {
-	// numberOfTransactions$: Subject<number> = new Subject();
 
 	constructor(private http: HttpClient) {
-		// this.getAllTransactions().subscribe(data => {
-		// 	console.log(data.length)
-		// 	this.numberOfTransactions$.next(data.length);
-		// });
 	}
 
 	getAllTransactions() {
@@ -26,5 +22,9 @@ export class TransactionsService {
 
 	postTransaction(transaction: Transaction) {
 		return this.http.post<Transaction>('/api/transactions', transaction);
+	}
+
+	updateTransaction(id: string, transition: Transaction) {
+		return this.http.patch(`/api/transactions/${id}`, transition);
 	}
 }

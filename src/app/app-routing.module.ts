@@ -9,7 +9,8 @@ const routes: Routes = [
 	{ path: '', component: HomeComponent },
 	{ path: 'transactions', component: TransactionsComponent },
 	{ path: 'transactions/:id', component: TransactionDetailsComponent },
-	{ path: 'create-transaction', component: CreateTransactionComponent }
+	{ path: 'create-transaction', component: CreateTransactionComponent },
+	{ path: '**', redirectTo: '' }
 ];
 
 @NgModule({
