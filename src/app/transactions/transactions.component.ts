@@ -3,7 +3,7 @@ import { TransactionsService } from '../core/services/transactions.service';
 import { Transaction } from '../core/interfaces/transaction.interface';
 import { tap } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { AppState } from '../reducers/index';
+import { TransactionsState } from '../reducers/index';
 import { getAllTransactions } from './transactions.actions';
 
 @Component({
@@ -14,7 +14,7 @@ import { getAllTransactions } from './transactions.actions';
 export class TransactionsComponent implements OnInit {
 	transactions: Transaction[] = [];
 
-	constructor(private transactionsService: TransactionsService, private store: Store<AppState>) {}
+	constructor(private transactionsService: TransactionsService, private store: Store<TransactionsState>) {}
 
 	ngOnInit(): void {
 		this.transactionsService
@@ -25,6 +25,6 @@ export class TransactionsComponent implements OnInit {
 					this.store.dispatch(getAllTransactions({ transactions }));
 				})
 			)
-			.subscribe();
+			.subscribe(); 
 	}
 }

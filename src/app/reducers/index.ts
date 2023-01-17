@@ -1,9 +1,9 @@
 import { ActionReducer ,ActionReducerMap, createFeatureSelector, createSelector, MetaReducer } from "@ngrx/store";
 
-export interface AppState {
+export interface TransactionsState {
 
 }
 
-export const reducers: ActionReducerMap<AppState> = {
+export const reducers: ActionReducerMap<TransactionsState> = {
 	
 }
