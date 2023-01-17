@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionsService } from '../core/services/transactions.service';
 import { Transaction } from '../core/interfaces/transaction.interface';
+import { tap } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AppState } from '../reducers/index';
+import { getAllTransactions } from './transactions.actions';
 
 @Component({
 	selector: 'app-transactions',
@@ -10,16 +14,17 @@ import { Transaction } from '../core/interfaces/transaction.interface';
 export class TransactionsComponent implements OnInit {
 	transactions: Transaction[] = [];
 
-	constructor(private transactionsService: TransactionsService) {	}
+	constructor(private transactionsService: TransactionsService, private store: Store<AppState>) {}
 
 	ngOnInit(): void {
-		this.transactionsService.getAllTransactions().subscribe(data => {
-			this.transactions = data;
-			
-
-		});
-
-	
+		this.transactionsService
+			.getAllTransactions()
+			.pipe(
+				tap((transactions: Transaction[]) => {
+					this.transactions = transactions;
+					this.store.dispatch(getAllTransactions({ transactions }));
+				})
+			)
+			.subscribe();
 	}
-
 }
