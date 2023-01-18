@@ -6,12 +6,15 @@ export interface TransactionsState {
 	transactions: Transaction[];
 }
 
-export const initialTransactionState: Transaction[] = [];
+export const initialTransactionState: TransactionsState = {
+	transactions : []
+};
 
 export const transactionsReducer = createReducer(
 	initialTransactionState,
 	on(TransactionActions.getAllTransactions, (state, action) => {
 		return {
+			...state,
 			transactions: action.transactions
 		}
 	})

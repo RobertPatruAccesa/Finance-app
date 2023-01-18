@@ -12,7 +12,7 @@ import { TransactionsModule } from './transactions/transactions.module';
 import { TransactionDetailsModule } from './transaction-details/transaction-details.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { reducers } from './reducers/index';
+import { transactionsReducer } from './reducers/index';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -28,7 +28,7 @@ import { reducers } from './reducers/index';
 		TransactionDetailsModule,
 		RouterModule,
 		FormsModule,
-		StoreModule.forRoot(reducers),
+		StoreModule.forRoot({MyReducer: transactionsReducer}),
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
 	]
 })
