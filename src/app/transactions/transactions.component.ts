@@ -31,6 +31,6 @@ export class TransactionsComponent implements OnInit {
 
 
 		this.areTransactions$ = this.store.pipe(select(areTransactions))
-		console.log(areTransactions)
+		// console.log(areTransactions)
 	}
 }
