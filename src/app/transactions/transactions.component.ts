@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { TransactionsService } from '../core/services/transactions.service';
 import { Transaction } from '../core/interfaces/transaction.interface';
 import { tap } from 'rxjs';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { TransactionsState } from '../reducers/index';
 import { getAllTransactions } from './transactions.actions';
+import { areTransactions } from './transactions.selectors';
 
 @Component({
 	selector: 'app-transactions',
@@ -13,6 +14,7 @@ import { getAllTransactions } from './transactions.actions';
 })
 export class TransactionsComponent implements OnInit {
 	transactions: Transaction[] = [];
+	areTransactions$: any;
 
 	constructor(private transactionsService: TransactionsService, private store: Store<TransactionsState>) {}
 
@@ -26,5 +28,9 @@ export class TransactionsComponent implements OnInit {
 				})
 			)
 			.subscribe(); 
+
+
+		this.areTransactions$ = this.store.pipe(select(areTransactions))
+		console.log(areTransactions)
 	}
 }
