@@ -29,7 +29,8 @@ import { transactionsReducer } from './reducers/index';
 		RouterModule,
 		FormsModule,
 		StoreModule.forRoot({MyReducer: transactionsReducer}),
-		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+		StoreModule.forRoot({}, {})
 	]
 })
 export class AppModule {}

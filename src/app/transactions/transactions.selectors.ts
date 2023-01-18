@@ -1,6 +1,9 @@
-import { createSelector } from "@ngrx/store";
+import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { TransactionsState } from '../reducers/index';
+
+export const selectTransactionsState = createFeatureSelector<TransactionsState>("transactions")
 
 export const areTransactions = createSelector(
-	(state: any) => state["transactions"],
+	selectTransactionsState,
 	(transactions) => transactions
 );
