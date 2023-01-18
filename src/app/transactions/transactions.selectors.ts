@@ -5,5 +5,8 @@ export const selectTransactionsState = createFeatureSelector<TransactionsState>(
 
 export const areTransactions = createSelector(
 	selectTransactionsState,
-	(transactions) => transactions
+	(transactions) => {
+		console.log(transactions)
+		return transactions
+	}
 );
