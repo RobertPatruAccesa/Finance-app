@@ -14,6 +14,6 @@ import { Transaction } from '../core/interfaces/transaction.interface';
 export const loadAllTransactions = createAction('[Transactions Resolver] Load All Transactions');
 
 export const allTransactionsLoaded = createAction(
-	'[Load Transactions Effect]',
+	'[Load Transactions Effect] Load All Transactions',
 	props<{ transactions: Transaction[] }>()
 );

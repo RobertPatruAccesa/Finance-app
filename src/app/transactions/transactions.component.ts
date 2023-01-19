@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionsService } from '../core/services/transactions.service';
 import { Transaction } from '../core/interfaces/transaction.interface';
-import { tap } from 'rxjs';
+import { tap, Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { TransactionsState } from '../reducers/index';
 // import { getAllTransactions, loadAllTransactions } from './transactions.actions';
-import { areTransactions } from './transactions.selectors';
+import { selectAllTransactions } from './transactions.selectors';
 import { loadAllTransactions } from './transactions.actions';
 
 @Component({
@@ -15,6 +15,8 @@ import { loadAllTransactions } from './transactions.actions';
 })
 export class TransactionsComponent implements OnInit {
 	transactions: Transaction[] = [];
+	// transactions$: Observable<Transaction[]>;
+	trasanctions$!: Observable<Transaction[]>;
 	areTransactions$: any;
 
 	constructor(private transactionsService: TransactionsService, private store: Store<TransactionsState>) {}
@@ -25,7 +27,7 @@ export class TransactionsComponent implements OnInit {
 		// 	.pipe(
 		// 		tap((transactions: Transaction[]) => {
 		// 			this.transactions = transactions;
-		// 			this.store.dispatch(loadAllTransactions({ transactions }));
+		// 			this.store.dispatch(loadAllTransactions());
 		// 		})
 		// 	)
 		// 	.subscribe(); 
@@ -33,5 +35,9 @@ export class TransactionsComponent implements OnInit {
 
 		// this.areTransactions$ = this.store.pipe(select(areTransactions))
 		// console.log(areTransactions)
+
+		// this.store.dispatch(loadAllTransactions());
+		this.trasanctions$ = this.store.pipe(select(selectAllTransactions));
+		console.log(this.trasanctions$)
 	}
 }

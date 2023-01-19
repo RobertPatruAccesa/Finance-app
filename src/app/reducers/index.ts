@@ -20,3 +20,5 @@ export const transactionsReducer = createReducer(
 	// in my case, the compiler says that there is no "addAll" so I used "addMany"
 	on(TransactionActions.allTransactionsLoaded, (state, action) => adapter.addMany(action.transactions, state))
 );
+
+export const { selectAll } = adapter.getSelectors();
