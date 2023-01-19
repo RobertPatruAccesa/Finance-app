@@ -20,18 +20,18 @@ export class TransactionsComponent implements OnInit {
 	constructor(private transactionsService: TransactionsService, private store: Store<TransactionsState>) {}
 
 	ngOnInit(): void {
-		this.transactionsService
-			.getAllTransactions()
-			.pipe(
-				tap((transactions: Transaction[]) => {
-					this.transactions = transactions;
-					this.store.dispatch(loadAllTransactions({ transactions }));
-				})
-			)
-			.subscribe(); 
+		// this.transactionsService
+		// 	.getAllTransactions()
+		// 	.pipe(
+		// 		tap((transactions: Transaction[]) => {
+		// 			this.transactions = transactions;
+		// 			this.store.dispatch(loadAllTransactions({ transactions }));
+		// 		})
+		// 	)
+		// 	.subscribe(); 
 
 
-		this.areTransactions$ = this.store.pipe(select(areTransactions))
+		// this.areTransactions$ = this.store.pipe(select(areTransactions))
 		// console.log(areTransactions)
 	}
 }

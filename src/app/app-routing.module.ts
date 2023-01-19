@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { TransactionsComponent } from './transactions/transactions.component';
-import { TransactionDetailsComponent } from './transaction-details/transaction-details.component';
-import { CreateTransactionComponent } from './create-transaction/create-transaction.component';
+import { TransactionsResolver } from './transactions/transactions.resolver';
 
 const routes: Routes = [
 	{ path: '', component: HomeComponent },
@@ -14,7 +12,10 @@ const routes: Routes = [
 	{
 		path: 'transactions/:id',
 		loadComponent: () =>
-			import('./transaction-details/transaction-details.module').then(m => m.TransactionDetailsModule)
+			import('./transaction-details/transaction-details.module').then(m => m.TransactionDetailsModule),
+		resolve: {
+			transactions: TransactionsResolver
+		}
 	},
 	{
 		path: 'create-transaction',

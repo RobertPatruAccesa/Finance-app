@@ -1,4 +1,4 @@
-import { ActionReducerMap, createReducer, on, State } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import { Transaction } from '../core/interfaces/transaction.interface';
 import { TransactionActions } from '../transactions/action-types';
 
@@ -12,7 +12,7 @@ export const initialTransactionState: TransactionsState = {
 
 export const transactionsReducer = createReducer(
 	initialTransactionState,
-	on(TransactionActions.getAllTransactions, (state, action) => {
+	on(TransactionActions.loadAllTransactions, (state, action) => {
 		return {
 			transactions: action.transactions
 		}
