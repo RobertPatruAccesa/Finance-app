@@ -32,7 +32,7 @@ import { EffectsModule } from '@ngrx/effects';
 		StoreModule.forRoot({MyReducer: transactionsReducer}),
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
 		StoreModule.forRoot({}, {}),
-		EffectsModule.forRoot([])
+		EffectsModule.forRoot([]),
 	]
 })
 export class AppModule {}

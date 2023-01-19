@@ -4,8 +4,9 @@ import { Transaction } from '../core/interfaces/transaction.interface';
 import { tap } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { TransactionsState } from '../reducers/index';
-import { getAllTransactions } from './transactions.actions';
+// import { getAllTransactions, loadAllTransactions } from './transactions.actions';
 import { areTransactions } from './transactions.selectors';
+import { loadAllTransactions } from './transactions.actions';
 
 @Component({
 	selector: 'app-transactions',
@@ -24,7 +25,7 @@ export class TransactionsComponent implements OnInit {
 			.pipe(
 				tap((transactions: Transaction[]) => {
 					this.transactions = transactions;
-					this.store.dispatch(getAllTransactions({ transactions }));
+					this.store.dispatch(loadAllTransactions({ transactions }));
 				})
 			)
 			.subscribe(); 

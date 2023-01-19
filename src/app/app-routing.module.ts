@@ -7,9 +7,20 @@ import { CreateTransactionComponent } from './create-transaction/create-transact
 
 const routes: Routes = [
 	{ path: '', component: HomeComponent },
-	{ path: 'transactions', component: TransactionsComponent },
-	{ path: 'transactions/:id', component: TransactionDetailsComponent },
-	{ path: 'create-transaction', component: CreateTransactionComponent },
+	{
+		path: 'transactions',
+		loadComponent: () => import('./transactions/transactions.module').then(m => m.TransactionsModule)
+	},
+	{
+		path: 'transactions/:id',
+		loadComponent: () =>
+			import('./transaction-details/transaction-details.module').then(m => m.TransactionDetailsModule)
+	},
+	{
+		path: 'create-transaction',
+		loadComponent: () =>
+			import('./create-transaction/create-transaction.module').then(m => m.CreateTransactionModule)
+	},
 	{ path: '**', redirectTo: '' }
 ];
 

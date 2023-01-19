@@ -14,7 +14,6 @@ export const transactionsReducer = createReducer(
 	initialTransactionState,
 	on(TransactionActions.getAllTransactions, (state, action) => {
 		return {
-			...state,
 			transactions: action.transactions
 		}
 	})

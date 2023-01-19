@@ -8,7 +8,7 @@ export class TransactionsEffect {
 	login$ = createEffect(
 		() =>
 			this.actions$.pipe(
-				ofType(TransactionActions.getAllTransactions),
+				ofType(TransactionActions.loadAllTransactions),
 				tap(action => {
 					console.log('Side Effect: ', 'Transactions actions activated', action.transactions);
 				})
