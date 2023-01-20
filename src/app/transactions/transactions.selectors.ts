@@ -17,3 +17,7 @@ export const selectAllTransactions = createSelector(
 	fromReducer.selectAll
 )
 
+export const areTransactionsLoaded = createSelector(
+	selectTransactionsState,
+	state => state.allTransactionsLoaded
+)
