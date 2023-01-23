@@ -6,5 +6,5 @@ export const initialState: Transaction[] = [];
 
 export const transactionsReducer = createReducer(
 	initialState,
-	on(getAllTransactionsAction, (state, {transactions}) => [...transactions])
+	on(getAllTransactionsAction, (state, { transactions }) => [...transactions])
 );

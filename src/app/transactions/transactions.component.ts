@@ -13,8 +13,7 @@ import { getTransactionsSelector } from '../store/transactions.selector';
 export class TransactionsComponent implements OnInit {
 	transactions$!: Observable<Transaction[]>;
 
-	constructor(private store: Store<{ transactions: Transaction[] }>) {
-	}
+	constructor(private store: Store<{ transactions: Transaction[] }>) {}
 
 	ngOnInit(): void {
 		this.store.dispatch(deployGetAllTransactionsAction())

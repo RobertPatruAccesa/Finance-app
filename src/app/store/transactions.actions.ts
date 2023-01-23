@@ -9,3 +9,5 @@ export const getAllTransactionsAction = createAction(
 
 export const getSingleTransactionAction = createAction('[Transaction Details Page] Get a Single Transaction Details');
 export const updateTransactionAction = createAction('[Transaction Details Page] Update the Selected Transaction');
+
+// Make an action to get users from Json server
