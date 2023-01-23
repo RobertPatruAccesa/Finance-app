@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
-import { catchError, EMPTY, EmptyError, exhaustMap, map, mergeMap, withLatestFrom } from 'rxjs';
+import { exhaustMap, map } from 'rxjs';
 import { TransactionsService } from '../core/services/transactions.service';
 import { deployGetAllTransactionsAction, getAllTransactionsAction } from './transactions.actions';
 
