@@ -8,6 +8,7 @@ import {
 	updateTransactionAction
 } from '../store/transactions.actions';
 import { Store } from '@ngrx/store';
+import { deployGetAllTransactionsAction } from '../store/transactions.actions';
 
 @Component({
 	selector: 'app-transactions',
@@ -15,7 +16,6 @@ import { Store } from '@ngrx/store';
 	styleUrls: ['./transactions.component.scss']
 })
 export class TransactionsComponent implements OnInit {
-	// transactions: Transaction[] = [];
 	transactions$!: Observable<Transaction[]>;
 
 	constructor(private store: Store<{ transactions: Transaction[] }>) {
@@ -23,10 +23,6 @@ export class TransactionsComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		// this.transactionsService.getAllTransactions().subscribe(data => {
-		// 	this.transactions = data;
-		// });
-
-		this.store.dispatch(getAllTransactionsAction());
+		this.store.dispatch(deployGetAllTransactionsAction())
 	}
 }
