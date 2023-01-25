@@ -3,6 +3,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { TransactionsService } from '../core/services/transactions.service';
 import { Transaction } from '../core/interfaces/transaction.interface';
 import { NgForm } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { updateTransactionAction } from '../store/transactions.actions';
 
 @Component({
 	selector: 'app-transaction-details',
@@ -31,7 +33,11 @@ export class TransactionDetailsComponent implements OnInit {
 		category: 'string'
 	};
 
-	constructor(private transactionsService: TransactionsService, private route: ActivatedRoute) {}
+	constructor(
+		private transactionsService: TransactionsService,
+		private route: ActivatedRoute,
+		private store: Store
+	) {}
 
 	ngOnInit(): void {
 		this.route.paramMap.subscribe((params: ParamMap) => {
@@ -61,6 +67,8 @@ export class TransactionDetailsComponent implements OnInit {
 		this.transaction.type = this.transactionType;
 		this.transaction.date = this.transactionDate;
 
-		this.transactionsService.updateTransaction(this.id, this.transaction).subscribe();
+		// this.transactionsService.updateTransaction(this.id, this.transaction).subscribe();
+
+		this.store.dispatch(updateTransactionAction(this.transaction));
 	}
 }

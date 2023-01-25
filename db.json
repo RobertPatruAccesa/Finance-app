@@ -36,6 +36,15 @@
       "date": "2023-01-14",
       "description": "Payment for car's rent- For the monthly roadtrip-",
       "category": "traveling"
+    },
+    {
+      "id": "5",
+      "userId": "1",
+      "amount": 12,
+      "type": "payment",
+      "date": "2023-01-25",
+      "description": "Please work",
+      "category": "entertainment"
     }
   ]
 }
