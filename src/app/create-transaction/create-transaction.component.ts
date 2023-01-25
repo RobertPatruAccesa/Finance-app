@@ -2,6 +2,8 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Transaction } from '../core/interfaces/transaction.interface';
 import { TransactionsService } from '../core/services/transactions.service';
+import { Store } from '@ngrx/store';
+import { addTransactionAction } from '../store/transactions.actions';
 
 @Component({
 	selector: 'app-create-transaction',
@@ -28,7 +30,7 @@ export class CreateTransactionComponent implements OnInit {
 		category: 'string'
 	};
 
-	constructor(private transactionService: TransactionsService) {
+	constructor(private transactionService: TransactionsService, private store: Store) {
 		this.transactionDate = this.formatDate();
 	}
 
@@ -62,8 +64,8 @@ export class CreateTransactionComponent implements OnInit {
 		this.transaction.date = this.transactionDate;
 		this.transaction.category = this.transactionCategory;
 
-		console.log(this.transactionDate)
-
-		// this.transactionService.postTransaction(this.transaction).subscribe();
+		
+		this.store.dispatch(addTransactionAction({transaction: this.transaction}))
+		this.transactionService.postTransaction(this.transaction).subscribe();
 	}
 }

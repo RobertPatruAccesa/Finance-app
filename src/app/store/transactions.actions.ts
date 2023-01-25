@@ -4,7 +4,12 @@ import { Transaction } from '../core/interfaces/transaction.interface';
 export const deployGetAllTransactionsAction = createAction('Transactions Page] Deploy Get all transactions action');
 export const getAllTransactionsAction = createAction(
 	'[Transactions Page] Get All Transactions From Store',
-	props < { transactions: ReadonlyArray<Transaction> }>()
+	props<{ transactions: ReadonlyArray<Transaction> }>()
+);
+
+export const addTransactionAction = createAction(
+	'[Create Transactions Page] Add a New Transaction',
+	props<{ transaction: Transaction }>()
 );
 
 export const getSingleTransactionAction = createAction('[Transaction Details Page] Get a Single Transaction Details');
