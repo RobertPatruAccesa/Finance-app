@@ -1,3 +1,6 @@
+<app-toaster type="danger" message="Something went wrong!" *ngIf="showErorr"></app-toaster>
+<app-toaster type="success" message="Transaction added!" *ngIf="transactionAdded"></app-toaster>
+
 <form #f="ngForm">
 	<div class="group-container description-container">
 		<label for="descriptions">Description</label>

@@ -1,9 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import {
-	getAllTransactionsAction,
-	updateTransactionAction,
-	addTransactionAction
-} from './transactions.actions';
+import { getAllTransactionsAction, updateTransactionAction, addTransactionAction } from './transactions.actions';
 import { Transaction } from '../core/interfaces/transaction.interface';
 import { transition } from '@angular/animations';
 
@@ -18,11 +14,6 @@ export const transactionsReducer = createReducer(
 	})),
 	on(updateTransactionAction, (state, { transaction }) => ({
 		...state,
-		transitions: state.map((res: Transaction) => {
-			if (res.id === transaction.id && res.userId === transaction.userId) {
-				res = transaction;
-			}
-		})
-		
+		transition: transaction
 	}))
 );
