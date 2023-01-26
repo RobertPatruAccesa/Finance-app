@@ -1,7 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { getAllTransactionsAction, updateTransactionAction, addTransactionAction } from './transactions.actions';
 import { Transaction } from '../core/interfaces/transaction.interface';
-import { transition } from '@angular/animations';
 
 export const initialState: Transaction[] = [];
 
@@ -12,8 +11,17 @@ export const transactionsReducer = createReducer(
 		...state,
 		transactions: [...state, transaction]
 	})),
-	on(updateTransactionAction, (state, { transaction }) => ({
-		...state,
-		transition: transaction
-	}))
+	on(updateTransactionAction, (state, action) => {
+		let transactions = [...state];
+
+		console.log(action.transaction, action.transaction);
+
+		let index = transactions.find(trans => {
+			// console.log(action.transaction)
+		});
+
+		// console.log(index);
+
+		return [...transactions];
+	})
 );
