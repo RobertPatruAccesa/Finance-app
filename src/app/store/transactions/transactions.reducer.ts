@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { getAllTransactionsAction, updateTransactionAction, addTransactionAction } from './transactions.actions';
 import { Transaction } from 'src/app/core/interfaces/transaction.interface'; 
+import { loginUser } from '../user/user.actions';
 
 export const initialState: any = {
 	transactions: []
