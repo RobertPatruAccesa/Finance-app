@@ -3,7 +3,7 @@
 <div class="main-buttons align-center-x-Y-flexStart">
 	<app-button
 		text="Home"
-		routerLink=""
+		routerLink="home"
 		routerLinkActive="active"
 		[routerLinkActiveOptions]="{ exact: true }"
 	></app-button>
@@ -12,5 +12,7 @@
 </div>
 
 <div class="secondary-buttons align-center-x-Y-flexStart">
-	<app-button text="Log In"></app-button>
+	<app-button text="Log In" routerLink="login"
+	routerLinkActive="active"
+	></app-button>
 </div>

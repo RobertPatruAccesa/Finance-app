@@ -16,6 +16,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { TransactionsEffects } from './store/transactions/transactions.effect'; 
 import { transactionsReducer } from './store/transactions/transactions.reducer';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -29,6 +30,7 @@ import { transactionsReducer } from './store/transactions/transactions.reducer';
 		CreateTransactionModule,
 		TransactionsModule,
 		TransactionDetailsModule,
+		LoginModule,
 		RouterModule,
 		FormsModule,
 		StoreModule.forRoot({transactions: transactionsReducer}),

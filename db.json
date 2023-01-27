@@ -1,5 +1,12 @@
 {
-	"users": [],
+	"users": [
+		{
+			"id":"1",
+			"userName": "Robert Patru",
+			"email": "robert.patru@test.com",
+			"password": "1234"
+		}
+	],
 	"transactions": [
 		{
 			"id": "1",
@@ -45,15 +52,6 @@
 			"date": "2023-01-25",
 			"description": "Coffee",
 			"category": "entertainment"
-		},
-		{
-			"id": "6",
-			"userId": "1",
-			"amount": 0,
-			"type": "addition",
-			"date": "2023-01-26",
-			"description": "fgh",
-			"category": ""
 		}
 	]
 }
