@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 	constructor(private store: Store) {}
 
 	ngOnInit(): void {
-		// this.store.dispatch(loginUser({ username: this.account.username, password: this.account.password }));
+		this.store.dispatch(loginUser({ username: this.account.username, password: this.account.password }));
 		this.store.dispatch(loadUsers());
 	}
 }
