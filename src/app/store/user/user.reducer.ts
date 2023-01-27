@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { loginUser } from './user.actions';
+import { loginUser, usersLoadedSuccess } from './user.actions';
 
 export interface UsersState {
 	users: [
@@ -24,5 +24,8 @@ export const UsersReducer = createReducer(
 	on(loginUser, (state, action) => {
 		console.log(action);
 		return { ...state, loggedin: true };
+	}),
+	on(usersLoadedSuccess, (state, action) => {
+		return {...state}
 	})
 );
