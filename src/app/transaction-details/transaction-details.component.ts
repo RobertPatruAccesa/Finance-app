@@ -1,10 +1,10 @@
+import { updateTransactionAction } from '../store/transactions/transactions.actions';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { TransactionsService } from '../core/services/transactions.service';
 import { Transaction } from '../core/interfaces/transaction.interface';
 import { NgForm } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { updateTransactionAction } from '../store/transactions.actions';
 
 @Component({
 	selector: 'app-transaction-details',

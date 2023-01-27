@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Transaction } from '../core/interfaces/transaction.interface';
+import { Transaction } from '../../core/interfaces/transaction.interface';
 
 export const deployGetAllTransactionsAction = createAction('Transactions Page] Deploy Get all transactions action');
 export const getAllTransactionsAction = createAction(
@@ -14,7 +14,7 @@ export const addTransactionAction = createAction(
 
 export const updateTransactionAction = createAction(
 	'[Transaction Details Page] Update the Selected Transaction',
-	props<{ transaction: Transaction }>()
+	props<{ transaction: any }>()
 );
 
 // Make an action to get users from Json server

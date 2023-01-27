@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Transaction } from '../core/interfaces/transaction.interface';
 import { TransactionsService } from '../core/services/transactions.service';
 import { Store } from '@ngrx/store';
-import { addTransactionAction } from '../store/transactions.actions';
+import { addTransactionAction } from '../store/transactions/transactions.actions';
 import { pipe } from 'rxjs';
 
 @Component({

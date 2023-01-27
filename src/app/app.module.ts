@@ -13,9 +13,9 @@ import { TransactionDetailsModule } from './transaction-details/transaction-deta
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { transactionsReducer } from './store/transactions.reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { TransactionsEffects } from './store/transactions.effect';
+import { TransactionsEffects } from './store/transactions/transactions.effect'; 
+import { transactionsReducer } from './store/transactions/transactions.reducer';
 
 @NgModule({
 	declarations: [AppComponent],

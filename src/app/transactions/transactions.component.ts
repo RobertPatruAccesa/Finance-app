@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Transaction } from '../core/interfaces/transaction.interface';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { deployGetAllTransactionsAction } from '../store/transactions.actions';
-import { getTransactionsSelector } from '../store/transactions.selector';
+import { deployGetAllTransactionsAction } from '../store/transactions/transactions.actions';
+import { getTransactionsSelector } from '../store/transactions/transactions.selector'; 
 
 @Component({
 	selector: 'app-transactions',

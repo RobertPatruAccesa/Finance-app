@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { Transaction } from '../core/interfaces/transaction.interface';
+import { Transaction } from 'src/app/core/interfaces/transaction.interface';
 
 const getTransactionsFeatureState = createFeatureSelector<Transaction[]>('transactions');
 
