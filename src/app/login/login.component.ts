@@ -9,6 +9,8 @@ import { altCeva, selectCeva } from '../store/user/user.selector';
 	styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+	username: String = '';
+	password: String = '';
 	account = {
 		username: 'Robert',
 		password: '1234'
