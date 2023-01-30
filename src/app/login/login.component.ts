@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { loginUser, loadUsers } from '../store/user/user.actions';
-import { altCeva, selectCeva } from '../store/user/user.selector';
+import { LoginUser } from '../store/user/user.actions';
+// import { loginUser, loadUsers } from '../store/user/user.actions';
+// import { altCeva, selectCeva } from '../store/user/user.selector';
+import { User } from '../core/interfaces/user.interface';
 
 @Component({
 	selector: 'app-login',
@@ -9,9 +11,9 @@ import { altCeva, selectCeva } from '../store/user/user.selector';
 	styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-	username: String = '';
-	password: String = '';
-	account = {
+	username: string = '';
+	password: string = '';
+	user = {
 		username: 'Robert',
 		password: '1234'
 	};
@@ -19,7 +21,16 @@ export class LoginComponent implements OnInit {
 	constructor(private store: Store) {}
 
 	ngOnInit(): void {
-		this.store.dispatch(loginUser({ username: this.account.username, password: this.account.password }));
-		this.store.dispatch(loadUsers());
+		// this.store.dispatch(loginUser({ username: this.account.username, password: this.account.password }));
+		// this.store.dispatch(loadUsers());
+	}
+
+	onLogin() {
+		this.user.username = this.username;
+		this.user.password = this.password;
+
+		console.log(this.user);
+
+		this.store.dispatch(LoginUser({ user: this.user }));
 	}
 }

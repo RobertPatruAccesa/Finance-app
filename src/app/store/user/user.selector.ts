@@ -1,13 +1,13 @@
-import { createSelector } from "@ngrx/store";
-import { User } from '../../core/interfaces/user.interface';
+// import { createSelector } from "@ngrx/store";
+// import { User } from '../../core/interfaces/user.interface';
 
-export interface AppState {
-	user: User;
-}
+// export interface AppState {
+// 	user: User;
+// }
 
-export const selectCeva = (state: AppState) => state.user;
+// export const selectCeva = (state: AppState) => state.user;
 
-export const altCeva = createSelector(
-	selectCeva,
-	(state: any) => state
-)
+// export const altCeva = createSelector(
+// 	selectCeva,
+// 	(state: any) => state
+// )

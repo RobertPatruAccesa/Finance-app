@@ -17,7 +17,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { TransactionsEffects } from './store/transactions/transactions.effect'; 
 import { transactionsReducer } from './store/transactions/transactions.reducer';
 import { LoginModule } from './login/login.module';
-import { UsersReducer } from './store/user/user.reducer';
+import { usersReducer } from './store/user/user.reducer';
+import { UserEffects } from './store/user/user.effects';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -34,10 +35,10 @@ import { UsersReducer } from './store/user/user.reducer';
 		LoginModule,
 		RouterModule,
 		FormsModule,
-		StoreModule.forRoot({transactions: transactionsReducer, users: UsersReducer}),
+		StoreModule.forRoot({transactions: transactionsReducer, users: usersReducer}),
 		// StoreModule.forRoot(reducers, { metaReducers }),
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-		EffectsModule.forRoot([TransactionsEffects])
+		EffectsModule.forRoot([TransactionsEffects, UserEffects])
 	]
 })
 export class AppModule {}

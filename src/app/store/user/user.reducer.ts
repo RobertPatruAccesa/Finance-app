@@ -1,31 +1,35 @@
 import { createReducer, on } from '@ngrx/store';
-import { loginUser, usersLoadedSuccess } from './user.actions';
+import { LoginUser } from './user.actions';
+import { User } from '../../core/interfaces/user.interface';
 
 export interface UsersState {
-	users: [
-		{
-			username: string;
-			password: string;
-		}
-	];
+	users: Array<User>
 }
 
 const initialState: UsersState = {
-	users: [
-		{
-			username: 'string',
-			password: 'string'
-		}
-	]
+	users: []
 };
 
-export const UsersReducer = createReducer(
+// export const UsersReducer = createReducer(
+// 	initialState,
+// 	on(loginUser, (state, action) => {
+// 		console.log(action);
+// 		return { ...state, loggedin: true };
+// 	}),
+// 	on(usersLoadedSuccess, (state, action) => {
+// 		return {...state}
+// 	})
+// );
+
+export const  loginUser = (state: UsersState, action: { user: User }) => {
+	return {
+		...state, 
+		users: [...state.users, action.user]
+	}
+}
+
+
+export const usersReducer = createReducer(
 	initialState,
-	on(loginUser, (state, action) => {
-		console.log(action);
-		return { ...state, loggedin: true };
-	}),
-	on(usersLoadedSuccess, (state, action) => {
-		return {...state}
-	})
-);
+	on(LoginUser, loginUser)
+)
