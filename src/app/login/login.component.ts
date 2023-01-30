@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { loginUser, loadUsers } from '../store/user/user.actions';
+import { altCeva, selectCeva } from '../store/user/user.selector';
 
 @Component({
 	selector: 'app-login',
