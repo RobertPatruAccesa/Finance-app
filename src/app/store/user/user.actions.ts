@@ -18,3 +18,8 @@ export const LoginUser = createAction(
 	'[Login Page] Login User',
 	props<{user: User}>()
 )
+
+export const UserIsValid = createAction(
+	'[Login Page] User is valid',
+	props<{isValid: boolean}>()
+)

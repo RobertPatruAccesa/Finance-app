@@ -1,13 +1,15 @@
 import { createReducer, on } from '@ngrx/store';
-import { LoginUser } from './user.actions';
+import { LoginUser, UserIsValid } from './user.actions';
 import { User } from '../../core/interfaces/user.interface';
 
 export interface UsersState {
-	users: Array<User>
+	users: Array<User>,
+	userIsValid: boolean
 }
 
 const initialState: UsersState = {
-	users: []
+	users: [],
+	userIsValid: false
 };
 
 // export const UsersReducer = createReducer(
@@ -28,8 +30,16 @@ export const  loginUser = (state: UsersState, action: { user: User }) => {
 	}
 }
 
+export const userIsValid = (state: UsersState, action: { isValid: boolean }) => {
+	return {
+		...state,
+		userIsValid: action.isValid
+	}
+}
+
 
 export const usersReducer = createReducer(
 	initialState,
-	on(LoginUser, loginUser)
+	on(LoginUser, loginUser),
+	on(UserIsValid, userIsValid)
 )

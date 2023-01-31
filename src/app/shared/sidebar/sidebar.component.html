@@ -11,8 +11,10 @@
 	<app-button text="Create Transaction" routerLink="create-transaction" routerLinkActive="active"></app-button>
 </div>
 
+<div>
+	<h1>Is user loggedin: {{ userLogin$ | async }}</h1>
+</div>
+
 <div class="secondary-buttons align-center-x-Y-flexStart">
-	<app-button text="Log In" routerLink="login"
-	routerLinkActive="active"
-	></app-button>
+	<app-button text="Log In" routerLink="login" routerLinkActive="active"></app-button>
 </div>

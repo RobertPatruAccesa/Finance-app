@@ -2,9 +2,13 @@
 	"users": [
 		{
 			"id":"1",
-			"userName": "Robert Patru",
+			"username": "Robert Patru",
 			"email": "robert.patru@test.com",
 			"password": "1234"
+		},
+		{
+			"password": "123",
+			"username": "123"
 		}
 	],
 	"transactions": [

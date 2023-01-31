@@ -35,7 +35,7 @@ import { UserEffects } from './store/user/user.effects';
 		LoginModule,
 		RouterModule,
 		FormsModule,
-		StoreModule.forRoot({transactions: transactionsReducer, users: usersReducer}),
+		StoreModule.forRoot({ transactionsReducer,  usersReducer}),
 		// StoreModule.forRoot(reducers, { metaReducers }),
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
 		EffectsModule.forRoot([TransactionsEffects, UserEffects])

@@ -4,6 +4,7 @@ import { LoginUser } from '../store/user/user.actions';
 // import { loginUser, loadUsers } from '../store/user/user.actions';
 // import { altCeva, selectCeva } from '../store/user/user.selector';
 import { User } from '../core/interfaces/user.interface';
+import { UserService } from '../core/services/user.service';
 
 @Component({
 	selector: 'app-login',
@@ -18,19 +19,19 @@ export class LoginComponent implements OnInit {
 		password: '1234'
 	};
 
-	constructor(private store: Store) {}
+	constructor(private store: Store, private userService: UserService) {}
 
 	ngOnInit(): void {
-		// this.store.dispatch(loginUser({ username: this.account.username, password: this.account.password }));
-		// this.store.dispatch(loadUsers());
+	
 	}
 
 	onLogin() {
 		this.user.username = this.username;
 		this.user.password = this.password;
 
-		console.log(this.user);
 
 		this.store.dispatch(LoginUser({ user: this.user }));
+
+	
 	}
 }

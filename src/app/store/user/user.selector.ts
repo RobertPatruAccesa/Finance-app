@@ -1,13 +1,9 @@
-// import { createSelector } from "@ngrx/store";
-// import { User } from '../../core/interfaces/user.interface';
+import { createSelector, createFeatureSelector } from '@ngrx/store';
+import { UsersState } from './user.reducer';
 
-// export interface AppState {
-// 	user: User;
-// }
+export const selectState = (state: UsersState) => state;
+export const selectUserState = createFeatureSelector<UsersState>('usersReducer');
 
-// export const selectCeva = (state: AppState) => state.user;
-
-// export const altCeva = createSelector(
-// 	selectCeva,
-// 	(state: any) => state
-// )
+export const selectIsUserValid = createSelector(selectUserState, user => {
+	return user.userIsValid;
+});
