@@ -17,5 +17,5 @@
 
 <div class="secondary-buttons align-center-x-Y-flexStart">
 	<app-button text="Log In" routerLink="login" routerLinkActive="active" *ngIf="!userIsLoggedin"></app-button>
-	<app-button text="Log Out" routerLink="login" *ngIf="userIsLoggedin"></app-button>
+	<app-button text="Log Out" routerLink="login" *ngIf="userIsLoggedin" (click)="onLogout()"></app-button>
 </div>

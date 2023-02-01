@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { LoginUser, UserIsValid } from './user.actions';
+import { LoginUser, UserIsValid, LogoutUser } from './user.actions';
 import { User } from '../../core/interfaces/user.interface';
 
 export interface UsersState {
@@ -11,17 +11,6 @@ const initialState: UsersState = {
 	users: [],
 	userIsValid: false
 };
-
-// export const UsersReducer = createReducer(
-// 	initialState,
-// 	on(loginUser, (state, action) => {
-// 		console.log(action);
-// 		return { ...state, loggedin: true };
-// 	}),
-// 	on(usersLoadedSuccess, (state, action) => {
-// 		return {...state}
-// 	})
-// );
 
 export const  loginUser = (state: UsersState, action: { user: User }) => {
 	return {
@@ -37,9 +26,17 @@ export const userIsValid = (state: UsersState, action: { isValid: boolean }) => 
 	}
 }
 
+export const logOutUser = (state: UsersState) => {
+	return {
+		...state,
+		userIsValid: false
+	}
+}
+
 
 export const usersReducer = createReducer(
 	initialState,
 	on(LoginUser, loginUser),
-	on(UserIsValid, userIsValid)
+	on(UserIsValid, userIsValid),
+	on(LogoutUser, logOutUser)
 )
