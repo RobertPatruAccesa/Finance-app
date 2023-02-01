@@ -1,61 +1,70 @@
 {
-	"users": [
-		{
-			"id":"1",
-			"username": "Robert Patru",
-			"email": "robert.patru@test.com",
-			"password": "1234"
-		},
-		{
-			"password": "123",
-			"username": "123"
-		}
-	],
-	"transactions": [
-		{
-			"id": "1",
-			"userId": "1",
-			"amount": 200,
-			"type": "payment",
-			"date": "2023-01-15",
-			"description": "Tickets to filmarmonica-",
-			"category": "entertainment"
-		},
-		{
-			"id": "2",
-			"userId": "1",
-			"amount": 1000,
-			"type": "payment",
-			"date": "02-01-2023",
-			"description": "Paying Rent",
-			"category": "living-cost"
-		},
-		{
-			"id": "3",
-			"userId": "1",
-			"amount": 3000,
-			"type": "Encashment",
-			"date": "12-01-2023",
-			"description": "Salary",
-			"category": "Work"
-		},
-		{
-			"id": "4",
-			"userId": "1",
-			"amount": 265,
-			"type": "payment",
-			"date": "2023-01-14",
-			"description": "Payment for car's rent- For the monthly roadtrip-",
-			"category": "traveling"
-		},
-		{
-			"id": "5",
-			"userId": "1",
-			"amount": 12,
-			"type": "payment",
-			"date": "2023-01-25",
-			"description": "Coffee",
-			"category": "entertainment"
-		}
-	]
+  "users": [
+    {
+      "id": "1",
+      "username": "Robert Patru",
+      "email": "robert.patru@test.com",
+      "password": "1234"
+    },
+    {
+      "password": "123",
+      "username": "123"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "1",
+      "userId": "1",
+      "amount": 200,
+      "type": "payment",
+      "date": "2023-01-15",
+      "description": "Tickets to filmarmonica-",
+      "category": "entertainment"
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "amount": 1000,
+      "type": "payment",
+      "date": "02-01-2023",
+      "description": "Paying Rent",
+      "category": "living-cost"
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "amount": 3000,
+      "type": "Encashment",
+      "date": "12-01-2023",
+      "description": "Salary",
+      "category": "Work"
+    },
+    {
+      "id": "4",
+      "userId": "1",
+      "amount": 265,
+      "type": "payment",
+      "date": "2023-01-14",
+      "description": "Payment for car's rent- For the monthly roadtrip-",
+      "category": "traveling"
+    },
+    {
+      "id": "5",
+      "userId": "1",
+      "amount": 12,
+      "type": "payment",
+      "date": "2023-01-25",
+      "description": "Coffee",
+      "category": "entertainment"
+    },
+    {
+      "id": "6",
+      "userId": "1",
+      "amount": 0,
+      "type": "addition",
+      "date": "2023-02-01",
+      "description": "",
+      "category": ""
+    }
+  ]
 }
