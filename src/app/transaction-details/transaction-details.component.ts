@@ -1,6 +1,6 @@
 import { updateTransactionAction } from '../store/transactions/transactions.actions';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { TransactionsService } from '../core/services/transactions.service';
 import { Transaction } from '../core/interfaces/transaction.interface';
 import { NgForm } from '@angular/forms';
@@ -36,7 +36,8 @@ export class TransactionDetailsComponent implements OnInit {
 	constructor(
 		private transactionsService: TransactionsService,
 		private route: ActivatedRoute,
-		private store: Store
+		private store: Store,
+		private router: Router
 	) {}
 
 	ngOnInit(): void {
@@ -70,5 +71,9 @@ export class TransactionDetailsComponent implements OnInit {
 		// this.transactionsService.updateTransaction(this.id, this.transaction).subscribe();
 
 		this.store.dispatch(updateTransactionAction(this.transaction));
+	}
+
+	onCancel() {
+		this.router.navigate(['transactions'])
 	}
 }

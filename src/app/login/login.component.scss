@@ -25,4 +25,14 @@
 			font-size: 20px;
 		}
 	}
+
+	
+}
+app-toaster {
+	position: absolute;
+	top: 15%;
+	left: calc(50% - 250px);
+
+	width: 500px;
+	height: 100px;
 }

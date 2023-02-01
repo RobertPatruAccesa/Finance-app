@@ -10,13 +10,11 @@ import { UsersState } from '../../store/user/user.reducer';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-	userLogin$!: Observable<boolean>;
+	userIsLoggedin: boolean = false;
 
 	constructor(private store: Store<UsersState>) {}
 
 	ngOnInit(): void {
-		this.userLogin$ = this.store.pipe(select(selectIsUserValid));
-
-		// this.store.pipe(select(selectIsUserValid)).subscribe()
+		this.store.pipe(select(selectIsUserValid)).subscribe(res => this.userIsLoggedin = res);
 	}
 }
