@@ -74,6 +74,15 @@
       "date": "2023-02-01",
       "description": "",
       "category": ""
+    },
+    {
+      "id": "8",
+      "userId": "1",
+      "amount": 0,
+      "type": "addition",
+      "date": "2023-02-02",
+      "description": "",
+      "category": ""
     }
   ]
 }
