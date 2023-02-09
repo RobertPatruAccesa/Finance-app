@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
 	selector: 'app-rca-page-one',
 	templateUrl: './rca-page-one.component.html',
 	styleUrls: ['./rca-page-one.component.scss']
 })
-export class RcaPageOneComponent {
+export class RcaPageOneComponent implements OnInit {
 	carBrands: Array<any> = [
 		{
 			brand: 'Seat',
@@ -1088,9 +1089,25 @@ export class RcaPageOneComponent {
 			id: 39
 		}
 	];
+	rcaForm!: FormGroup;
 
-	constructor() {
-		// this.carBrands.forEach(car => console.log(car))
-        console.log(this.carBrands)
+	constructor() {}
+	ngOnInit(): void {
+		this.rcaForm = new FormGroup({
+			'stare inmatriculare': new FormControl('inmatriculat'),
+			'numar inmatriculare': new FormControl(null),
+			'categorie': new FormControl(null),
+			'marca': new FormControl(null),
+			'model': new FormControl(null),
+			'numar identificare sasiu': new FormControl(null),
+			'tip utilizare': new FormControl(null),
+			'utilizare specifica': new FormControl(null),
+            'serie carte auto': new FormControl(null),
+            'masa maxima autorizata': new FormControl(null),
+            'capacitate cilindrica': new FormControl(null),
+            'an fabricatie': new FormControl(null),
+            'numar locuri': new FormControl(null),
+            'putere': new FormControl(null)
+		});
 	}
 }
