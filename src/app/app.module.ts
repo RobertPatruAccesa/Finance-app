@@ -19,6 +19,7 @@ import { transactionsReducer } from './store/transactions/transactions.reducer';
 import { LoginModule } from './login/login.module';
 import { usersReducer } from './store/user/user.reducer';
 import { UserEffects } from './store/user/user.effects';
+import { RCACalculatorModule } from './rca-calculator/rca-calculator.module';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -34,6 +35,7 @@ import { UserEffects } from './store/user/user.effects';
 		TransactionDetailsModule,
 		LoginModule,
 		RouterModule,
+        RCACalculatorModule,
 		FormsModule,
 		StoreModule.forRoot({ transactionsReducer,  usersReducer}),
 		// StoreModule.forRoot(reducers, { metaReducers }),

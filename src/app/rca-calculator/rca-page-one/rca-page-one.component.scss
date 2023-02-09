@@ -1,0 +1,76 @@
+:host {
+	height: 100%;
+	width: 100%;
+	display: flex;
+
+	form {
+		border: 5px green dotted;
+		width: 100%;
+		padding: 0 30px;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+
+		font-size: 22px;
+
+		.step {
+			color: #0084c9;
+			font-size: 26px;
+			font-weight: 600;
+			margin-bottom: 40px;
+		}
+
+		.group {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 12px;
+
+			label {
+				display: inline-block;
+				width: 240px;
+			}
+
+			input,
+			select {
+				display: inline-block;
+				width: calc(100% - 240px);
+
+				box-sizing: border-box;
+
+				border-radius: 2px;
+				padding: 5px 10px;
+				border: 1px #6c757d solid;
+			}
+
+			.radio-options-container {
+                width: calc(100% - 240px);
+				display: flex;
+                justify-content: space-between;
+
+              
+
+				.radio-option {
+					border: 1px #6c757d solid;
+					border-radius: 2px;
+					padding: 5px 10px;
+
+					label {
+						width: auto;
+					}
+					input {
+						width: auto;
+					}
+				}
+			}
+		}
+	}
+
+	.example {
+		border: 5px red dotted;
+		min-width: 465px;
+		margin-left: 30px;
+	}
+}

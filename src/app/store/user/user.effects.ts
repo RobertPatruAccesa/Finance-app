@@ -10,7 +10,8 @@ export class UserEffects {
 		this.actions$.pipe(
 			ofType(LoginUser),
 			mergeMap(user =>
-				this.userService.getAllUser().pipe(map(users => !!users.find(el => el.username === user.user.username && el.password === user.user.password)))
+				this.userService.getAllUser()
+                .pipe(map(users => !!users.find(el => el.username === user.user.username && el.password === user.user.password)))
 			),
 			map(isValid => UserIsValid({ isValid }))
 		)
