@@ -1,9 +1,9 @@
-<form >
+<form [formGroup]="rcaForm" (ngSubmit)="onSubmit()">
 	<div class="step">Pasul 1 din 2: date despre autovehicul</div>
 	<!-- STARE INAMTRICULARE -->
 	<div class="group">
 		<label for="stare inmatriculare">Stare inmatriculare</label>
-		<select name="stare inmatriculare">
+		<select name="stare inmatriculare" formControlName="stare inmatriculare">
 			<option value="alege">alege</option>
 			<option value="inmatriculat">inmatriculat</option>
 			<option value="in vederea inmatricularii">in vederea inmatricularii</option>
@@ -13,13 +13,18 @@
 	<!-- NUMAR INAMTRICULARE -->
 	<div class="group">
 		<label for="numar inmatriculare">Numar inmatriculare</label>
-		<input type="text" name="numar inmatriculare" placeholder="POZITIA A DIN TALON" />
+		<input
+			type="text"
+			name="numar inmatriculare"
+			placeholder="POZITIA A DIN TALON"
+			formControlName="numar inmatriculare"
+		/>
 	</div>
 
 	<!-- CATEGORIE -->
 	<div class="group">
 		<label for="categorie">Categorie</label>
-		<select name="categorie">
+		<select name="categorie" formControlName="categorie">
 			<option value="alege">alege</option>
 			<option value="autoturism">autoturism (inclusiv autoturisme de teren)</option>
 			<option value="autoutilitara">autoutilitara, autofurgoneta</option>
@@ -31,7 +36,8 @@
 	<!-- MARCA -->
 	<div class="group">
 		<label for="marca">Marca</label>
-		<select>
+		<select name="marca" formControlName="marca">
+            <option value="alege">alege</option>
 			<option *ngFor="let item of carBrands" [value]="item.brand">{{ item.brand }}</option>
 		</select>
 	</div>
@@ -39,27 +45,32 @@
 	<!-- MODEL -->
 	<div class="group">
 		<label for="model">Model</label>
-		<select>
-			<option>Alege</option>
+		<select name="model" formControlName="model">
+			<option value="alege">alege</option>
 		</select>
 	</div>
 
 	<!-- NUMAR IDENTIFICARE SASIU -->
 	<div class="group">
 		<label for="numar sasiu">Nr. identificare (serie sasiu)</label>
-		<input type="text" name="numar sasiu" placeholder="POZITIA E DIN TALON" />
+		<input
+			type="text"
+			name="numar sasiu"
+			placeholder="POZITIA E DIN TALON"
+			formControlName="numar identificare sasiu"
+		/>
 	</div>
 
-	<!-- MOD UTILIZARE -->
+	<!-- TIP UTILIZARE -->
 	<div class="group">
 		<label for="tip utilizare">Tip utilizare</label>
 		<div class="radio-options-container">
 			<div class="radio-option">
-				<input type="radio" name="tip utilizare" value="utilizare normala" />
+				<input type="radio" name="tip utilizare" value="utilizare normala" formControlName="tip utilizare" />
 				<label for="tip utilizare">Utilizare normala</label>
 			</div>
 			<div class="radio-option">
-				<input type="radio" name="tip utilizare" value="alta utilizare" />
+				<input type="radio" name="tip utilizare" value="alta utilizare" formControlName="tip utilizare" />
 				<label for="tip utilizare">Alta utilizare</label>
 			</div>
 		</div>
@@ -68,7 +79,7 @@
 	<!-- UTILIZRE SPECIFICA -->
 	<div class="group">
 		<label for="utilizare specifica">Utilizare specifica</label>
-		<select name="utilizare specifica">
+		<select name="utilizare specifica" formControlName="utilizare specifica">
 			<option value="alege">alege</option>
 			<option value="taxi">Taxi</option>
 			<option value="curierat">Curierat</option>
@@ -84,7 +95,12 @@
 	<!-- SERIE CARTE AUTO (CIV) -->
 	<div class="group">
 		<label for="serie carte auto">Serie carte auto</label>
-		<input type="text" name="serie carte auto" placeholder="POZITIA X SAU Y. EX: G123456" />
+		<input
+			type="text"
+			name="serie carte auto"
+			placeholder="POZITIA X SAU Y. EX: G123456"
+			formControlName="serie carte auto"
+		/>
 	</div>
 
 	<div class="group two-subgroups">
@@ -93,17 +109,27 @@
 			<!-- MASA MAXIMA AUTORIZATA -->
 			<div class="group">
 				<label for="masa maxima autorizata">Masa maxima autorizata</label>
-				<input type="text" name="masa maxima autorizata" placeholder="pozitia F.1" />
+				<input
+					type="text"
+					name="masa maxima autorizata"
+					placeholder="pozitia F.1"
+					formControlName="masa maxima autorizata"
+				/>
 			</div>
 			<!-- CAPACITATE CILINDRICA -->
 			<div class="group">
 				<label for="capacitate cilindrica">Capacitate cilindrica</label>
-				<input type="text" name="capacitate cilindrica" placeholder="pozitia P.1" />
+				<input
+					type="text"
+					name="capacitate cilindrica"
+					placeholder="pozitia P.1"
+					formControlName="capacitate cilindrica"
+				/>
 			</div>
 			<!-- AN FABRICATIE -->
 			<div class="group">
 				<label for="an fabricatie">An fabricatie</label>
-				<input type="text" name="an fabricatie" placeholder="pozitia B" />
+				<input type="text" name="an fabricatie" placeholder="pozitia B" formControlName="an fabricatie" />
 			</div>
 		</div>
 
@@ -112,12 +138,12 @@
 			<!-- NUMAR LOCURI -->
 			<div class="group">
 				<label for="numar locuri">Numar locuri</label>
-				<input type="number" name="numar locuri" placeholder="pozitia S.1" />
+				<input type="number" name="numar locuri" placeholder="pozitia S.1" formControlName="numar locuri" />
 			</div>
 			<!-- PUTERE -->
 			<div class="group">
 				<label for="putere">Putere</label>
-				<input type="number" name="putere" placeholder="pozitia P.1" />
+				<input type="number" name="putere" placeholder="pozitia P.1" formControlName="putere" />
 			</div>
 		</div>
 	</div>

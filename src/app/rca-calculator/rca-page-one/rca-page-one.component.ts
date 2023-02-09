@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
 	selector: 'app-rca-page-one',
@@ -1094,20 +1094,24 @@ export class RcaPageOneComponent implements OnInit {
 	constructor() {}
 	ngOnInit(): void {
 		this.rcaForm = new FormGroup({
-			'stare inmatriculare': new FormControl('inmatriculat'),
-			'numar inmatriculare': new FormControl(null),
-			'categorie': new FormControl(null),
-			'marca': new FormControl(null),
-			'model': new FormControl(null),
+			'stare inmatriculare': new FormControl('alege', Validators.required),
+			'numar inmatriculare': new FormControl(null, []),
+			'categorie': new FormControl('alege'),
+			'marca': new FormControl('alege'),
+			'model': new FormControl('alege'),
 			'numar identificare sasiu': new FormControl(null),
-			'tip utilizare': new FormControl(null),
-			'utilizare specifica': new FormControl(null),
-            'serie carte auto': new FormControl(null),
-            'masa maxima autorizata': new FormControl(null),
-            'capacitate cilindrica': new FormControl(null),
-            'an fabricatie': new FormControl(null),
-            'numar locuri': new FormControl(null),
-            'putere': new FormControl(null)
+			'tip utilizare': new FormControl('utilizare normala'),
+			'utilizare specifica': new FormControl('alege'),
+			'serie carte auto': new FormControl(null),
+			'masa maxima autorizata': new FormControl(null),
+			'capacitate cilindrica': new FormControl(null),
+			'an fabricatie': new FormControl(null),
+			'numar locuri': new FormControl(null),
+			'putere': new FormControl(null)
 		});
 	}
+
+    onSubmit() {
+        console.log(this.rcaForm)
+    }
 }
