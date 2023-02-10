@@ -23,14 +23,20 @@
 			name="numar inmatriculare"
 			placeholder="POZITIA A DIN TALON"
 			formControlName="numar inmatriculare"
-            
+			style="text-transform: uppercase"
 		/>
 	</div>
 	<span
 		class="invalid-message"
 		*ngIf="!rcaForm.get('numar inmatriculare')?.valid && rcaForm.get('numar inmatriculare')?.touched"
-		>Introdu numarul de inmatriculare al vehiculului</span
 	>
+		<span *ngIf="rcaForm.controls?.['numar inmatriculare']?.errors?.['pattern']">
+			Introdu un numar de inmatriculare valid</span
+		>
+		<span *ngIf="rcaForm.controls?.['numar inmatriculare']?.errors?.['required']">
+			Introdu un numar de inmatriculare</span
+		>
+	</span>
 
 	<!-- CATEGORIE -->
 	<div class="group">
@@ -80,13 +86,21 @@
 			name="numar sasiu"
 			placeholder="POZITIA E DIN TALON"
 			formControlName="numar identificare sasiu"
+			minlength="17"
+			style="text-transform: uppercase"
 		/>
 	</div>
 	<span
 		class="invalid-message"
 		*ngIf="!rcaForm.get('numar identificare sasiu')?.valid && rcaForm.get('numar identificare sasiu')?.touched"
-		>Introdu seria de sasiu a autovehiculului</span
 	>
+		<span *ngIf="rcaForm.controls?.['numar identificare sasiu']?.errors?.['required']"
+			>Introdu seria de sasiu a autovehiculului</span
+		>
+		<span *ngIf="rcaForm.controls?.['numar identificare sasiu']?.errors?.['minlength']"
+			>Introdu o serie de sasiu valabila</span
+		>
+	</span>
 
 	<!-- TIP UTILIZARE -->
 	<div class="group">
@@ -138,7 +152,10 @@
 		class="invalid-message"
 		*ngIf="!rcaForm.get('serie carte auto')?.valid && rcaForm.get('serie carte auto')?.touched"
 	>
-		Introdu seria cartii auto a autovehiculului
+		<span *ngIf="rcaForm.controls?.['serie carte auto']?.errors?.['required']"
+			>Introdu seria cartii auto a autovehiculului</span
+		>
+		<span *ngIf="rcaForm.controls?.['serie carte auto']?.errors?.['pattern']">Introdu o serie valida</span>
 	</span>
 
 	<div class="group two-subgroups">
@@ -152,13 +169,19 @@
 					name="masa maxima autorizata"
 					placeholder="pozitia F.1"
 					formControlName="masa maxima autorizata"
+					minlength="3"
 				/>
 			</div>
 			<span
 				class="invalid-message invalid-message-for-subgroups"
 				*ngIf="!rcaForm.get('masa maxima autorizata')?.valid && rcaForm.get('masa maxima autorizata')?.touched"
 			>
-				Introdu masa maxima autorizata
+				<span *ngIf="rcaForm.controls?.['masa maxima autorizata']?.errors?.['required']"
+					>Introdu masa maxima autorizata</span
+				>
+				<span *ngIf="rcaForm.controls?.['masa maxima autorizata']?.errors?.['minlength']"
+					>Masa autovehiculului trebuie sa contina cel putin 3 cifre</span
+				>
 			</span>
 
 			<!-- CAPACITATE CILINDRICA -->
@@ -169,25 +192,42 @@
 					name="capacitate cilindrica"
 					placeholder="pozitia P.1"
 					formControlName="capacitate cilindrica"
+					minlength="2"
 				/>
 			</div>
 			<span
 				class="invalid-message invalid-message-for-subgroups"
 				*ngIf="!rcaForm.get('capacitate cilindrica')?.valid && rcaForm.get('capacitate cilindrica')?.touched"
 			>
-				Introdu capacitatea cilindrica a autovehiculului
+				<span *ngIf="rcaForm.controls?.['capacitate cilindrica']?.errors?.['required']"
+					>Introdu capacitatea cilindrica a autovehiculului</span
+				>
+				<span *ngIf="rcaForm.controls?.['capacitate cilindrica']?.errors?.['minlength']"
+					>Capacitatea cilindrica a autovehiculului trebuie sa contina cel putin 2 cifre</span
+				>
 			</span>
 
 			<!-- AN FABRICATIE -->
 			<div class="group">
 				<label for="an fabricatie">An fabricatie</label>
-				<input type="text" name="an fabricatie" placeholder="pozitia B" formControlName="an fabricatie" />
+				<input
+					type="text"
+					name="an fabricatie"
+					placeholder="pozitia B"
+					formControlName="an fabricatie"
+					minlength="4"
+				/>
 			</div>
 			<span
 				class="invalid-message invalid-message-for-subgroups"
 				*ngIf="!rcaForm.get('an fabricatie')?.valid && rcaForm.get('an fabricatie')?.touched"
 			>
-				Introdu anul de fabricatia al autovehiculului
+				<span *ngIf="rcaForm.controls?.['an fabricatie']?.errors?.['required']"
+					>Introdu anul de fabricatia al autovehiculului</span
+				>
+				<span *ngIf="rcaForm.controls?.['an fabricatie']?.errors?.['minlength']"
+					>Anul de fabricatia al autovehiculului trebuie sa contina 4 cifre</span
+				>
 			</span>
 		</div>
 
