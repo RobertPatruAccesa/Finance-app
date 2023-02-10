@@ -261,7 +261,7 @@
 	<button>Continua</button>
 </form>
 
-<div class="info">
+<div class="info" *ngIf="showInfo">
 	<h2>Informatii utile</h2>
 	<p>Optiunile din stanga reprezinta una din starile autovehiculului:</p>
 	<ul>
@@ -285,4 +285,67 @@
 			valabilitate mai mica de 6 luni pentru autovehiculele in vederea inmatricularii.
 		</li>
 	</ul>
+</div>
+
+<div class="info" *ngIf="showExample">
+	<h3>Exemplu talon au <span>(Nu copiati aceste data!)</span></h3>
+	<div class="example-area">
+		<div class="row-A">
+			<div class="line">
+				<span>A</span>
+				<span>B-80-RCA</span>
+			</div>
+			<div class="line">
+				<span>J</span>
+				<span>AUTOTURISM M1</span>
+			</div>
+			<div class="line">
+				<span>D.1</span>
+				<span> RENAULT</span>
+			</div>
+			<div class="line">
+				<span>D.2</span>
+				<span>T98 DZ11</span>
+			</div>
+			<div class="line">
+				<span>D.3</span>
+				<span>CLIO</span>
+			</div>
+			<div class="line">
+				<span>E</span>
+				<span>W0L0TGF411G081274</span>
+			</div>
+			<div class="line">
+				<span>K</span>
+				<span>e1*13*0084*23</span>
+			</div>
+			<div class="line">
+				<span>C.2</span>
+				<span>PETRESCU DANIEL</span>
+			</div>
+			<div class="line">
+				<span>C.2.2</span>
+				<span>      </span>
+			</div>
+			<div class="line">
+				<span>C.2.3</span>
+				<span>Str. VIILOR nr. 1 Bl. 4 Sc. D Ap. 89 mun BUCURESTI SECTORUL 1</span>
+			</div>
+			<div class="line">
+				<span>C.3</span>
+				<span>C.3.1	</span>
+			</div>
+			<div class="line">
+				<span>C.3.2</span>
+				<span>      </span>
+			</div>
+			<div class="line">
+				<span>C.3.3</span>
+				<span>      </span>
+			</div>
+		</div>
+		<div class="row-B">
+			<!-- @ to do -->
+		</div>
+	</div>
 </div>
