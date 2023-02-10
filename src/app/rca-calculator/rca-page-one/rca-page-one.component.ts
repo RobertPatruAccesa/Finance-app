@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
 	selector: 'app-rca-page-one',
@@ -1090,12 +1090,16 @@ export class RcaPageOneComponent implements OnInit {
 		}
 	];
 	rcaForm!: FormGroup;
+	dummyForm!: FormGroup;
 
 	constructor() {}
 	ngOnInit(): void {
 		this.rcaForm = new FormGroup({
 			'stare inmatriculare': new FormControl('alege', Validators.required),
-			'numar inmatriculare': new FormControl(null, [Validators.required]),
+			'numar inmatriculare': new FormControl(null, [
+				Validators.required,
+				Validators.pattern(/[A-Z]{1,2}[0-9]{2}[A-Z]{3}/)
+			]),
 			'categorie': new FormControl('alege', [Validators.required]),
 			'marca': new FormControl('alege', [Validators.required]),
 			'model': new FormControl('alege', [Validators.required]),
@@ -1111,7 +1115,9 @@ export class RcaPageOneComponent implements OnInit {
 		});
 	}
 
-    onSubmit() {
-        console.log(this.rcaForm)
-    }
+	onSubmit() {
+		console.log(this.rcaForm);
+	}
+
+	
 }
