@@ -3,6 +3,7 @@
 	width: 100%;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 
 	form {
 		width: 100%;
@@ -45,7 +46,7 @@
 				padding: 5px 10px;
 				border: 1px #6c757d solid;
 			}
-            
+
 			input[type='radio']:hover,
 			select:hover {
 				cursor: pointer;
@@ -101,6 +102,42 @@
 				cursor: pointer;
 				opacity: 0.8;
 			}
+		}
+
+		.invalid-message {
+			display: block;
+
+			color: #ff0000;
+			font-size: 14px;
+			margin-left: 240px;
+			margin-bottom: 10px;
+			margin-top: -10px;
+		}
+
+		.invalid-message-for-subgroups {
+			width: 150px;
+		}
+
+		.sub-group-A {
+			input {
+				// min-width: 180px;
+			}
+		}
+
+		.sub-group-B {
+            max-width: 260px;
+			.invalid-message-for-subgroups {
+				display: flex;
+                justify-content: flex-end;
+			}
+
+            span {
+                display: flex;
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                text-align: end;
+            }
 		}
 	}
 

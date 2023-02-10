@@ -9,6 +9,11 @@
 			<option value="in vederea inmatricularii">in vederea inmatricularii</option>
 		</select>
 	</div>
+	<span
+		class="invalid-message"
+		*ngIf="rcaForm.get('stare inmatriculare')?.value == 'alege' && rcaForm.get('stare inmatriculare')?.touched"
+		>Alege starea masinii</span
+	>
 
 	<!-- NUMAR INAMTRICULARE -->
 	<div class="group">
@@ -20,6 +25,11 @@
 			formControlName="numar inmatriculare"
 		/>
 	</div>
+	<span
+		class="invalid-message"
+		*ngIf="!rcaForm.get('numar inmatriculare')?.valid && rcaForm.get('numar inmatriculare')?.touched"
+		>Introdu numarul de inmatriculare al vehiculului</span
+	>
 
 	<!-- CATEGORIE -->
 	<div class="group">
@@ -32,15 +42,23 @@
 			<option value="remorca">remorca</option>
 		</select>
 	</div>
+	<span
+		class="invalid-message"
+		*ngIf="rcaForm.get('categorie')?.value == 'alege' && rcaForm.get('categorie')?.touched"
+		>Alege categoria din care face parte masina</span
+	>
 
 	<!-- MARCA -->
 	<div class="group">
 		<label for="marca">Marca</label>
 		<select name="marca" formControlName="marca">
-            <option value="alege">alege</option>
+			<option value="alege">alege</option>
 			<option *ngFor="let item of carBrands" [value]="item.brand">{{ item.brand }}</option>
 		</select>
 	</div>
+	<span class="invalid-message" *ngIf="rcaForm.get('marca')?.value == 'alege' && rcaForm.get('marca')?.touched"
+		>Alege marca masinii</span
+	>
 
 	<!-- MODEL -->
 	<div class="group">
@@ -49,6 +67,9 @@
 			<option value="alege">alege</option>
 		</select>
 	</div>
+	<span class="invalid-message" *ngIf="rcaForm.get('model')?.value == 'alege' && rcaForm.get('model')?.touched"
+		>Alege modelul masinii</span
+	>
 
 	<!-- NUMAR IDENTIFICARE SASIU -->
 	<div class="group">
@@ -60,6 +81,11 @@
 			formControlName="numar identificare sasiu"
 		/>
 	</div>
+	<span
+		class="invalid-message"
+		*ngIf="!rcaForm.get('numar identificare sasiu')?.valid && rcaForm.get('numar identificare sasiu')?.touched"
+		>Introdu seria de sasiu a autovehiculului</span
+	>
 
 	<!-- TIP UTILIZARE -->
 	<div class="group">
@@ -77,7 +103,7 @@
 	</div>
 
 	<!-- UTILIZRE SPECIFICA -->
-	<div class="group">
+	<div class="group" *ngIf="rcaForm.get('tip utilizare')?.value == 'alta utilizare'">
 		<label for="utilizare specifica">Utilizare specifica</label>
 		<select name="utilizare specifica" formControlName="utilizare specifica">
 			<option value="alege">alege</option>
@@ -91,6 +117,11 @@
 			<option value="institutie publica">Institutie publica</option>
 		</select>
 	</div>
+	<span
+		class="invalid-message"
+		*ngIf="rcaForm.get('utilizare specifica')?.value == 'alege' && rcaForm.get('utilizare specifica')?.touched"
+		>Alege modul de utilizare specific autovehiculului</span
+	>
 
 	<!-- SERIE CARTE AUTO (CIV) -->
 	<div class="group">
@@ -102,10 +133,16 @@
 			formControlName="serie carte auto"
 		/>
 	</div>
+	<span
+		class="invalid-message"
+		*ngIf="!rcaForm.get('serie carte auto')?.valid && rcaForm.get('serie carte auto')?.touched"
+	>
+		Introdu seria cartii auto a autovehiculului
+	</span>
 
 	<div class="group two-subgroups">
 		<!-- GROUP A -->
-		<div class="sub-group">
+		<div class="sub-group sub-group-A">
 			<!-- MASA MAXIMA AUTORIZATA -->
 			<div class="group">
 				<label for="masa maxima autorizata">Masa maxima autorizata</label>
@@ -116,6 +153,13 @@
 					formControlName="masa maxima autorizata"
 				/>
 			</div>
+			<span
+				class="invalid-message invalid-message-for-subgroups"
+				*ngIf="!rcaForm.get('masa maxima autorizata')?.valid && rcaForm.get('masa maxima autorizata')?.touched"
+			>
+				Introdu masa maxima autorizata
+			</span>
+
 			<!-- CAPACITATE CILINDRICA -->
 			<div class="group">
 				<label for="capacitate cilindrica">Capacitate cilindrica</label>
@@ -126,25 +170,51 @@
 					formControlName="capacitate cilindrica"
 				/>
 			</div>
+			<span
+				class="invalid-message invalid-message-for-subgroups"
+				*ngIf="!rcaForm.get('capacitate cilindrica')?.valid && rcaForm.get('capacitate cilindrica')?.touched"
+			>
+				Introdu capacitatea cilindrica a autovehiculului
+			</span>
+
 			<!-- AN FABRICATIE -->
 			<div class="group">
 				<label for="an fabricatie">An fabricatie</label>
 				<input type="text" name="an fabricatie" placeholder="pozitia B" formControlName="an fabricatie" />
 			</div>
+			<span
+				class="invalid-message invalid-message-for-subgroups"
+				*ngIf="!rcaForm.get('an fabricatie')?.valid && rcaForm.get('an fabricatie')?.touched"
+			>
+				Introdu anul de fabricatia al autovehiculului
+			</span>
 		</div>
 
 		<!-- GROUP B -->
-		<div class="sub-group">
+		<div class="sub-group sub-group-B">
 			<!-- NUMAR LOCURI -->
 			<div class="group">
 				<label for="numar locuri">Numar locuri</label>
 				<input type="number" name="numar locuri" placeholder="pozitia S.1" formControlName="numar locuri" />
 			</div>
+			<span
+				class="invalid-message invalid-message-for-subgroups"
+				*ngIf="!rcaForm.get('numar locuri')?.valid && rcaForm.get('numar locuri')?.touched"
+			>
+				Introdu numarul de locuri al autovehiculului
+			</span>
+
 			<!-- PUTERE -->
 			<div class="group">
 				<label for="putere">Putere</label>
 				<input type="number" name="putere" placeholder="pozitia P.1" formControlName="putere" />
 			</div>
+			<span
+				class="invalid-message invalid-message-for-subgroups"
+				*ngIf="!rcaForm.get('putere')?.valid && rcaForm.get('putere')?.touched"
+			>
+				Introdu puterea motorului autovehiculului
+			</span>
 		</div>
 	</div>
 

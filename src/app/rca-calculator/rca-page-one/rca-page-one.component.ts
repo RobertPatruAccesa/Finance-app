@@ -1095,19 +1095,19 @@ export class RcaPageOneComponent implements OnInit {
 	ngOnInit(): void {
 		this.rcaForm = new FormGroup({
 			'stare inmatriculare': new FormControl('alege', Validators.required),
-			'numar inmatriculare': new FormControl(null, []),
-			'categorie': new FormControl('alege'),
-			'marca': new FormControl('alege'),
-			'model': new FormControl('alege'),
-			'numar identificare sasiu': new FormControl(null),
-			'tip utilizare': new FormControl('utilizare normala'),
-			'utilizare specifica': new FormControl('alege'),
-			'serie carte auto': new FormControl(null),
-			'masa maxima autorizata': new FormControl(null),
-			'capacitate cilindrica': new FormControl(null),
-			'an fabricatie': new FormControl(null),
-			'numar locuri': new FormControl(null),
-			'putere': new FormControl(null)
+			'numar inmatriculare': new FormControl(null, [Validators.required]),
+			'categorie': new FormControl('alege', [Validators.required]),
+			'marca': new FormControl('alege', [Validators.required]),
+			'model': new FormControl('alege', [Validators.required]),
+			'numar identificare sasiu': new FormControl(null, [Validators.required]),
+			'tip utilizare': new FormControl('utilizare normala', [Validators.required]),
+			'utilizare specifica': new FormControl('alege', [Validators.required]),
+			'serie carte auto': new FormControl(null, [Validators.required]),
+			'masa maxima autorizata': new FormControl(null, [Validators.required]),
+			'capacitate cilindrica': new FormControl(null, [Validators.required]),
+			'an fabricatie': new FormControl(null, [Validators.required]),
+			'numar locuri': new FormControl(null, [Validators.required]),
+			'putere': new FormControl(null, [Validators.required])
 		});
 	}
 
