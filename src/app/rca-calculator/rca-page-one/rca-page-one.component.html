@@ -3,7 +3,7 @@
 	<!-- STARE INAMTRICULARE -->
 	<div class="group">
 		<label for="stare inmatriculare">Stare inmatriculare</label>
-		<select name="stare inmatriculare" formControlName="stare inmatriculare">
+		<select name="stare inmatriculare" formControlName="stare inmatriculare" (click)="onSelectInfo()">
 			<option value="alege">alege</option>
 			<option value="inmatriculat">inmatriculat</option>
 			<option value="in vederea inmatricularii">in vederea inmatricularii</option>
@@ -24,7 +24,7 @@
 			placeholder="POZITIA A DIN TALON"
 			formControlName="numar inmatriculare"
 			style="text-transform: uppercase"
-            (click)="onSelectInfo()"
+			(click)="onSelectNumarInmatriculare()"
 		/>
 	</div>
 	<span
@@ -42,7 +42,7 @@
 	<!-- CATEGORIE -->
 	<div class="group">
 		<label for="categorie">Categorie</label>
-		<select name="categorie" formControlName="categorie">
+		<select name="categorie" formControlName="categorie" (click)="onSelectCategorie()">
 			<option value="alege">alege</option>
 			<option value="autoturism">autoturism (inclusiv autoturisme de teren)</option>
 			<option value="autoutilitara">autoutilitara, autofurgoneta</option>
@@ -59,7 +59,7 @@
 	<!-- MARCA -->
 	<div class="group">
 		<label for="marca">Marca</label>
-		<select name="marca" formControlName="marca">
+		<select name="marca" formControlName="marca" (click)="onSelectMarca()">
 			<option value="alege">alege</option>
 			<option *ngFor="let item of carBrands" [value]="item.brand">{{ item.brand }}</option>
 		</select>
@@ -71,8 +71,9 @@
 	<!-- MODEL -->
 	<div class="group">
 		<label for="model">Model</label>
-		<select name="model" formControlName="model">
+		<select name="model" formControlName="model" (click)="onSelectModel()">
 			<option value="alege">alege</option>
+			<option *ngFor="let model of carModels" [value]="model">{{ model }}</option>
 		</select>
 	</div>
 	<span class="invalid-message" *ngIf="rcaForm.get('model')?.value == 'alege' && rcaForm.get('model')?.touched"
@@ -89,6 +90,7 @@
 			formControlName="numar identificare sasiu"
 			minlength="17"
 			style="text-transform: uppercase"
+			(click)="onSelectNumarIdentificareSasiu()"
 		/>
 	</div>
 	<span
@@ -147,6 +149,7 @@
 			name="serie carte auto"
 			placeholder="POZITIA X SAU Y. EX: G123456"
 			formControlName="serie carte auto"
+			(click)="onSelectSerieCarteAuto()"
 		/>
 	</div>
 	<span
@@ -171,6 +174,7 @@
 					placeholder="pozitia F.1"
 					formControlName="masa maxima autorizata"
 					minlength="3"
+					(click)="onSelectMasaMaximaAutorizata()"
 				/>
 			</div>
 			<span
@@ -194,6 +198,7 @@
 					placeholder="pozitia P.1"
 					formControlName="capacitate cilindrica"
 					minlength="2"
+					(click)="onSelectCapacitateCilindrica()"
 				/>
 			</div>
 			<span
@@ -217,6 +222,7 @@
 					placeholder="pozitia B"
 					formControlName="an fabricatie"
 					minlength="4"
+					(click)="onSelectAnFabricatie()"
 				/>
 			</div>
 			<span
@@ -237,7 +243,13 @@
 			<!-- NUMAR LOCURI -->
 			<div class="group">
 				<label for="numar locuri">Numar locuri</label>
-				<input type="number" name="numar locuri" placeholder="pozitia S.1" formControlName="numar locuri" />
+				<input
+					type="number"
+					name="numar locuri"
+					placeholder="pozitia S.1"
+					formControlName="numar locuri"
+					(click)="onSelectNumarLocuri()"
+				/>
 			</div>
 			<span
 				class="invalid-message invalid-message-for-subgroups"
@@ -249,7 +261,13 @@
 			<!-- PUTERE -->
 			<div class="group">
 				<label for="putere">Putere</label>
-				<input type="number" name="putere" placeholder="pozitia P.1" formControlName="putere" />
+				<input
+					type="number"
+					name="putere"
+					placeholder="pozitia P.1"
+					formControlName="putere"
+					(click)="onSelectPutere()"
+				/>
 			</div>
 			<span
 				class="invalid-message invalid-message-for-subgroups"
@@ -381,39 +399,39 @@
 				</div>
 			</div>
 			<div class="row-B-2">
-                <div class="line">
+				<div class="line">
 					<span>H</span>
 					<span> </span>
 				</div>
-                <div class="line">
+				<div class="line">
 					<span>I.1</span>
 					<span>30.02.2016</span>
 				</div>
-                <div class="line">
+				<div class="line">
 					<span>G</span>
 					<span>1280</span>
 				</div>
-                <div class="line">
+				<div class="line">
 					<span>P.2</span>
 					<span>59</span>
 				</div>
-                <div class="line">
+				<div class="line">
 					<span>Q</span>
 					<span> </span>
 				</div>
-                <div class="line">
+				<div class="line">
 					<span> </span>
 					<span> </span>
 				</div>
-                <div class="line">
+				<div class="line">
 					<span> </span>
 					<span> </span>
 				</div>
-                <div class="line">
+				<div class="line">
 					<span>Z</span>
 					<span>DRPCIV Olt</span>
 				</div>
-            </div>
+			</div>
 		</div>
 	</div>
 </div>
