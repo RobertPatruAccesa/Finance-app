@@ -82,9 +82,16 @@ export class RcaPageOneComponent implements OnInit {
 		this.removeOutlineExample(this.getAllExampleRows());
 		this.getAllExampleRows()[2].classList.add('highlight-example');
 
-        const selectedBrand = this.carBrands.filter((car: any) => car.brand == this.rcaForm.get('marca')?.value);
+		let selectedBrand;
 
-        this.carModels = selectedBrand[0].models;
+		if (this.rcaForm.get('marca')?.value == 'alege') {
+			selectedBrand = 'alege';
+		}
+        else {
+            selectedBrand = this.carBrands.filter((car: any) => car.brand == this.rcaForm.get('marca')?.value);
+        }
+
+		this.carModels = selectedBrand[0].models;
 	}
 
 	onSelectModel() {

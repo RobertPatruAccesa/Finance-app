@@ -71,7 +71,7 @@
 	<!-- MODEL -->
 	<div class="group">
 		<label for="model">Model</label>
-		<select name="model" formControlName="model" (click)="onSelectModel()">
+		<select name="model" formControlName="model" (click)="onSelectModel()" >
 			<option value="alege">alege</option>
 			<option *ngFor="let model of carModels" [value]="model">{{ model }}</option>
 		</select>
