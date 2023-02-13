@@ -1098,8 +1098,8 @@ export class RcaPageOneComponent implements OnInit {
 		}
 	];
 	rcaForm!: FormGroup;
-    showInfo: boolean = false;
-    showExample: boolean = true;
+	showInfo: boolean = true;
+	showExample: boolean = false;
 
 	constructor() {}
 	ngOnInit(): void {
@@ -1109,13 +1109,10 @@ export class RcaPageOneComponent implements OnInit {
 				Validators.required,
 				Validators.pattern(/[A-Z]{1,2}[0-9]{2}[A-Z]{3}/)
 			]),
-			'categorie': new FormControl('alege', [Validators.required]),
-			'marca': new FormControl('alege', [Validators.required]),
-			'model': new FormControl('alege', [Validators.required]),
-			'numar identificare sasiu': new FormControl(null, [
-				Validators.required,
-				Validators.pattern(/[0-9]{4,9}/)
-			]),
+			categorie: new FormControl('alege', [Validators.required]),
+			marca: new FormControl('alege', [Validators.required]),
+			model: new FormControl('alege', [Validators.required]),
+			'numar identificare sasiu': new FormControl(null, [Validators.required, Validators.pattern(/[0-9]{4,9}/)]),
 			'tip utilizare': new FormControl('utilizare normala', [Validators.required]),
 			'utilizare specifica': new FormControl('alege', [Validators.required]),
 			'serie carte auto': new FormControl(null, [Validators.required]),
@@ -1123,11 +1120,21 @@ export class RcaPageOneComponent implements OnInit {
 			'capacitate cilindrica': new FormControl(null, [Validators.required]),
 			'an fabricatie': new FormControl(null, [Validators.required]),
 			'numar locuri': new FormControl(null, [Validators.required]),
-			'putere': new FormControl(null, [Validators.required])
+			putere: new FormControl(null, [Validators.required])
 		});
 	}
 
 	onSubmit() {
 		console.log(this.rcaForm);
 	}
+
+    onSelectInfo() {
+        this.showInfo = true;
+        this.showExample = false
+    }
+
+    onSelectExample() {
+        this.showInfo = false;
+        this.showExample = true
+    }
 }

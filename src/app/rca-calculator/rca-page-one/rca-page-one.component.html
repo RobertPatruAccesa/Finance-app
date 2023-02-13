@@ -24,6 +24,7 @@
 			placeholder="POZITIA A DIN TALON"
 			formControlName="numar inmatriculare"
 			style="text-transform: uppercase"
+            (click)="onSelectInfo()"
 		/>
 	</div>
 	<span
@@ -287,8 +288,8 @@
 	</ul>
 </div>
 
-<div class="info" *ngIf="showExample">
-	<h3>Exemplu talon au <span>(Nu copiati aceste data!)</span></h3>
+<div class="info-example" *ngIf="showExample">
+	<h3>Exemplu talon auto <span>(Nu copiati aceste date!)</span></h3>
 	<div class="example-area">
 		<div class="row-A">
 			<div class="line">
@@ -325,7 +326,7 @@
 			</div>
 			<div class="line">
 				<span>C.2.2</span>
-				<span>      </span>
+				<span> </span>
 			</div>
 			<div class="line">
 				<span>C.2.3</span>
@@ -333,19 +334,86 @@
 			</div>
 			<div class="line">
 				<span>C.3</span>
-				<span>C.3.1	</span>
+				<span>C.3.1 </span>
 			</div>
 			<div class="line">
 				<span>C.3.2</span>
-				<span>      </span>
+				<span> </span>
 			</div>
 			<div class="line">
 				<span>C.3.3</span>
-				<span>      </span>
+				<span> </span>
 			</div>
 		</div>
 		<div class="row-B">
-			<!-- @ to do -->
+			<div class="row-B-1">
+				<div class="line">
+					<span>B</span>
+					<span>30.02.2012</span>
+				</div>
+				<div class="line">
+					<span>I</span>
+					<span>30.02.2016</span>
+				</div>
+				<div class="line">
+					<span>F.1</span>
+					<span>1745</span>
+				</div>
+				<div class="line">
+					<span>P.1</span>
+					<span>1686</span>
+				</div>
+				<div class="line">
+					<span>P.3 </span>
+					<span>MOTORINA</span>
+				</div>
+				<div class="line">
+					<span>R</span>
+					<span>NEGRU</span>
+				</div>
+				<div class="line">
+					<span>S.1</span>
+					<span>5</span>
+				</div>
+				<div class="line">
+					<span>(X)</span>
+					<span>G123123</span>
+				</div>
+			</div>
+			<div class="row-B-2">
+                <div class="line">
+					<span>H</span>
+					<span> </span>
+				</div>
+                <div class="line">
+					<span>I.1</span>
+					<span>30.02.2016</span>
+				</div>
+                <div class="line">
+					<span>G</span>
+					<span>1280</span>
+				</div>
+                <div class="line">
+					<span>P.2</span>
+					<span>59</span>
+				</div>
+                <div class="line">
+					<span>Q</span>
+					<span> </span>
+				</div>
+                <div class="line">
+					<span> </span>
+					<span> </span>
+				</div>
+                <div class="line">
+					<span> </span>
+					<span> </span>
+				</div>
+                <div class="line">
+					<span>Z</span>
+					<span>DRPCIV Olt</span>
+				</div>
+            </div>
 		</div>
 	</div>
 </div>
