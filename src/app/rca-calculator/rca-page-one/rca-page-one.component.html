@@ -4,7 +4,7 @@
 	<div class="group-has-select">
 		<label for="stare inmatriculare">Stare inmatriculare</label>
 		<select name="stare inmatriculare" formControlName="stare inmatriculare">
-			<option value="alege">alege</option>
+			<option value="alege"></option>
 			<option value="inmatriculat">inmatriculat</option>
 			<option value="in vederea inmatricularii">in vederea inmatricularii</option>
 		</select>
@@ -48,7 +48,7 @@
 			(mousemove)="onSelectCategorie($event)"
 			(mouseout)="removeInfoExample()"
 		>
-			<option value="alege">alege</option>
+			<option value="alege"></option>
 			<option value="autoturism">autoturism (inclusiv autoturisme de teren)</option>
 			<option value="autoutilitara">autoutilitara, autofurgoneta</option>
 			<option value="motocicleta">motocicleta, scuter, atv</option>
@@ -70,7 +70,7 @@
 			(mousemove)="onSelectMarca($event)"
 			(mouseout)="removeInfoExample()"
 		>
-			<option value="alege">alege</option>
+			<option value="alege"></option>
 			<option *ngFor="let item of carBrands" [value]="item.brand">{{ item.brand }}</option>
 		</select>
 	</div>
@@ -87,7 +87,7 @@
 			(mousemove)="onSelectModel($event)"
 			(mouseout)="removeInfoExample()"
 		>
-			<option value="alege">alege</option>
+			<option value="alege"></option>
 			<option *ngFor="let model of carModels" [value]="model">{{ model }}</option>
 		</select>
 	</div>
@@ -139,7 +139,7 @@
 	<div class="group-has-select" *ngIf="rcaForm.get('tip utilizare')?.value == 'alta utilizare'">
 		<label for="utilizare specifica">Utilizare specifica</label>
 		<select name="utilizare specifica" formControlName="utilizare specifica">
-			<option value="alege">alege</option>
+			<option value="alege"></option>
 			<option value="taxi">Taxi</option>
 			<option value="curierat">Curierat</option>
 			<option value="rent a car">Rent a car</option>

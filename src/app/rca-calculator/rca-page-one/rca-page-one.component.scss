@@ -58,7 +58,7 @@
 				left: 10px;
 				background-color: transparent;
 
-				animation: move-label 0.3s ease-in forwards;
+				animation: move-label 0.2s ease-in forwards;
 				animation-play-state: paused;
 			}
 
@@ -86,7 +86,49 @@
 		.group-has-select {
 			display: flex;
 			flex-direction: column;
+
 			margin-bottom: 15px;
+			position: relative;
+
+			border: 3px solid #bbbbbb;
+			border-radius: 8px;
+
+			height: 40px;
+            min-width: 100px;
+			padding: 2px;
+
+			&:hover {
+				border: 3px solid #0084c9;
+				cursor: pointer;
+			}
+
+			&:hover label {
+				animation-play-state: running;
+			}
+
+			label {
+				position: absolute;
+				top: 5px;
+				left: 10px;
+				z-index: 2;
+				padding: 0 5px;
+				animation: move-label 0.2s ease-in forwards;
+				animation-play-state: paused;
+			}
+
+			select {
+				height: 100%;
+				width: 100%;
+				border: none;
+				outline: transparent;
+				z-index: 1;
+
+				option {
+					border: none;
+					outline: transparent;
+                    border: 5px violet dotted;
+				}
+			}
 
 			select:hover {
 				cursor: pointer;
@@ -165,29 +207,30 @@
 
 		.invalid-message {
 			display: block;
+			width: 100%;
 
 			color: #ff0000;
 			font-size: 14px;
-			margin-left: 240px;
+
 			margin-bottom: 10px;
 			margin-top: -10px;
-		}
 
-		.invalid-message-for-subgroups {
-			width: 150px;
-		}
+			span {
+				display: block;
 
-		.sub-group-A {
-			input {
-				// min-width: 180px;
+				width: 100%;
 			}
 		}
 
+		.invalid-message-for-subgroups {
+			display: block;
+			width: 100%;
+		}
+
 		.sub-group-B {
-			max-width: 260px;
 			.invalid-message-for-subgroups {
 				display: flex;
-				justify-content: flex-end;
+				justify-content: flex-start;
 			}
 
 			span {
@@ -201,7 +244,6 @@
 	}
 
 	.info {
-		// min-width: 365px;
 		max-width: 30%;
 		height: 510px;
 

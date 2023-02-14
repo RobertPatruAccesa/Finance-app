@@ -22,9 +22,9 @@ export class RcaPageOneComponent implements OnInit {
 				Validators.required,
 				Validators.pattern(/[a-zA-Z]{1,2}[0-9]{1,2}[a-zA-Z]{3}/)
 			]),
-			categorie: new FormControl('alege', [Validators.required]),
-			marca: new FormControl('alege', [Validators.required]),
-			model: new FormControl('alege', [Validators.required]),
+			'categorie': new FormControl('alege', [Validators.required]),
+			'marca': new FormControl('alege', [Validators.required]),
+			'model': new FormControl('alege', [Validators.required]),
 			'numar identificare sasiu': new FormControl(null, [Validators.required, Validators.pattern(/[0-9]{4,9}/)]),
 			'tip utilizare': new FormControl('utilizare normala', [Validators.required]),
 			'utilizare specifica': new FormControl('alege', [Validators.required]),
@@ -33,7 +33,7 @@ export class RcaPageOneComponent implements OnInit {
 			'capacitate cilindrica': new FormControl(null, [Validators.required]),
 			'an fabricatie': new FormControl(null, [Validators.required]),
 			'numar locuri': new FormControl(null, [Validators.required]),
-			putere: new FormControl(null, [Validators.required]),
+			'putere': new FormControl(null, [Validators.required]),
 			'servicii extra': new FormControl('alege', [])
 		});
 
