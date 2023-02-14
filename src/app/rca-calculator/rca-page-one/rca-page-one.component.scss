@@ -4,7 +4,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-    
+
 	form {
 		width: 100%;
 		max-width: 1000px;
@@ -38,53 +38,95 @@
 		}
 
 		.group {
+			height: 40px;
+			padding: 2px;
 			width: 100%;
-			display: flex;
-			justify-content: space-between;
 			margin-bottom: 12px;
+			border: 3px solid #bbbbbb;
+			border-radius: 8px;
+			position: relative;
+
+			&:hover {
+				border: 3px solid #0084c9;
+			}
 
 			label {
-				display: inline-block;
-				width: 240px;
+				padding: 0 5px;
+				z-index: 2;
+				position: absolute;
+				top: 5px;
+				left: 10px;
+				background-color: transparent;
+
+				animation: move-label 0.3s ease-in forwards;
+				animation-play-state: paused;
 			}
 
-			input,
-			select {
-				display: inline-block;
-				width: calc(100% - 240px);
+			input {
+				width: calc(100% - 5px);
+				height: calc(100% - 5px);
+				border-radius: 8px;
 
-				box-sizing: border-box;
+				z-index: 1;
+				line-height: 16px;
+				position: absolute;
+				border: none;
 
-				border-radius: 2px;
-				padding: 5px 10px;
-				border: 1px #6c757d solid;
+				&:focus {
+					border: none;
+					outline: transparent;
+				}
 			}
 
-			input[type='radio']:hover,
+			&:hover label {
+				animation-play-state: running;
+			}
+		}
+
+		.group-has-select {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 15px;
+
 			select:hover {
 				cursor: pointer;
 			}
+		}
+
+		.radio-select-container {
+			width: 100%;
+			margin-bottom: 15px;
 
 			.radio-options-container {
+				margin-top: 10px;
+
 				width: calc(100% - 240px);
+
 				display: flex;
 				justify-content: space-between;
 
 				.radio-option {
-					border: 1px #6c757d solid;
-					border-radius: 2px;
+					margin: 5px 0;
 					padding: 5px 10px;
+					border-radius: 2px;
+
+					border: 1px #6c757d solid;
 
 					label {
 						width: auto;
 					}
 					input {
 						width: auto;
+						&:hover {
+							cursor: pointer;
+						}
 					}
 				}
 			}
 		}
-		.group.two-subgroups {
+
+		.container-subgroups {
+			width: 100%;
 			display: flex;
 			justify-content: space-between;
 
@@ -96,6 +138,10 @@
 				input {
 					min-width: 100px;
 				}
+			}
+
+			.sub-group {
+				width: 100%;
 			}
 		}
 
@@ -152,11 +198,6 @@
 				text-align: end;
 			}
 		}
-
-		select.ng-invalid.ng-touched,
-		input.ng-invalid.ng-touched {
-			border: 1px #ff0000 solid;
-		}
 	}
 
 	.info {
@@ -197,10 +238,10 @@
 	}
 
 	.info-example {
+		z-index: 3;
 		display: none;
-        
-    
-        min-width: 450px;
+
+		min-width: 450px;
 		max-width: 30%;
 		height: 510px;
 
@@ -311,9 +352,9 @@
 			}
 		}
 
-        .highlight-example {
-            border: 2px #ff0000 solid;
-        }
+		.highlight-example {
+			border: 2px #ff0000 solid;
+		}
 	}
 }
 @media screen and (min-width: 1800px) {
@@ -340,5 +381,15 @@
 				}
 			}
 		}
+	}
+}
+
+@keyframes move-label {
+	0% {
+		top: 5px;
+	}
+	100% {
+		top: -15px;
+		background-color: white;
 	}
 }

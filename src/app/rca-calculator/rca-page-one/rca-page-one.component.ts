@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
 	selector: 'app-rca-page-one',
 	templateUrl: './rca-page-one.component.html',
-	styleUrls: ['./rca-page-one.component.scss', './rca-page-one.component.css']
+	styleUrls: ['./rca-page-one.component.scss']
 })
 export class RcaPageOneComponent implements OnInit {
 	carBrands: any = [];
@@ -56,23 +56,23 @@ export class RcaPageOneComponent implements OnInit {
 	}
 
 	dispalyInfoExample(event: any) {
-		const infoExample: HTMLElement = document.querySelector('div.info-example')!;
+		// const infoExample: HTMLElement = document.querySelector('div.info-example')!;
 
-		if (event.clientY > window.innerHeight / 2) {
-			infoExample.style.cssText = `
-            display: flex;
-            position: absolute;
-            top: ${event.clientY - 250}px;
-            left: ${event.clientX}px;
-        `;
-		} else {
-			infoExample.style.cssText = `
-            display: flex;
-            position: absolute;
-            top: ${event.clientY}px;
-            left: ${event.clientX}px;
-        `;
-		}
+		// if (event.clientY > window.innerHeight / 2) {
+		// 	infoExample.style.cssText = `
+        //     display: flex;
+        //     position: absolute;
+        //     top: ${event.clientY - 250}px;
+        //     left: ${event.clientX}px;
+        // `;
+		// } else {
+		// 	infoExample.style.cssText = `
+        //     display: flex;
+        //     position: absolute;
+        //     top: ${event.clientY}px;
+        //     left: ${event.clientX}px;
+        // `;
+		// }
 	}
 
 	removeInfoExample() {

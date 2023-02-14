@@ -1,7 +1,7 @@
 <form [formGroup]="rcaForm" (ngSubmit)="onSubmit()">
 	<div class="step">Pasul 1 din 2: date despre autovehicul</div>
 	<!-- STARE INAMTRICULARE -->
-	<div class="group">
+	<div class="group-has-select">
 		<label for="stare inmatriculare">Stare inmatriculare</label>
 		<select name="stare inmatriculare" formControlName="stare inmatriculare">
 			<option value="alege">alege</option>
@@ -21,7 +21,6 @@
 		<input
 			type="text"
 			name="numar inmatriculare"
-			placeholder="POZITIA A DIN TALON"
 			formControlName="numar inmatriculare"
 			style="text-transform: uppercase"
 			(mousemove)="onSelectNumarInmatriculare($event)"
@@ -41,9 +40,8 @@
 	</span>
 
 	<!-- CATEGORIE -->
-	<div class="group">
+	<div class="group-has-select">
 		<label for="categorie">Categorie</label>
-
 		<select
 			name="categorie"
 			formControlName="categorie"
@@ -64,7 +62,7 @@
 	>
 
 	<!-- MARCA -->
-	<div class="group">
+	<div class="group-has-select">
 		<label for="marca">Marca</label>
 		<select
 			name="marca"
@@ -81,7 +79,7 @@
 	>
 
 	<!-- MODEL -->
-	<div class="group">
+	<div class="group-has-select">
 		<label for="model">Model</label>
 		<select
 			name="model"
@@ -103,7 +101,6 @@
 		<input
 			type="text"
 			name="numar sasiu"
-			placeholder="POZITIA E DIN TALON"
 			formControlName="numar identificare sasiu"
 			minlength="17"
 			style="text-transform: uppercase"
@@ -124,7 +121,7 @@
 	</span>
 
 	<!-- TIP UTILIZARE -->
-	<div class="group">
+	<div class="radio-select-container">
 		<label for="tip utilizare">Tip utilizare</label>
 		<div class="radio-options-container">
 			<div class="radio-option">
@@ -139,7 +136,7 @@
 	</div>
 
 	<!-- UTILIZRE SPECIFICA -->
-	<div class="group" *ngIf="rcaForm.get('tip utilizare')?.value == 'alta utilizare'">
+	<div class="group-has-select" *ngIf="rcaForm.get('tip utilizare')?.value == 'alta utilizare'">
 		<label for="utilizare specifica">Utilizare specifica</label>
 		<select name="utilizare specifica" formControlName="utilizare specifica">
 			<option value="alege">alege</option>
@@ -165,7 +162,6 @@
 		<input
 			type="text"
 			name="serie carte auto"
-			placeholder="POZITIA X SAU Y. EX: G123456"
 			formControlName="serie carte auto"
 			(mousemove)="onSelectSerieCarteAuto($event)"
 			(mouseout)="removeInfoExample()"
@@ -181,7 +177,7 @@
 		<span *ngIf="rcaForm.controls?.['serie carte auto']?.errors?.['pattern']">Introdu o serie valida</span>
 	</span>
 
-	<div class="group two-subgroups">
+	<div class="container-subgroups">
 		<!-- GROUP A -->
 		<div class="sub-group sub-group-A">
 			<!-- MASA MAXIMA AUTORIZATA -->
@@ -190,7 +186,6 @@
 				<input
 					type="text"
 					name="masa maxima autorizata"
-					placeholder="pozitia F.1"
 					formControlName="masa maxima autorizata"
 					minlength="3"
 					(mousemove)="onSelectMasaMaximaAutorizata($event)"
@@ -215,7 +210,6 @@
 				<input
 					type="text"
 					name="capacitate cilindrica"
-					placeholder="pozitia P.1"
 					formControlName="capacitate cilindrica"
 					minlength="2"
 					(mousemove)="onSelectCapacitateCilindrica($event)"
@@ -240,7 +234,6 @@
 				<input
 					type="text"
 					name="an fabricatie"
-					placeholder="pozitia B"
 					formControlName="an fabricatie"
 					minlength="4"
 					(mousemove)="onSelectAnFabricatie($event)"
@@ -268,7 +261,6 @@
 				<input
 					type="number"
 					name="numar locuri"
-					placeholder="pozitia S.1"
 					formControlName="numar locuri"
 					(mousemove)="onSelectNumarLocuri($event)"
 					(mouseout)="removeInfoExample()"
@@ -287,7 +279,6 @@
 				<input
 					type="number"
 					name="putere"
-					placeholder="pozitia P.1"
 					formControlName="putere"
 					(mousemove)="onSelectPutere($event)"
 					(mouseout)="removeInfoExample()"
@@ -303,7 +294,7 @@
 	</div>
 
 	<!-- SERVICII EXTRA -->
-	<div class="group">
+	<div class="group-has-select">
 		<label for="servicii extra">Servicii extra</label>
 		<select name="servicii exNiciunatra" formControlName="servicii extra" multiple="multiple">
 			<option value="niciuna">Niciuna</option>
