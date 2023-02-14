@@ -11,10 +11,7 @@ export class RcaPageOneComponent implements OnInit {
 	carBrands: any = [];
 	carModels: any = '';
 	serviciiExtra: string[] = ['Asistenta pana', 'Asistetna breakdown', 'Asistenta accident', 'Asistetna furt'];
-
 	rcaForm!: FormGroup;
-	showInfo: boolean = true;
-	showExample: boolean = true;
 
 	constructor(private http: HttpClient) {}
 
@@ -49,15 +46,6 @@ export class RcaPageOneComponent implements OnInit {
 		console.log(this.rcaForm);
 	}
 
-	onSelectInfo() {
-		this.showInfo = true;
-		this.showExample = false;
-	}
-
-	onSelectExample() {
-		this.showInfo = false;
-		this.showExample = true;
-	}
 	getAllExampleRows() {
 		const exampleRows = document.querySelectorAll('.line');
 		return exampleRows;
@@ -67,33 +55,44 @@ export class RcaPageOneComponent implements OnInit {
 		array.forEach((element: Element) => element.classList.remove('highlight-example'));
 	}
 
-    removeInfoExample() {
-        const infoExample: HTMLElement = document.querySelector('div.info-example')!;
-		infoExample.style.display = 'none';
-    }
-
-	onSelectNumarInmatriculare(event: any) {
-		// this.onSelectExample();
-		this.removeOutlineExample(this.getAllExampleRows());
-		this.getAllExampleRows()[0].classList.add('highlight-example');
-
+	dispalyInfoExample(event: any) {
 		const infoExample: HTMLElement = document.querySelector('div.info-example')!;
-		infoExample.style.cssText = `
+
+		if (event.clientY > window.innerHeight / 2) {
+			infoExample.style.cssText = `
+            display: flex;
+            position: absolute;
+            top: ${event.clientY - 250}px;
+            left: ${event.clientX}px;
+        `;
+		} else {
+			infoExample.style.cssText = `
             display: flex;
             position: absolute;
             top: ${event.clientY}px;
             left: ${event.clientX}px;
         `;
+		}
 	}
 
-	onSelectCategorie() {
-		this.onSelectExample();
+	removeInfoExample() {
+		const infoExample: HTMLElement = document.querySelector('div.info-example')!;
+		infoExample.style.display = 'none';
+	}
+
+	onSelectNumarInmatriculare(event: any) {
+		this.removeOutlineExample(this.getAllExampleRows());
+		this.getAllExampleRows()[0].classList.add('highlight-example');
+		this.dispalyInfoExample(event);
+	}
+
+	onSelectCategorie(event: any) {
 		this.removeOutlineExample(this.getAllExampleRows());
 		this.getAllExampleRows()[1].classList.add('highlight-example');
+		this.dispalyInfoExample(event);
 	}
 
-	onSelectMarca() {
-		this.onSelectExample();
+	onSelectMarca(event: any) {
 		this.removeOutlineExample(this.getAllExampleRows());
 		this.getAllExampleRows()[2].classList.add('highlight-example');
 
@@ -106,55 +105,56 @@ export class RcaPageOneComponent implements OnInit {
 		}
 
 		this.carModels = selectedBrand[0].models;
+
+		this.dispalyInfoExample(event);
 	}
 
-	onSelectModel() {
-		this.onSelectExample();
+	onSelectModel(event: any) {
 		this.removeOutlineExample(this.getAllExampleRows());
 		this.getAllExampleRows()[4].classList.add('highlight-example');
+		this.dispalyInfoExample(event);
 	}
 
-	onSelectNumarIdentificareSasiu() {
-		this.onSelectExample();
+	onSelectNumarIdentificareSasiu(event: any) {
 		this.removeOutlineExample(this.getAllExampleRows());
 		this.getAllExampleRows()[5].classList.add('highlight-example');
+		this.dispalyInfoExample(event);
 	}
 
-	onSelectSerieCarteAuto() {
-		this.onSelectExample();
+	onSelectSerieCarteAuto(event: any) {
 		this.removeOutlineExample(this.getAllExampleRows());
 		this.getAllExampleRows()[20].classList.add('highlight-example');
+		this.dispalyInfoExample(event);
 	}
 
-	onSelectMasaMaximaAutorizata() {
-		this.onSelectExample();
+	onSelectMasaMaximaAutorizata(event: any) {
 		this.removeOutlineExample(this.getAllExampleRows());
 		this.getAllExampleRows()[15].classList.add('highlight-example');
+		this.dispalyInfoExample(event);
 	}
 
-	onSelectCapacitateCilindrica() {
-		this.onSelectExample();
+	onSelectCapacitateCilindrica(event: any) {
 		this.removeOutlineExample(this.getAllExampleRows());
 		this.getAllExampleRows()[16].classList.add('highlight-example');
+		this.dispalyInfoExample(event);
 	}
 
-	onSelectAnFabricatie() {
-		this.onSelectExample();
+	onSelectAnFabricatie(event: any) {
 		this.removeOutlineExample(this.getAllExampleRows());
 		this.getAllExampleRows()[13].classList.add('highlight-example');
+		this.dispalyInfoExample(event);
 	}
 
-	onSelectNumarLocuri() {
-		this.onSelectExample();
+	onSelectNumarLocuri(event: any) {
 		this.removeOutlineExample(this.getAllExampleRows());
 		this.getAllExampleRows()[19].classList.add('highlight-example');
-		console.log(this.getAllExampleRows());
+		this.dispalyInfoExample(event);
 	}
 
-	onSelectPutere() {
-		this.onSelectExample();
+	onSelectPutere(event: any) {
 		this.removeOutlineExample(this.getAllExampleRows());
 		this.getAllExampleRows()[24].classList.add('highlight-example');
+		this.dispalyInfoExample(event);
 	}
 }
 

@@ -3,7 +3,7 @@
 	<!-- STARE INAMTRICULARE -->
 	<div class="group">
 		<label for="stare inmatriculare">Stare inmatriculare</label>
-		<select name="stare inmatriculare" formControlName="stare inmatriculare" (click)="onSelectInfo()">
+		<select name="stare inmatriculare" formControlName="stare inmatriculare">
 			<option value="alege">alege</option>
 			<option value="inmatriculat">inmatriculat</option>
 			<option value="in vederea inmatricularii">in vederea inmatricularii</option>
@@ -24,8 +24,8 @@
 			placeholder="POZITIA A DIN TALON"
 			formControlName="numar inmatriculare"
 			style="text-transform: uppercase"
-		    (mousemove)="onSelectNumarInmatriculare($event)"
-            (mouseout)="removeInfoExample()"
+			(mousemove)="onSelectNumarInmatriculare($event)"
+			(mouseout)="removeInfoExample()"
 		/>
 	</div>
 	<span
@@ -43,7 +43,13 @@
 	<!-- CATEGORIE -->
 	<div class="group">
 		<label for="categorie">Categorie</label>
-		<select name="categorie" formControlName="categorie" (click)="onSelectCategorie()">
+
+		<select
+			name="categorie"
+			formControlName="categorie"
+			(mousemove)="onSelectCategorie($event)"
+			(mouseout)="removeInfoExample()"
+		>
 			<option value="alege">alege</option>
 			<option value="autoturism">autoturism (inclusiv autoturisme de teren)</option>
 			<option value="autoutilitara">autoutilitara, autofurgoneta</option>
@@ -60,7 +66,12 @@
 	<!-- MARCA -->
 	<div class="group">
 		<label for="marca">Marca</label>
-		<select name="marca" formControlName="marca" (click)="onSelectMarca()">
+		<select
+			name="marca"
+			formControlName="marca"
+			(mousemove)="onSelectMarca($event)"
+			(mouseout)="removeInfoExample()"
+		>
 			<option value="alege">alege</option>
 			<option *ngFor="let item of carBrands" [value]="item.brand">{{ item.brand }}</option>
 		</select>
@@ -72,7 +83,12 @@
 	<!-- MODEL -->
 	<div class="group">
 		<label for="model">Model</label>
-		<select name="model" formControlName="model" (click)="onSelectModel()" >
+		<select
+			name="model"
+			formControlName="model"
+			(mousemove)="onSelectModel($event)"
+			(mouseout)="removeInfoExample()"
+		>
 			<option value="alege">alege</option>
 			<option *ngFor="let model of carModels" [value]="model">{{ model }}</option>
 		</select>
@@ -91,7 +107,8 @@
 			formControlName="numar identificare sasiu"
 			minlength="17"
 			style="text-transform: uppercase"
-			(click)="onSelectNumarIdentificareSasiu()"
+			(mousemove)="onSelectNumarIdentificareSasiu($event)"
+			(mouseout)="removeInfoExample()"
 		/>
 	</div>
 	<span
@@ -150,7 +167,8 @@
 			name="serie carte auto"
 			placeholder="POZITIA X SAU Y. EX: G123456"
 			formControlName="serie carte auto"
-			(click)="onSelectSerieCarteAuto()"
+			(mousemove)="onSelectSerieCarteAuto($event)"
+			(mouseout)="removeInfoExample()"
 		/>
 	</div>
 	<span
@@ -175,7 +193,8 @@
 					placeholder="pozitia F.1"
 					formControlName="masa maxima autorizata"
 					minlength="3"
-					(click)="onSelectMasaMaximaAutorizata()"
+					(mousemove)="onSelectMasaMaximaAutorizata($event)"
+					(mouseout)="removeInfoExample()"
 				/>
 			</div>
 			<span
@@ -199,7 +218,8 @@
 					placeholder="pozitia P.1"
 					formControlName="capacitate cilindrica"
 					minlength="2"
-					(click)="onSelectCapacitateCilindrica()"
+					(mousemove)="onSelectCapacitateCilindrica($event)"
+					(mouseout)="removeInfoExample()"
 				/>
 			</div>
 			<span
@@ -223,7 +243,8 @@
 					placeholder="pozitia B"
 					formControlName="an fabricatie"
 					minlength="4"
-					(click)="onSelectAnFabricatie()"
+					(mousemove)="onSelectAnFabricatie($event)"
+					(mouseout)="removeInfoExample()"
 				/>
 			</div>
 			<span
@@ -249,7 +270,8 @@
 					name="numar locuri"
 					placeholder="pozitia S.1"
 					formControlName="numar locuri"
-					(click)="onSelectNumarLocuri()"
+					(mousemove)="onSelectNumarLocuri($event)"
+					(mouseout)="removeInfoExample()"
 				/>
 			</div>
 			<span
@@ -267,7 +289,8 @@
 					name="putere"
 					placeholder="pozitia P.1"
 					formControlName="putere"
-					(click)="onSelectPutere()"
+					(mousemove)="onSelectPutere($event)"
+					(mouseout)="removeInfoExample()"
 				/>
 			</div>
 			<span
@@ -279,7 +302,7 @@
 		</div>
 	</div>
 
-    <!-- SERVICII EXTRA -->
+	<!-- SERVICII EXTRA -->
 	<div class="group">
 		<label for="servicii extra">Servicii extra</label>
 		<select name="servicii exNiciunatra" formControlName="servicii extra" multiple="multiple">
@@ -293,7 +316,7 @@
 	<button>Continua</button>
 </form>
 
-<div class="info" *ngIf="showInfo">
+<div class="info">
 	<h2>Informatii utile</h2>
 	<p>Optiunile din stanga reprezinta una din starile autovehiculului:</p>
 	<ul>
