@@ -10,10 +10,11 @@ import { HttpClient } from '@angular/common/http';
 export class RcaPageOneComponent implements OnInit {
 	carBrands: any = [];
 	carModels: any = '';
+    serviciiExtra: string[] = ['Asistenta pana', 'Asistetna breakdown', 'Asistenta accident', 'Asistetna furt']
 
 	rcaForm!: FormGroup;
 	showInfo: boolean = true;
-	showExample: boolean = false;
+	showExample: boolean = true;
 
 	constructor(private http: HttpClient) {}
 
@@ -35,7 +36,8 @@ export class RcaPageOneComponent implements OnInit {
 			'capacitate cilindrica': new FormControl(null, [Validators.required]),
 			'an fabricatie': new FormControl(null, [Validators.required]),
 			'numar locuri': new FormControl(null, [Validators.required]),
-			putere: new FormControl(null, [Validators.required])
+			putere: new FormControl(null, [Validators.required]),
+            'servicii extra': new FormControl('alege', [])
 		});
 
 		// this.carBrands = getCarBrands();
