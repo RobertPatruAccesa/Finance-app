@@ -1,0 +1,9 @@
+input:hover .info-example,
+select:hover .info-example {
+	border: 50px red dotted !important;
+}
+
+.info-example {
+	/* border: 5px violet dotted !important; */
+
+}

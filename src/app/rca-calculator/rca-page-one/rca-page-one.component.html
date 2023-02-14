@@ -24,7 +24,8 @@
 			placeholder="POZITIA A DIN TALON"
 			formControlName="numar inmatriculare"
 			style="text-transform: uppercase"
-			(click)="onSelectNumarInmatriculare()"
+		    (mousemove)="onSelectNumarInmatriculare($event)"
+            (mouseout)="removeInfoExample()"
 		/>
 	</div>
 	<span
@@ -318,7 +319,7 @@
 	</ul>
 </div>
 
-<div class="info-example" *ngIf="showExample">
+<div class="info-example">
 	<h3>Exemplu talon auto <span>(Nu copiati aceste date!)</span></h3>
 	<div class="example-area">
 		<div class="row-A">

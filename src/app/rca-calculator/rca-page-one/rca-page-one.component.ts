@@ -5,12 +5,12 @@ import { HttpClient } from '@angular/common/http';
 @Component({
 	selector: 'app-rca-page-one',
 	templateUrl: './rca-page-one.component.html',
-	styleUrls: ['./rca-page-one.component.scss']
+	styleUrls: ['./rca-page-one.component.scss', './rca-page-one.component.css']
 })
 export class RcaPageOneComponent implements OnInit {
 	carBrands: any = [];
 	carModels: any = '';
-    serviciiExtra: string[] = ['Asistenta pana', 'Asistetna breakdown', 'Asistenta accident', 'Asistetna furt']
+	serviciiExtra: string[] = ['Asistenta pana', 'Asistetna breakdown', 'Asistenta accident', 'Asistetna furt'];
 
 	rcaForm!: FormGroup;
 	showInfo: boolean = true;
@@ -37,7 +37,7 @@ export class RcaPageOneComponent implements OnInit {
 			'an fabricatie': new FormControl(null, [Validators.required]),
 			'numar locuri': new FormControl(null, [Validators.required]),
 			putere: new FormControl(null, [Validators.required]),
-            'servicii extra': new FormControl('alege', [])
+			'servicii extra': new FormControl('alege', [])
 		});
 
 		// this.carBrands = getCarBrands();
@@ -67,10 +67,23 @@ export class RcaPageOneComponent implements OnInit {
 		array.forEach((element: Element) => element.classList.remove('highlight-example'));
 	}
 
-	onSelectNumarInmatriculare() {
-		this.onSelectExample();
+    removeInfoExample() {
+        const infoExample: HTMLElement = document.querySelector('div.info-example')!;
+		infoExample.style.display = 'none';
+    }
+
+	onSelectNumarInmatriculare(event: any) {
+		// this.onSelectExample();
 		this.removeOutlineExample(this.getAllExampleRows());
 		this.getAllExampleRows()[0].classList.add('highlight-example');
+
+		const infoExample: HTMLElement = document.querySelector('div.info-example')!;
+		infoExample.style.cssText = `
+            display: flex;
+            position: absolute;
+            top: ${event.clientY}px;
+            left: ${event.clientX}px;
+        `;
 	}
 
 	onSelectCategorie() {
@@ -88,10 +101,9 @@ export class RcaPageOneComponent implements OnInit {
 
 		if (this.rcaForm.get('marca')?.value == 'alege') {
 			selectedBrand = 'alege';
+		} else {
+			selectedBrand = this.carBrands.filter((car: any) => car.brand == this.rcaForm.get('marca')?.value);
 		}
-        else {
-            selectedBrand = this.carBrands.filter((car: any) => car.brand == this.rcaForm.get('marca')?.value);
-        }
 
 		this.carModels = selectedBrand[0].models;
 	}

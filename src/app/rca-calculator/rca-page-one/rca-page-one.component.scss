@@ -4,7 +4,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
+    
 	form {
 		width: 100%;
 		max-width: 1000px;
@@ -197,13 +197,10 @@
 	}
 
 	.info-example {
-		// display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-		display: flex;
-
-		min-width: 450px;
+		display: none;
+        
+    
+        min-width: 450px;
 		max-width: 30%;
 		height: 510px;
 
@@ -314,9 +311,9 @@
 			}
 		}
 
-		.highlight-example {
-			border: 2px #ff0000 solid;
-		}
+        .highlight-example {
+            border: 2px #ff0000 solid;
+        }
 	}
 }
 @media screen and (min-width: 1800px) {
