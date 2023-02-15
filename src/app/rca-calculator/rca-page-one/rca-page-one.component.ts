@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Store } from '@ngrx/store';
+import { sendForm } from '../store/rca.reducer';
 
 @Component({
 	selector: 'app-rca-page-one',
@@ -8,12 +10,16 @@ import { HttpClient } from '@angular/common/http';
 	styleUrls: ['./rca-page-one.component.scss']
 })
 export class RcaPageOneComponent implements OnInit {
+	rcaForm!: FormGroup;
+
+	formValid: boolean = false;
+	showToaster: boolean = false;
+
 	carBrands: any = [];
 	carModels: any = '';
 	serviciiExtra: string[] = ['Asistenta pana', 'Asistetna breakdown', 'Asistenta accident', 'Asistetna furt'];
-	rcaForm!: FormGroup;
 
-	constructor(private http: HttpClient) {}
+	constructor(private http: HttpClient, private store: Store) {}
 
 	ngOnInit(): void {
 		this.rcaForm = new FormGroup({
@@ -22,9 +28,9 @@ export class RcaPageOneComponent implements OnInit {
 				Validators.required,
 				Validators.pattern(/[a-zA-Z]{1,2}[0-9]{1,2}[a-zA-Z]{3}/)
 			]),
-			'categorie': new FormControl('alege', [Validators.required]),
-			'marca': new FormControl('alege', [Validators.required]),
-			'model': new FormControl('alege', [Validators.required]),
+			categorie: new FormControl('alege', [Validators.required]),
+			marca: new FormControl('alege', [Validators.required]),
+			model: new FormControl('alege', [Validators.required]),
 			'numar identificare sasiu': new FormControl(null, [Validators.required]),
 			'tip utilizare': new FormControl('utilizare normala', [Validators.required]),
 			'utilizare specifica': new FormControl('alege', [Validators.required]),
@@ -33,7 +39,7 @@ export class RcaPageOneComponent implements OnInit {
 			'capacitate cilindrica': new FormControl(null, [Validators.required]),
 			'an fabricatie': new FormControl(null, [Validators.required]),
 			'numar locuri': new FormControl(null, [Validators.required]),
-			'putere': new FormControl(null, [Validators.required]),
+			putere: new FormControl(null, [Validators.required]),
 			'servicii extra': new FormControl('alege', [])
 		});
 
@@ -44,6 +50,23 @@ export class RcaPageOneComponent implements OnInit {
 
 	onSubmit() {
 		console.log(this.rcaForm);
+
+		if (this.rcaForm.status == 'VALID') {
+			console.log('Formul este valid');
+			this.showToaster = true;
+			this.formValid = true;
+		} else {
+			console.log('Formul NU este valid');
+			this.showToaster = true;
+			this.formValid = false;
+		}
+
+		// this.store.dispatch(sendForm({ rcaForm: this.rcaForm }));
+
+		setTimeout(() => {
+			this.showToaster = false;
+			this.formValid = false;
+		}, 2000);
 	}
 
 	getAllExampleRows() {
@@ -98,9 +121,7 @@ export class RcaPageOneComponent implements OnInit {
 
 		let selectedBrand;
 
-	
 		selectedBrand = this.carBrands.filter((car: any) => car.brand == this.rcaForm.get('marca')?.value);
-		
 
 		this.carModels = selectedBrand[0].models;
 

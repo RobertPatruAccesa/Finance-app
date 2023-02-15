@@ -20,6 +20,7 @@ import { LoginModule } from './login/login.module';
 import { usersReducer } from './store/user/user.reducer';
 import { UserEffects } from './store/user/user.effects';
 import { RCACalculatorModule } from './rca-calculator/rca-calculator.module';
+import { rcaReducer } from './rca-calculator/store/rca.reducer';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -37,7 +38,7 @@ import { RCACalculatorModule } from './rca-calculator/rca-calculator.module';
 		RouterModule,
         RCACalculatorModule,
 		FormsModule,
-		StoreModule.forRoot({ transactionsReducer,  usersReducer}),
+		StoreModule.forRoot({ transactionsReducer,  usersReducer, rcaReducer}),
 		// StoreModule.forRoot(reducers, { metaReducers }),
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
 		EffectsModule.forRoot([TransactionsEffects, UserEffects])

@@ -1,3 +1,6 @@
+<app-toaster message="Datele au fost trimise cu succes" type="success" *ngIf="formValid && showToaster"></app-toaster>
+<app-toaster message="Data introduse nu sunt corecte" type="danger" *ngIf="!formValid && showToaster"></app-toaster>
+
 <form [formGroup]="rcaForm" (ngSubmit)="onSubmit()">
 	<div class="step">Date despre autovehicul</div>
 
