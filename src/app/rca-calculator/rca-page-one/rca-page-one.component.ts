@@ -25,7 +25,7 @@ export class RcaPageOneComponent implements OnInit {
 			'categorie': new FormControl('alege', [Validators.required]),
 			'marca': new FormControl('alege', [Validators.required]),
 			'model': new FormControl('alege', [Validators.required]),
-			'numar identificare sasiu': new FormControl(null, [Validators.required, Validators.pattern(/[0-9]{4,9}/)]),
+			'numar identificare sasiu': new FormControl(null, [Validators.required]),
 			'tip utilizare': new FormControl('utilizare normala', [Validators.required]),
 			'utilizare specifica': new FormControl('alege', [Validators.required]),
 			'serie carte auto': new FormControl(null, [Validators.required]),
@@ -56,23 +56,23 @@ export class RcaPageOneComponent implements OnInit {
 	}
 
 	dispalyInfoExample(event: any) {
-		// const infoExample: HTMLElement = document.querySelector('div.info-example')!;
+		const infoExample: HTMLElement = document.querySelector('div.info-example')!;
 
-		// if (event.clientY > window.innerHeight / 2) {
-		// 	infoExample.style.cssText = `
-        //     display: flex;
-        //     position: absolute;
-        //     top: ${event.clientY - 250}px;
-        //     left: ${event.clientX}px;
-        // `;
-		// } else {
-		// 	infoExample.style.cssText = `
-        //     display: flex;
-        //     position: absolute;
-        //     top: ${event.clientY}px;
-        //     left: ${event.clientX}px;
-        // `;
-		// }
+		if (event.clientY > window.innerHeight / 2) {
+			infoExample.style.cssText = `
+            display: flex;
+            position: absolute;
+            top: ${event.clientY - 250}px;
+            left: ${event.clientX}px;
+        `;
+		} else {
+			infoExample.style.cssText = `
+            display: flex;
+            position: absolute;
+            top: ${event.clientY}px;
+            left: ${event.clientX}px;
+        `;
+		}
 	}
 
 	removeInfoExample() {
@@ -98,11 +98,9 @@ export class RcaPageOneComponent implements OnInit {
 
 		let selectedBrand;
 
-		if (this.rcaForm.get('marca')?.value == 'alege') {
-			selectedBrand = 'alege';
-		} else {
-			selectedBrand = this.carBrands.filter((car: any) => car.brand == this.rcaForm.get('marca')?.value);
-		}
+	
+		selectedBrand = this.carBrands.filter((car: any) => car.brand == this.rcaForm.get('marca')?.value);
+		
 
 		this.carModels = selectedBrand[0].models;
 

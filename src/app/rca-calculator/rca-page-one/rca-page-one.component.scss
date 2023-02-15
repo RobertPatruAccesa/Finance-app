@@ -5,7 +5,7 @@
 	align-items: center;
 	justify-content: center;
 
-    overflow-y: auto;
+	overflow-y: auto;
 
 	form {
 		width: 100%;
@@ -18,6 +18,15 @@
 		align-items: flex-start;
 
 		font-size: 22px;
+
+		// THIS MAKES SURE THAT INPUT'S BACKGROUND COLOR STAYS UNCHANGED WHEN USING THE AUTOFILL FUNCTION
+		input:-webkit-autofill,
+		input:-webkit-autofill:hover,
+		input:-webkit-autofill:focus,
+		input:-webkit-autofill:active {
+			-webkit-transition: 'color 9999s ease-out, white 9999s ease-out';
+			-webkit-transition-delay: 9999s;
+		}
 
 		// GET RID OF ARROWS IN INPUT TYPE NUMBER
 		/* Chrome, Safari, Edge, Opera */
@@ -86,31 +95,30 @@
 		}
 
 		.registration-plate-number-container {
-            width: 650px;
+			width: 650px;
 			display: grid;
-            justify-content: space-between;
-            align-items: center;
+			justify-content: space-between;
+			align-items: center;
 
-            grid-template-areas: 
-                'registration license-plate'
-                'registration-message license-plate-message'
-            ;
+			grid-template-areas:
+				'registration license-plate'
+				'registration-message license-plate-message';
 
 			.stare-inmatriculare {
 				width: 300px;
-                grid-area: registration;
+				grid-area: registration;
 			}
-            .registration-error-message {
-                grid-area: registration-message;
-            }
+			.registration-error-message {
+				grid-area: registration-message;
+			}
 
-            .license-plate {
-                width: 300px;
-                grid-area: license-plate;
-            }
-            .license-plate-error-message {
-                grid-area: license-plate-message;
-            }
+			.license-plate {
+				width: 300px;
+				grid-area: license-plate;
+			}
+			.license-plate-error-message {
+				grid-area: license-plate-message;
+			}
 		}
 
 		.container-category-brand-model {
@@ -122,7 +130,7 @@
 				'category-message brand-message model-message';
 
 			.category {
-                width: 300px;
+				width: 300px;
 				grid-area: category;
 			}
 			.category-error-message {
@@ -130,7 +138,7 @@
 			}
 
 			.brand {
-                width: 130px;
+				width: 130px;
 				grid-area: brand;
 			}
 			.brand-error-message {
@@ -138,7 +146,7 @@
 			}
 
 			.model {
-                width: 130px;
+				width: 130px;
 				grid-area: model;
 			}
 			.model-error-message {
@@ -185,7 +193,7 @@
 				border: none;
 				outline: transparent;
 				z-index: 1;
-                font-size: 16px;
+				font-size: 16px;
 
 				&:hover {
 					cursor: pointer;
@@ -303,22 +311,22 @@
 			}
 		}
 
-        .extra-services {
-            margin-top: 20px;
-            height: 100%;
-            padding-top: 20px;
-            position: relative;
+		.extra-services {
+			margin-top: 20px;
+			height: 100%;
+			padding-top: 20px;
+			position: relative;
 
-            label {
-                position: absolute;
-                top: -20px !important;
-                background-color: white;
-            }
-        }
+			label {
+				position: absolute;
+				top: -20px !important;
+				background-color: white;
+			}
+		}
 	}
 
-
 	.info {
+		box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.2);
 		max-width: 30%;
 		height: 510px;
 
@@ -371,6 +379,8 @@
 		border-radius: 5px;
 		background-color: #b9d1e7;
 
+		box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.8);
+
 		font-weight: 300;
 		letter-spacing: 0.5px;
 
@@ -395,7 +405,7 @@
 
 			.row-A {
 				width: 50%;
-				background-color: #d9caf1;
+				// background-color: #d9caf1;
 				.line {
 					display: flex;
 
@@ -428,7 +438,7 @@
 
 			.row-B {
 				width: 50%;
-				background-color: #f0dda4;
+				// background-color: #f0dda4;
 
 				display: flex;
 
