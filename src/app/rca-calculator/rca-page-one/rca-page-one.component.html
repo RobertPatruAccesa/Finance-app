@@ -1,7 +1,7 @@
 <form [formGroup]="rcaForm" (ngSubmit)="onSubmit()">
 	<div class="step">Pasul 1 din 2: date despre autovehicul</div>
 	<!-- STARE INAMTRICULARE -->
-	<div class="group-has-select">
+	<div class="group-has-select stare-inmatriculare">
 		<label for="stare inmatriculare">Stare inmatriculare</label>
 		<select name="stare inmatriculare" formControlName="stare inmatriculare">
 			<option value="alege"></option>
@@ -39,61 +39,63 @@
 		>
 	</span>
 
-	<!-- CATEGORIE -->
-	<div class="group-has-select">
-		<label for="categorie">Categorie</label>
-		<select
-			name="categorie"
-			formControlName="categorie"
-			(mousemove)="onSelectCategorie($event)"
-			(mouseout)="removeInfoExample()"
+	<div class="container-category-brand-model">
+		<!-- CATEGORIE -->
+		<div class="group-has-select category">
+			<label for="categorie">Categorie</label>
+			<select
+				name="categorie"
+				formControlName="categorie"
+				(mousemove)="onSelectCategorie($event)"
+				(mouseout)="removeInfoExample()"
+			>
+				<option value="alege"></option>
+				<option value="autoturism">autoturism (inclusiv autoturisme de teren)</option>
+				<option value="autoutilitara">autoutilitara, autofurgoneta</option>
+				<option value="motocicleta">motocicleta, scuter, atv</option>
+				<option value="remorca">remorca</option>
+			</select>
+		</div>
+		<span
+			class="invalid-message category-error-message"
+			*ngIf="rcaForm.get('categorie')?.value == 'alege' && rcaForm.get('categorie')?.touched"
+			>Alege categoria din care face parte masina</span
 		>
-			<option value="alege"></option>
-			<option value="autoturism">autoturism (inclusiv autoturisme de teren)</option>
-			<option value="autoutilitara">autoutilitara, autofurgoneta</option>
-			<option value="motocicleta">motocicleta, scuter, atv</option>
-			<option value="remorca">remorca</option>
-		</select>
-	</div>
-	<span
-		class="invalid-message"
-		*ngIf="rcaForm.get('categorie')?.value == 'alege' && rcaForm.get('categorie')?.touched"
-		>Alege categoria din care face parte masina</span
-	>
 
-	<!-- MARCA -->
-	<div class="group-has-select">
-		<label for="marca">Marca</label>
-		<select
-			name="marca"
-			formControlName="marca"
-			(mousemove)="onSelectMarca($event)"
-			(mouseout)="removeInfoExample()"
+		<!-- MARCA -->
+		<div class="group-has-select brand">
+			<label for="marca">Marca</label>
+			<select
+				name="marca"
+				formControlName="marca"
+				(mousemove)="onSelectMarca($event)"
+				(mouseout)="removeInfoExample()"
+			>
+				<option value="alege"></option>
+				<option *ngFor="let item of carBrands" [value]="item.brand">{{ item.brand }}</option>
+			</select>
+		</div>
+		<span class="invalid-message brand-error-message" *ngIf="rcaForm.get('marca')?.value == 'alege' && rcaForm.get('marca')?.touched"
+			>Alege marca masinii</span
 		>
-			<option value="alege"></option>
-			<option *ngFor="let item of carBrands" [value]="item.brand">{{ item.brand }}</option>
-		</select>
-	</div>
-	<span class="invalid-message" *ngIf="rcaForm.get('marca')?.value == 'alege' && rcaForm.get('marca')?.touched"
-		>Alege marca masinii</span
-	>
 
-	<!-- MODEL -->
-	<div class="group-has-select">
-		<label for="model">Model</label>
-		<select
-			name="model"
-			formControlName="model"
-			(mousemove)="onSelectModel($event)"
-			(mouseout)="removeInfoExample()"
+		<!-- MODEL -->
+		<div class="group-has-select model">
+			<label for="model">Model</label>
+			<select
+				name="model"
+				formControlName="model"
+				(mousemove)="onSelectModel($event)"
+				(mouseout)="removeInfoExample()"
+			>
+				<option value="alege"></option>
+				<option *ngFor="let model of carModels" [value]="model">{{ model }}</option>
+			</select>
+		</div>
+		<span class="invalid-message model-error-message" *ngIf="rcaForm.get('model')?.value == 'alege' && rcaForm.get('model')?.touched"
+			>Alege modelul masinii</span
 		>
-			<option value="alege"></option>
-			<option *ngFor="let model of carModels" [value]="model">{{ model }}</option>
-		</select>
 	</div>
-	<span class="invalid-message" *ngIf="rcaForm.get('model')?.value == 'alege' && rcaForm.get('model')?.touched"
-		>Alege modelul masinii</span
-	>
 
 	<!-- NUMAR IDENTIFICARE SASIU -->
 	<div class="group">
