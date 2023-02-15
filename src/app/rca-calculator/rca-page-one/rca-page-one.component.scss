@@ -41,7 +41,7 @@
 			height: 40px;
 			padding: 2px;
 			width: 100%;
-			margin-bottom: 12px;
+			margin-bottom: 22px;
 			border: 3px solid #bbbbbb;
 			border-radius: 8px;
 			position: relative;
@@ -63,7 +63,7 @@
 			}
 
 			input {
-				width: calc(100% - 5px);
+				width: calc(100% - 10px);
 				height: calc(100% - 5px);
 				border-radius: 8px;
 
@@ -83,39 +83,65 @@
 			}
 		}
 
-		.stare-inmatriculare {
-			width: 50%;
+		.registration-plate-number-container {
+            width: 650px;
+			display: grid;
+            justify-content: space-between;
+            align-items: center;
+
+            grid-template-areas: 
+                'registration license-plate'
+                'registration-message license-plate-message'
+            ;
+
+			.stare-inmatriculare {
+				width: 300px;
+                grid-area: registration;
+			}
+            .registration-error-message {
+                grid-area: registration-message;
+            }
+
+            .license-plate {
+                width: 300px;
+                grid-area: license-plate;
+            }
+            .license-plate-error-message {
+                grid-area: license-plate-message;
+            }
 		}
 
 		.container-category-brand-model {
-            width: 100%;
+			width: 650px;
 			display: grid;
-            justify-content: space-between;
-            grid-template-areas: 
-                'category brand model'
-                'category-message brand-message model-message'
-            ;
+			justify-content: space-between;
+			grid-template-areas:
+				'category brand model'
+				'category-message brand-message model-message';
 
-            .category {
-                grid-area: category;
-            }
-            .category-error-message {
-                grid-area: category-message;
-            }
+			.category {
+                width: 300px;
+				grid-area: category;
+			}
+			.category-error-message {
+				grid-area: category-message;
+			}
 
-            .brand {
-                grid-area: brand;
-            }
-            .brand-error-message {
-                grid-area: brand-message;
-            }
+			.brand {
+                width: 130px;
+				grid-area: brand;
+			}
+			.brand-error-message {
+				grid-area: brand-message;
+			}
 
-            .model {
-                grid-area: model;
-            }
-            .model-error-message {
-                grid-area: model-message;
-            }
+			.model {
+                width: 130px;
+				grid-area: model;
+			}
+			.model-error-message {
+				grid-area: model-message;
+			}
 		}
 
 		.group-has-select {
@@ -157,6 +183,7 @@
 				border: none;
 				outline: transparent;
 				z-index: 1;
+                font-size: 16px;
 
 				&:hover {
 					cursor: pointer;
@@ -167,38 +194,33 @@
 					outline: none;
 
 					font-size: 16px;
-					border: 5px violet dotted;
 				}
 			}
 		}
 
-		.radio-select-container {
-			width: 100%;
-			margin-bottom: 15px;
+		.radio-options-container {
+			margin: 22px 0;
 
-			.radio-options-container {
-				margin-top: 10px;
+			width: 500px;
 
-				width: calc(100% - 240px);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
 
-				display: flex;
-				justify-content: space-between;
+			.radio-option {
+				margin: 5px 0;
+				padding: 5px 10px;
+				border-radius: 2px;
 
-				.radio-option {
-					margin: 5px 0;
-					padding: 5px 10px;
-					border-radius: 2px;
+				border: 1px #6c757d solid;
 
-					border: 1px #6c757d solid;
-
-					label {
-						width: auto;
-					}
-					input {
-						width: auto;
-						&:hover {
-							cursor: pointer;
-						}
+				label {
+					width: auto;
+				}
+				input {
+					width: auto;
+					&:hover {
+						cursor: pointer;
 					}
 				}
 			}
@@ -278,7 +300,21 @@
 				text-align: end;
 			}
 		}
+
+        .extra-services {
+            margin-top: 20px;
+            height: 100%;
+            padding-top: 20px;
+            position: relative;
+
+            label {
+                position: absolute;
+                top: -20px !important;
+                background-color: white;
+            }
+        }
 	}
+
 
 	.info {
 		max-width: 30%;
