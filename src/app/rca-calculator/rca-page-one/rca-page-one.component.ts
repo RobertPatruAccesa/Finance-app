@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
-import { sendForm } from '../store/rca.reducer';
+import { SendForm } from '../store/rca.actions';
+import { RcaForm } from '../rca-form.models';
 
 @Component({
 	selector: 'app-rca-page-one',
@@ -23,24 +24,24 @@ export class RcaPageOneComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.rcaForm = new FormGroup({
-			'stare_inmatriculare': new FormControl('alege', Validators.required),
-			'numar_inmatriculare': new FormControl(null, [
+			stare_inmatriculare: new FormControl('alege', Validators.required),
+			numar_inmatriculare: new FormControl(null, [
 				Validators.required,
 				Validators.pattern(/[a-zA-Z]{1,2}[0-9]{1,2}[a-zA-Z]{3}/)
 			]),
 			categorie: new FormControl('alege', [Validators.required]),
 			marca: new FormControl('alege', [Validators.required]),
 			model: new FormControl('alege', [Validators.required]),
-			'numar_identificare_sasiu': new FormControl(null, [Validators.required]),
-			'tip_utilizare': new FormControl('utilizare normala', [Validators.required]),
-			'utilizare_specifica': new FormControl('alege', [Validators.required]),
-			'serie_carte_auto': new FormControl(null, [Validators.required]),
-			'masa_maxima_autorizata': new FormControl(null, [Validators.required]),
-			'capacitate_cilindrica': new FormControl(null, [Validators.required]),
-			'an_fabricatie': new FormControl(null, [Validators.required]),
-			'numar_locuri': new FormControl(null, [Validators.required]),
+			numar_identificare_sasiu: new FormControl(null, [Validators.required]),
+			tip_utilizare: new FormControl('utilizare normala', [Validators.required]),
+			utilizare_specifica: new FormControl('alege', [Validators.required]),
+			serie_carte_auto: new FormControl(null, [Validators.required]),
+			masa_maxima_autorizata: new FormControl(null, [Validators.required]),
+			capacitate_cilindrica: new FormControl(null, [Validators.required]),
+			an_fabricatie: new FormControl(null, [Validators.required]),
+			numar_locuri: new FormControl(null, [Validators.required]),
 			putere: new FormControl(null, [Validators.required]),
-			'servicii_extra': new FormControl('alege', [])
+			servicii_extra: new FormControl('alege', [])
 		});
 
 		// this.carBrands = getCarBrands();
@@ -52,22 +53,32 @@ export class RcaPageOneComponent implements OnInit {
 		console.log(this.rcaForm.value);
 
 		if (this.rcaForm.status == 'VALID') {
-			console.log('Formul este valid');
+			const form: RcaForm = {
+				an_fabricatie: this.rcaForm.value.an_fabricatie,
+				capacitate_cilindrica: this.rcaForm.value.capacitate_cilindrica,
+				categorie: this.rcaForm.value.categorie,
+				marca: this.rcaForm.value.marca,
+				masa_maxima_autorizata: this.rcaForm.value.masa_maxima_autorizata,
+				mode: this.rcaForm.value.mode,
+				numar_identificare_sasiu: this.rcaForm.value.numar_identificare_sasiu,
+				numar_inmatriculare: this.rcaForm.value.numar_inmatriculare,
+				numar_locuri: this.rcaForm.value.numar_locuri,
+				putere: this.rcaForm.value.putere,
+				serie_carte_auto: this.rcaForm.value.serie_carte_auto,
+				servicii_extra: this.rcaForm.value.servicii_extra,
+				stare_inmatriculare: this.rcaForm.value.stare_inmatriculare,
+				tip_utilizare: this.rcaForm.value.tip_utilizare,
+				utilizare_specifica: this.rcaForm.value.utilizare_specifica
+			};
+
+			this.store.dispatch(SendForm({ rcaForm: form }));
+
 			this.showToaster = true;
 			this.formValid = true;
 		} else {
-			console.log('Formul NU este valid');
 			this.showToaster = true;
 			this.formValid = false;
 		}
-
-        const form = {
-			rcaForm: [
-				
-			]
-		};
-
-		// this.store.dispatch(sendForm({ rcaForm: form.rcaForm }));
 
 		setTimeout(() => {
 			this.showToaster = false;
