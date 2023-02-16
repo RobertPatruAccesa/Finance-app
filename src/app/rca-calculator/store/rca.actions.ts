@@ -1,6 +1,8 @@
 import { createAction, props } from '@ngrx/store';
 
-export const SendForm = createAction(
-    '[RCA Page] Send form', 
-    props<{ rcaForm: any }>()
-    );
+// export interface RcaForm  {
+    
+
+// }
+
+export const SendForm = createAction('[RCA Page] Send form', props<{ rcaForm: any }>());

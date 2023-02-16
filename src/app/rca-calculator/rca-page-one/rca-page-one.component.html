@@ -8,7 +8,7 @@
 		<!-- STARE INAMTRICULARE -->
 		<div class="group-has-select stare-inmatriculare">
 			<label for="stare inmatriculare">Stare inmatriculare</label>
-			<select name="stare inmatriculare" formControlName="stare inmatriculare">
+			<select name="stare inmatriculare" formControlName="stare_inmatriculare">
 				<option value="alege"></option>
 				<option value="inmatriculat">inmatriculat</option>
 				<option value="in vederea inmatricularii">in vederea inmatricularii</option>
@@ -16,7 +16,7 @@
 		</div>
 		<span
 			class="invalid-message registration-error-message"
-			*ngIf="rcaForm.get('stare inmatriculare')?.value == 'alege' && rcaForm.get('stare inmatriculare')?.touched"
+			*ngIf="rcaForm.get('stare_inmatriculare')?.value == 'alege' && rcaForm.get('stare_inmatriculare')?.touched"
 			>Alege starea masinii</span
 		>
 
@@ -26,7 +26,7 @@
 			<input
 				type="text"
 				name="numar inmatriculare"
-				formControlName="numar inmatriculare"
+				formControlName="numar_inmatriculare"
 				style="text-transform: uppercase"
 				(mousemove)="onSelectNumarInmatriculare($event)"
 				(mouseout)="removeInfoExample()"
@@ -34,12 +34,12 @@
 		</div>
 		<span
 			class="invalid-message license-plate-error-message"
-			*ngIf="!rcaForm.get('numar inmatriculare')?.valid && rcaForm.get('numar inmatriculare')?.touched"
+			*ngIf="!rcaForm.get('numar_inmatriculare')?.valid && rcaForm.get('numar_inmatriculare')?.touched"
 		>
-			<span *ngIf="rcaForm.controls?.['numar inmatriculare']?.errors?.['pattern']">
+			<span *ngIf="rcaForm.controls?.['numar_inmatriculare']?.errors?.['pattern']">
 				Introdu un numar de inmatriculare valid</span
 			>
-			<span *ngIf="rcaForm.controls?.['numar inmatriculare']?.errors?.['required']">
+			<span *ngIf="rcaForm.controls?.['numar_inmatriculare']?.errors?.['required']">
 				Introdu un numar de inmatriculare</span
 			>
 		</span>
@@ -113,7 +113,7 @@
 		<input
 			type="text"
 			name="numar sasiu"
-			formControlName="numar identificare sasiu"
+			formControlName="numar_identificare_sasiu"
 			minlength="5"
 			style="text-transform: uppercase"
 			(mousemove)="onSelectNumarIdentificareSasiu($event)"
@@ -122,12 +122,12 @@
 	</div>
 	<span
 		class="invalid-message"
-		*ngIf="!rcaForm.get('numar identificare sasiu')?.valid && rcaForm.get('numar identificare sasiu')?.touched"
+		*ngIf="!rcaForm.get('numar_identificare_sasiu')?.valid && rcaForm.get('numar_identificare_sasiu')?.touched"
 	>
-		<span *ngIf="rcaForm.controls?.['numar identificare sasiu']?.errors?.['required']"
+		<span *ngIf="rcaForm.controls?.['numar_identificare_sasiu']?.errors?.['required']"
 			>Introdu seria de sasiu a autovehiculului</span
 		>
-		<span *ngIf="rcaForm.controls?.['numar identificare sasiu']?.errors?.['minlength']"
+		<span *ngIf="rcaForm.controls?.['numar_identificare_sasiu']?.errors?.['minlength']"
 			>Introdu o serie de sasiu valabila</span
 		>
 	</span>
@@ -137,19 +137,19 @@
 	<div class="radio-options-container">
 		<label for="tip utilizare">Tip utilizare:</label>
 		<div class="radio-option">
-			<input type="radio" name="tip utilizare" value="utilizare normala" formControlName="tip utilizare" />
+			<input type="radio" name="tip utilizare" value="utilizare normala" formControlName="tip_utilizare" />
 			<label for="tip utilizare">Utilizare normala</label>
 		</div>
 		<div class="radio-option">
-			<input type="radio" name="tip utilizare" value="alta utilizare" formControlName="tip utilizare" />
+			<input type="radio" name="tip utilizare" value="alta utilizare" formControlName="tip_utilizare" />
 			<label for="tip utilizare">Alta utilizare</label>
 		</div>
 	</div>
 
 	<!-- UTILIZRE SPECIFICA -->
-	<div class="group-has-select" *ngIf="rcaForm.get('tip utilizare')?.value == 'alta utilizare'">
+	<div class="group-has-select" *ngIf="rcaForm.get('tip_utilizare')?.value == 'alta utilizare'">
 		<label for="utilizare specifica">Utilizare specifica</label>
-		<select name="utilizare specifica" formControlName="utilizare specifica">
+		<select name="utilizare specifica" formControlName="utilizare_specifica">
 			<option value="alege"></option>
 			<option value="taxi">Taxi</option>
 			<option value="curierat">Curierat</option>
@@ -163,7 +163,7 @@
 	</div>
 	<span
 		class="invalid-message"
-		*ngIf="rcaForm.get('utilizare specifica')?.value == 'alege' && rcaForm.get('utilizare specifica')?.touched"
+		*ngIf="rcaForm.get('utilizare_specifica')?.value == 'alege' && rcaForm.get('utilizare_specifica')?.touched"
 		>Alege modul de utilizare specific autovehiculului</span
 	>
 
@@ -173,19 +173,19 @@
 		<input
 			type="text"
 			name="serie carte auto"
-			formControlName="serie carte auto"
+			formControlName="serie_carte_auto"
 			(mousemove)="onSelectSerieCarteAuto($event)"
 			(mouseout)="removeInfoExample()"
 		/>
 	</div>
 	<span
 		class="invalid-message"
-		*ngIf="!rcaForm.get('serie carte auto')?.valid && rcaForm.get('serie carte auto')?.touched"
+		*ngIf="!rcaForm.get('serie_carte_auto')?.valid && rcaForm.get('serie_carte_auto')?.touched"
 	>
-		<span *ngIf="rcaForm.controls?.['serie carte auto']?.errors?.['required']"
+		<span *ngIf="rcaForm.controls?.['serie_carte_auto']?.errors?.['required']"
 			>Introdu seria cartii auto a autovehiculului</span
 		>
-		<span *ngIf="rcaForm.controls?.['serie carte auto']?.errors?.['pattern']">Introdu o serie valida</span>
+		<span *ngIf="rcaForm.controls?.['serie_carte_auto']?.errors?.['pattern']">Introdu o serie valida</span>
 	</span>
 
 	<div class="container-subgroups">
@@ -197,7 +197,7 @@
 				<input
 					type="text"
 					name="masa maxima autorizata"
-					formControlName="masa maxima autorizata"
+					formControlName="masa_maxima_autorizata"
 					minlength="3"
 					(mousemove)="onSelectMasaMaximaAutorizata($event)"
 					(mouseout)="removeInfoExample()"
@@ -205,12 +205,12 @@
 			</div>
 			<span
 				class="invalid-message invalid-message-for-subgroups"
-				*ngIf="!rcaForm.get('masa maxima autorizata')?.valid && rcaForm.get('masa maxima autorizata')?.touched"
+				*ngIf="!rcaForm.get('masa_maxima_autorizata')?.valid && rcaForm.get('masa_maxima_autorizata')?.touched"
 			>
-				<span *ngIf="rcaForm.controls?.['masa maxima autorizata']?.errors?.['required']"
+				<span *ngIf="rcaForm.controls?.['masa_maxima_autorizata']?.errors?.['required']"
 					>Introdu masa maxima autorizata</span
 				>
-				<span *ngIf="rcaForm.controls?.['masa maxima autorizata']?.errors?.['minlength']"
+				<span *ngIf="rcaForm.controls?.['masa_maxima_autorizata']?.errors?.['minlength']"
 					>Masa autovehiculului trebuie sa contina cel putin 3 cifre</span
 				>
 			</span>
@@ -221,7 +221,7 @@
 				<input
 					type="text"
 					name="capacitate cilindrica"
-					formControlName="capacitate cilindrica"
+					formControlName="capacitate_cilindrica"
 					minlength="2"
 					(mousemove)="onSelectCapacitateCilindrica($event)"
 					(mouseout)="removeInfoExample()"
@@ -229,12 +229,12 @@
 			</div>
 			<span
 				class="invalid-message invalid-message-for-subgroups"
-				*ngIf="!rcaForm.get('capacitate cilindrica')?.valid && rcaForm.get('capacitate cilindrica')?.touched"
+				*ngIf="!rcaForm.get('capacitate_cilindrica')?.valid && rcaForm.get('capacitate_cilindrica')?.touched"
 			>
-				<span *ngIf="rcaForm.controls?.['capacitate cilindrica']?.errors?.['required']"
+				<span *ngIf="rcaForm.controls?.['capacitate_cilindrica']?.errors?.['required']"
 					>Introdu capacitatea cilindrica a autovehiculului</span
 				>
-				<span *ngIf="rcaForm.controls?.['capacitate cilindrica']?.errors?.['minlength']"
+				<span *ngIf="rcaForm.controls?.['capacitate_cilindrica']?.errors?.['minlength']"
 					>Capacitatea cilindrica a autovehiculului trebuie sa contina cel putin 2 cifre</span
 				>
 			</span>
@@ -245,7 +245,7 @@
 				<input
 					type="text"
 					name="an fabricatie"
-					formControlName="an fabricatie"
+					formControlName="an_fabricatie"
 					minlength="4"
 					(mousemove)="onSelectAnFabricatie($event)"
 					(mouseout)="removeInfoExample()"
@@ -253,12 +253,12 @@
 			</div>
 			<span
 				class="invalid-message invalid-message-for-subgroups"
-				*ngIf="!rcaForm.get('an fabricatie')?.valid && rcaForm.get('an fabricatie')?.touched"
+				*ngIf="!rcaForm.get('an_fabricatie')?.valid && rcaForm.get('an_fabricatie')?.touched"
 			>
-				<span *ngIf="rcaForm.controls?.['an fabricatie']?.errors?.['required']"
+				<span *ngIf="rcaForm.controls?.['an_fabricatie']?.errors?.['required']"
 					>Introdu anul de fabricatia al autovehiculului</span
 				>
-				<span *ngIf="rcaForm.controls?.['an fabricatie']?.errors?.['minlength']"
+				<span *ngIf="rcaForm.controls?.['an_fabricatie']?.errors?.['minlength']"
 					>Anul de fabricatia al autovehiculului trebuie sa contina 4 cifre</span
 				>
 			</span>
@@ -272,14 +272,14 @@
 				<input
 					type="number"
 					name="numar locuri"
-					formControlName="numar locuri"
+					formControlName="numar_locuri"
 					(mousemove)="onSelectNumarLocuri($event)"
 					(mouseout)="removeInfoExample()"
 				/>
 			</div>
 			<span
 				class="invalid-message invalid-message-for-subgroups"
-				*ngIf="!rcaForm.get('numar locuri')?.valid && rcaForm.get('numar locuri')?.touched"
+				*ngIf="!rcaForm.get('numar_locuri')?.valid && rcaForm.get('numar_locuri')?.touched"
 			>
 				Introdu numarul de locuri al autovehiculului
 			</span>
@@ -307,7 +307,7 @@
 	<!-- SERVICII EXTRA -->
 	<div class="group-has-select extra-services">
 		<label for="servicii extra">Servicii extra</label>
-		<select name="servicii exNiciunatra" formControlName="servicii extra" multiple="multiple">
+		<select name="servicii exNiciunatra" formControlName="servicii_extra" multiple="multiple">
 			<option value="niciuna">Niciuna</option>
 			<option *ngFor="let serviciu of serviciiExtra" [value]="serviciu">{{ serviciu }}</option>
 		</select>

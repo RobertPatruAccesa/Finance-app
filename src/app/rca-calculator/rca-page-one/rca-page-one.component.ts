@@ -23,24 +23,24 @@ export class RcaPageOneComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.rcaForm = new FormGroup({
-			'stare inmatriculare': new FormControl('alege', Validators.required),
-			'numar inmatriculare': new FormControl(null, [
+			'stare_inmatriculare': new FormControl('alege', Validators.required),
+			'numar_inmatriculare': new FormControl(null, [
 				Validators.required,
 				Validators.pattern(/[a-zA-Z]{1,2}[0-9]{1,2}[a-zA-Z]{3}/)
 			]),
 			categorie: new FormControl('alege', [Validators.required]),
 			marca: new FormControl('alege', [Validators.required]),
 			model: new FormControl('alege', [Validators.required]),
-			'numar identificare sasiu': new FormControl(null, [Validators.required]),
-			'tip utilizare': new FormControl('utilizare normala', [Validators.required]),
-			'utilizare specifica': new FormControl('alege', [Validators.required]),
-			'serie carte auto': new FormControl(null, [Validators.required]),
-			'masa maxima autorizata': new FormControl(null, [Validators.required]),
-			'capacitate cilindrica': new FormControl(null, [Validators.required]),
-			'an fabricatie': new FormControl(null, [Validators.required]),
-			'numar locuri': new FormControl(null, [Validators.required]),
+			'numar_identificare_sasiu': new FormControl(null, [Validators.required]),
+			'tip_utilizare': new FormControl('utilizare normala', [Validators.required]),
+			'utilizare_specifica': new FormControl('alege', [Validators.required]),
+			'serie_carte_auto': new FormControl(null, [Validators.required]),
+			'masa_maxima_autorizata': new FormControl(null, [Validators.required]),
+			'capacitate_cilindrica': new FormControl(null, [Validators.required]),
+			'an_fabricatie': new FormControl(null, [Validators.required]),
+			'numar_locuri': new FormControl(null, [Validators.required]),
 			putere: new FormControl(null, [Validators.required]),
-			'servicii extra': new FormControl('alege', [])
+			'servicii_extra': new FormControl('alege', [])
 		});
 
 		// this.carBrands = getCarBrands();
@@ -49,7 +49,7 @@ export class RcaPageOneComponent implements OnInit {
 	}
 
 	onSubmit() {
-		console.log(this.rcaForm);
+		console.log(this.rcaForm.value);
 
 		if (this.rcaForm.status == 'VALID') {
 			console.log('Formul este valid');
@@ -61,7 +61,13 @@ export class RcaPageOneComponent implements OnInit {
 			this.formValid = false;
 		}
 
-		// this.store.dispatch(sendForm({ rcaForm: this.rcaForm }));
+        const form = {
+			rcaForm: [
+				
+			]
+		};
+
+		// this.store.dispatch(sendForm({ rcaForm: form.rcaForm }));
 
 		setTimeout(() => {
 			this.showToaster = false;
