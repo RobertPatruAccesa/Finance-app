@@ -1,32 +1,44 @@
-<form>
+<app-toaster type="danger" message="Something went wrong!" *ngIf="showErorr"></app-toaster>
+<app-toaster type="success" message="Transaction added!" *ngIf="transactionAdded"></app-toaster>
+
+<form #f="ngForm">
 	<div class="group-container description-container">
 		<label for="descriptions">Description</label>
-		<textarea name="description" cols="30" rows="10" placeholder="Transaction's Description"></textarea>
+		<textarea
+			name="description"
+			cols="30"
+			rows="10"
+			placeholder="Transaction's Description"
+			[(ngModel)]="transactionDescription"
+			name="description"
+		></textarea>
 	</div>
 	<div class="group-container amount-container">
 		<label for="amount">Amount</label>
-		<input type="number" name="amount" placeholder="0">
+		<input type="number" name="amount" placeholder="0" [(ngModel)]="transactionAmount" name="amount" />
 	</div>
 	<div class="group-container category-container">
 		<label for="category">Category</label>
-		<select name="category">
+		<select name="category" [(ngModel)]="transactionCategory" name="category" [value]="transactionCategory">
 			<option value="groceries">Groceries</option>
 			<option value="entertainment">Entertainment</option>
 			<option value="traveling">Traveling</option>
 			<option value="savings">Savings</option>
+			<option value="living-cost">Living Cost</option>
 		</select>
 	</div>
 	<div class="group-container payment-type-container">
 		<label for="payment-type">Payment Type</label>
-		<select name="payment type">
-			<option value="paymeny">Paymeny</option>
+		<select name="payment type" [(ngModel)]="transactionType" name="payment-type">
+			<option value="payment">Payment</option>
 			<option value="encashment">Encashment</option>
 		</select>
 	</div>
 	<div class="group-container date-container">
 		<label for="date">Date</label>
-		<input type="date" name="date" [value]="selectedDate">
+		<input type="date" name="date" [(ngModel)]="transactionDate" name="date" />
 	</div>
-	<button>CANCEL</button>
-	<button>COMPLETE TRANSACTION</button>
+
+	<app-button text="CANCEL"></app-button>
+	<app-button text="ADD TRANSACTION" (click)="onSubmitForm()"></app-button>
 </form>

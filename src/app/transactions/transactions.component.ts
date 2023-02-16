@@ -1,37 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Transaction } from '../core/interfaces/transaction.interface';
+import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { deployGetAllTransactionsAction } from '../store/transactions/transactions.actions';
+import { getTransactionsSelector } from '../store/transactions/transactions.selector'; 
 
 @Component({
-  selector: 'app-transactions',
-  templateUrl: './transactions.component.html',
-  styleUrls: ['./transactions.component.scss']
+	selector: 'app-transactions',
+	templateUrl: './transactions.component.html',
+	styleUrls: ['./transactions.component.scss']
 })
-export class TransactionsComponent {
-	transactions: any = [
-		{
-			userId: "1",
-			transactionId: "1",
-			amount: "100.00",
-			type: "payment",
-			date: "23.12.2022",
-			description: "Electricity bill"
-		},
-		{
-			userId: "1",
-			transactionId: "2",
-			amount: "1000.00",
-			type: "payment",
-			date: "02.01.2023",
-			description: "Paying Rent"
-		},
-		{
-			userId: "1",
-			transactionId: "3",
-			amount: "100.00",
-			type: "payment",
-			date: "23.12.2022",
-			description: "Electricity bill"
-		}
-	]
+export class TransactionsComponent implements OnInit {
+	transactions$!: Observable<Transaction[]>;
 
-	constructor () {	}
+	constructor(private store: Store<{ transactions: Transaction[] }>) {}
+
+	ngOnInit(): void {
+		this.store.dispatch(deployGetAllTransactionsAction())
+		this.transactions$ = this.store.pipe(select(getTransactionsSelector))
+	}
 }

@@ -3,14 +3,20 @@
 <div class="main-buttons align-center-x-Y-flexStart">
 	<app-button
 		text="Home"
-		routerLink=""
+		routerLink="home"
 		routerLinkActive="active"
 		[routerLinkActiveOptions]="{ exact: true }"
 	></app-button>
 	<app-button text="Transactions" routerLink="transactions" routerLinkActive="active"></app-button>
 	<app-button text="Create Transaction" routerLink="create-transaction" routerLinkActive="active"></app-button>
+	<app-button text="RCA" routerLink="RCA/1" routerLinkActive="active"></app-button>
+</div>
+
+<div>
+	<h1>Is user loggedin: {{ userIsLoggedin }}</h1>
 </div>
 
 <div class="secondary-buttons align-center-x-Y-flexStart">
-	<app-button text="Log In"></app-button>
+	<app-button text="Log In" routerLink="login" routerLinkActive="active" *ngIf="!userIsLoggedin"></app-button>
+	<app-button text="Log Out" routerLink="login" *ngIf="userIsLoggedin" (click)="onLogout()"></app-button>
 </div>

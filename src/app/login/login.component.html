@@ -1,0 +1,15 @@
+<app-toaster message="Login completed" type="success" *ngIf="userIsloggedin && showToaster"></app-toaster>
+<app-toaster message="Login failed" type="danger" *ngIf="!userIsloggedin && showToaster"></app-toaster>
+
+<form>
+	<div class="group">
+		<label for="username">Username</label>
+		<input type="text" name="username" [(ngModel)]="username">
+	</div>
+	<div class="group">
+		<label for="password">Password</label>
+		<input type="password" name="password" [(ngModel)]="password">
+	</div>
+
+	<app-button text="LOGIN" (click)="onLogin()"></app-button>
+</form>

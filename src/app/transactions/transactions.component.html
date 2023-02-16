@@ -7,14 +7,15 @@
 
 <span class="line"></span>
 
+
 <div
 	class="transaction-container"
-	*ngFor="let transaction of transactions; let i = index"
+	*ngFor="let transaction of transactions$ | async; let i = index"
 	[ngClass]="{ 'bg-color-gray': i % 2 === 0 }"
-	[routerLink]="transaction.transactionId"
+	[routerLink]="transaction.id"
 >
-	<p class="information">{{ transaction.transactionId }}</p>
+	<p class="information">{{ transaction.id }}</p>
 	<p class="information description">{{ transaction.description }}</p>
-	<p class="information">{{ transaction.amount }}</p>
+	<p class="information"> <span *ngIf="transaction.type === 'payment'">-</span> <span *ngIf="transaction.type === 'addition'">+</span> {{ transaction.amount }}</p>
 	<p class="information">{{ transaction.date }}</p>
 </div>
