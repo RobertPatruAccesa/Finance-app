@@ -69,11 +69,12 @@
 		>
 
 		<!-- MARCA -->
-		<div class="group-has-select brand">
-			<label for="marca">Marca</label>
+		<div class="group-has-select brand marca-container">
+			<label for="marca" class="marca-label">Marca</label>
 			<select
 				name="marca"
 				formControlName="marca"
+                class="marca-input"
 				(mousemove)="onSelectMarca($event)"
 				(mouseout)="removeInfoExample()"
 			>
@@ -137,19 +138,19 @@
 	<div class="radio-options-container">
 		<label for="tip utilizare">Tip utilizare:</label>
 		<div class="radio-option">
-			<input type="radio" name="tip utilizare" value="utilizare normala" formControlName="tip_utilizare" />
+			<input type="radio" name="tip_utilizare" value="utilizare normala" formControlName="tip_utilizare" />
 			<label for="tip utilizare">Utilizare normala</label>
 		</div>
 		<div class="radio-option">
-			<input type="radio" name="tip utilizare" value="alta utilizare" formControlName="tip_utilizare" />
+			<input type="radio" name="tip_utilizare" value="alta utilizare" formControlName="tip_utilizare" />
 			<label for="tip utilizare">Alta utilizare</label>
 		</div>
 	</div>
 
 	<!-- UTILIZRE SPECIFICA -->
 	<div class="group-has-select" *ngIf="rcaForm.get('tip_utilizare')?.value == 'alta utilizare'">
-		<label for="utilizare specifica">Utilizare specifica</label>
-		<select name="utilizare specifica" formControlName="utilizare_specifica">
+		<label for="utilizare_specifica">Utilizare specifica</label>
+		<select name="utilizare_specifica" formControlName="utilizare_specifica">
 			<option value="alege"></option>
 			<option value="taxi">Taxi</option>
 			<option value="curierat">Curierat</option>
