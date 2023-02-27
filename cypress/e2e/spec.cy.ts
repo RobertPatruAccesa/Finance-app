@@ -13,18 +13,70 @@ describe('template spec', () => {
 		cy.contains('Log In');
 	});
 
-	it('should navigate to RCA page', () => {
-		const staticResponse = ['audi', 'toyota', 'renault', 'skoda'];
-		cy.fixture('db.json').as('dbJSON');
-		cy.intercept('api/cars', staticResponse).as('carBrands');
+	it('simulate user experience', () => {
+		cy.visit('http://localhost:4200/login');
 
-		cy.visit('http://localhost:4200/RCA/1');
-		cy.wait('@carBrands');
+		cy.get('input[name="username"]').type('123');
+		cy.get('input[name="password"]').type('123');
+		cy.contains('LOGIN').click().wait(1000);
 
-		cy.get('.marca-container > label').trigger('mouseenter').wait(2000);
-		cy.get('.marca-label').trigger('mouseenter').wait(2000);
+		// visit home
+		cy.contains('Home').click().wait(1000);
 
-		cy.get('.marca-input').invoke('append', '<option value="skoda">Skoda</option>');
-		cy.get('.marca-input').select('Skoda').should('have.value', 'skoda');
+		// visit transactions page
+		cy.contains('Transactions').click().wait(1000);
+
+		// open a transaction
+		cy.contains('1').click().wait(1000);
+		// edit the transaction
+		cy.get('textarea[name="description"]').clear().type('This descriptions is being modified by cypress.');
+		cy.get('input[name="amount"]').clear().type('99.99');
+		cy.get('select[name="category"]').select('living-cost');
+		cy.get('select[name="payment-type"]').select('encashment');
+		cy.get('input[name="date"]').type('2023-02-27');
+
+		cy.contains('EDIT TRANSACTION').click();
+		cy.contains('CANCEL').click().wait(1000);
+
+		// create new transaction
+		cy.contains('Create Transaction').click();
+
+		cy.get('textarea[name="description"]').clear().type('This is a new transaction created through cypress');
+		cy.get('input[name="amount"]').clear().type('189.99');
+		cy.get('select[name="category"]').select('living-cost');
+		cy.get('select[name="payment-type"]').select('encashment');
+		cy.get('input[name="date"]').type('2023-02-27');
+
+		cy.contains('ADD TRANSACTION').click().wait(1500);
+		cy.contains('CANCEL').click().wait(100);
+
+		// go to RCA form
+		// cy.contains('RCA').click();
+
+		// cy.get('select[name="stare-inmatriculare-input"]').select('inmatriculat');
+		// cy.get('input[name="numar-inmatriculare"').type('1233455');
+		// cy.get('select[name="categorie"]').select('autoturism');
+		// cy.get('select[name="marca-input"]').select('audi');
+		// cy.get('select[name="marca-input"]').click();
+		// cy.get('select[name="marca-input"]').click();
+		// cy.get('select[name="model"]').select('RS6 Avant');
+		// cy.get('input[name="numar-identificare-sasiu"').type('VK48AWD848QWE484');
+		// cy.get('input[name="alta-utilizare"').click();
+		// cy.get('select[name="utiliare-specifica"]').select('rent a car');
+		// cy.get('input[name="serie-carte-auto"').type('DJ848');
+		// cy.get('input[name="masa-maxima-autorizata"').type('04');
+		// cy.get('select[name="numar-identificare-sasiu"]').click();
+		// cy.get('input[name="masa-maxima-autorizata"').clear().type('2045');
+		// cy.get('input[name="capacitate-cilindrica"').type('3996');
+		// cy.get('input[name="an-fabricatie"').type('2023');
+		// cy.get('input[name="numar-locuri"').type('5');
+		// cy.get('input[name="puterei"').type('610');
+		// cy.get('select[name="servicii-extra"]').select('Asistenta accident');
+		// cy.get('select[name="servicii-extra"]').select('Asistenta pana');
+		// cy.get('select[name="servicii-extra"]').select('Asistenta furt');
+
+		// cy.get('input[name="numar-inmatriculare"').clear().type('dj17hrc');
+
+		cy.contains('Log Out').click();
 	});
 });

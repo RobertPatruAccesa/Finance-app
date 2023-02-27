@@ -8,15 +8,16 @@
 			placeholder="Transaction's Description"
 			[(ngModel)]="transactionDescription"
 			name="description"
+            class="description"
 		></textarea>
 	</div>
 	<div class="group-container amount-container">
 		<label for="amount">Amount</label>
-		<input type="number" name="amount" placeholder="0" [(ngModel)]="transactionAmount" name="amount" />
+		<input type="number" name="amount" placeholder="0" [(ngModel)]="transactionAmount" name="amount" class="amount"/>
 	</div>
 	<div class="group-container category-container">
 		<label for="category">Category</label>
-		<select name="category" [(ngModel)]="transactionCategory" name="category" [value]="transactionCategory">
+		<select name="category" [(ngModel)]="transactionCategory" name="category" [value]="transactionCategory" class="category">
 			<option value="groceries">Groceries</option>
 			<option value="entertainment">Entertainment</option>
 			<option value="traveling">Traveling</option>
@@ -26,16 +27,16 @@
 	</div>
 	<div class="group-container payment-type-container">
 		<label for="payment-type">Payment Type</label>
-		<select name="payment type" [(ngModel)]="transactionType" name="payment-type">
+		<select name="payment type" [(ngModel)]="transactionType" name="payment-type" class="payment-type">
 			<option value="payment">Payment</option>
 			<option value="encashment">Encashment</option>
 		</select>
 	</div>
 	<div class="group-container date-container">
 		<label for="date">Date</label>
-		<input type="date" name="date" [(ngModel)]="transactionDate" name="date" />
+		<input type="date" name="date" [(ngModel)]="transactionDate" name="date" class="date" />
 	</div>
 
 	<app-button text="CANCEL" (click)="onCancel()"></app-button>
-	<!-- <app-button text="EDIT TRANSACTION" (click)="onEditForm()"></app-button> -->
+	<app-button text="EDIT TRANSACTION" (click)="onEditForm()"></app-button>
 </form>

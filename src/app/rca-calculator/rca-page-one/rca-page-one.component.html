@@ -8,7 +8,7 @@
 		<!-- STARE INAMTRICULARE -->
 		<div class="group-has-select stare-inmatriculare">
 			<label for="stare inmatriculare">Stare inmatriculare</label>
-			<select name="stare inmatriculare" formControlName="stare_inmatriculare">
+			<select name="stare inmatriculare" formControlName="stare_inmatriculare" class="stare-inmatriculare-input">
 				<option value="alege"></option>
 				<option value="inmatriculat">inmatriculat</option>
 				<option value="in vederea inmatricularii">in vederea inmatricularii</option>
@@ -26,6 +26,7 @@
 			<input
 				type="text"
 				name="numar inmatriculare"
+                class="numar-inmatriculare"
 				formControlName="numar_inmatriculare"
 				style="text-transform: uppercase"
 				(mousemove)="onSelectNumarInmatriculare($event)"
@@ -52,6 +53,7 @@
 			<select
 				name="categorie"
 				formControlName="categorie"
+                class="categorie"
 				(mousemove)="onSelectCategorie($event)"
 				(mouseout)="removeInfoExample()"
 			>
@@ -94,6 +96,7 @@
 			<select
 				name="model"
 				formControlName="model"
+                class="model"
 				(mousemove)="onSelectModel($event)"
 				(mouseout)="removeInfoExample()"
 			>
@@ -115,6 +118,7 @@
 			type="text"
 			name="numar sasiu"
 			formControlName="numar_identificare_sasiu"
+            class="numar-identificare-sasiu"
 			minlength="5"
 			style="text-transform: uppercase"
 			(mousemove)="onSelectNumarIdentificareSasiu($event)"
@@ -138,11 +142,11 @@
 	<div class="radio-options-container">
 		<label for="tip utilizare">Tip utilizare:</label>
 		<div class="radio-option">
-			<input type="radio" name="tip_utilizare" value="utilizare normala" formControlName="tip_utilizare" />
+			<input type="radio" name="tip_utilizare" class="utilizare-normala" value="utilizare normala" formControlName="tip_utilizare" />
 			<label for="tip utilizare">Utilizare normala</label>
 		</div>
 		<div class="radio-option">
-			<input type="radio" name="tip_utilizare" value="alta utilizare" formControlName="tip_utilizare" />
+			<input type="radio" name="tip_utilizare" class="alta-utilizare" value="alta utilizare" formControlName="tip_utilizare" />
 			<label for="tip utilizare">Alta utilizare</label>
 		</div>
 	</div>
@@ -150,7 +154,7 @@
 	<!-- UTILIZRE SPECIFICA -->
 	<div class="group-has-select" *ngIf="rcaForm.get('tip_utilizare')?.value == 'alta utilizare'">
 		<label for="utilizare_specifica">Utilizare specifica</label>
-		<select name="utilizare_specifica" formControlName="utilizare_specifica">
+		<select name="utilizare_specifica" formControlName="utilizare_specifica" class="utiliare-specifica">
 			<option value="alege"></option>
 			<option value="taxi">Taxi</option>
 			<option value="curierat">Curierat</option>
@@ -174,6 +178,7 @@
 		<input
 			type="text"
 			name="serie carte auto"
+            class="serie-carte-auto"
 			formControlName="serie_carte_auto"
 			(mousemove)="onSelectSerieCarteAuto($event)"
 			(mouseout)="removeInfoExample()"
@@ -199,6 +204,7 @@
 					type="text"
 					name="masa maxima autorizata"
 					formControlName="masa_maxima_autorizata"
+                    class="masa-maxima-autorizata"
 					minlength="3"
 					(mousemove)="onSelectMasaMaximaAutorizata($event)"
 					(mouseout)="removeInfoExample()"
@@ -223,6 +229,7 @@
 					type="text"
 					name="capacitate cilindrica"
 					formControlName="capacitate_cilindrica"
+                    class="capacitate-cilindrica"
 					minlength="2"
 					(mousemove)="onSelectCapacitateCilindrica($event)"
 					(mouseout)="removeInfoExample()"
@@ -247,6 +254,7 @@
 					type="text"
 					name="an fabricatie"
 					formControlName="an_fabricatie"
+                    class="an-fabricatie"
 					minlength="4"
 					(mousemove)="onSelectAnFabricatie($event)"
 					(mouseout)="removeInfoExample()"
@@ -274,6 +282,7 @@
 					type="number"
 					name="numar locuri"
 					formControlName="numar_locuri"
+                    class="numar-locuri"
 					(mousemove)="onSelectNumarLocuri($event)"
 					(mouseout)="removeInfoExample()"
 				/>
@@ -292,6 +301,7 @@
 					type="number"
 					name="putere"
 					formControlName="putere"
+                    class="putere"
 					(mousemove)="onSelectPutere($event)"
 					(mouseout)="removeInfoExample()"
 				/>
@@ -308,7 +318,7 @@
 	<!-- SERVICII EXTRA -->
 	<div class="group-has-select extra-services">
 		<label for="servicii extra">Servicii extra</label>
-		<select name="servicii exNiciunatra" formControlName="servicii_extra" multiple="multiple">
+		<select name="servicii exNiciunatra" class="servicii-extra" formControlName="servicii_extra" multiple="multiple">
 			<option value="niciuna">Niciuna</option>
 			<option *ngFor="let serviciu of serviciiExtra" [value]="serviciu">{{ serviciu }}</option>
 		</select>
