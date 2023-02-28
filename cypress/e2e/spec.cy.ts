@@ -18,16 +18,78 @@ describe('template spec', () => {
 
 		cy.get('input[name="username"]').type('123');
 		cy.get('input[name="password"]').type('123');
-		cy.contains('LOGIN').click().wait(1000);
+
+		cy.intercept(
+			{
+				method: 'GET',
+				url: 'http://localhost:4200/api/users'
+			},
+			[
+				{
+					id: '1',
+					username: 'Robert Patru',
+					email: 'robert.patru@test.com',
+					password: '1234'
+				},
+				{
+					password: '123',
+					username: '123'
+				}
+			]
+		).as('getUsers');
+
+		cy.contains('LOGIN').click().wait('@getUsers');
+		cy.wait(1000);
 
 		// visit home
 		cy.contains('Home').click().wait(1000);
 
-		// visit transactions page
-		cy.contains('Transactions').click().wait(1000);
+		// load the transactions before visiting transactions page
+		cy.intercept(
+			{
+				method: 'GET',
+				url: 'http://localhost:4200/api/transactions'
+			},
+			[
+				{
+					id: '1',
+					userId: '1',
+					amount: 200,
+					type: 'payment',
+					date: '2023-01-15',
+					description: 'Tickets to filmarmonica-',
+					category: 'entertainment'
+				},
+				{
+					id: '2',
+					userId: '1',
+					amount: 1000,
+					type: 'payment',
+					date: '02-01-2023',
+					description: 'Paying Rent',
+					category: 'living-cost'
+				}
+			]
+		).as('getTransactions');
+
+		cy.contains('Transactions').click().wait('@getTransactions').wait(1000);
+
+		// mock first transaction data
+		cy.intercept(
+			{
+				method: 'GET',
+				url: 'http://localhost:4200/api/transactions/1'
+			},
+			{
+				id: '1',
+				username: 'Robert Patru',
+				email: 'robert.patru@test.com',
+				password: '1234'
+			}
+		).as('firstTransaction');
 
 		// open a transaction
-		cy.contains('1').click().wait(1000);
+		cy.contains('1').click().wait('@firstTransaction').wait(1000);
 		// edit the transaction
 		cy.get('textarea[name="description"]').clear().type('This descriptions is being modified by cypress.');
 		cy.get('input[name="amount"]').clear().type('99.99');
