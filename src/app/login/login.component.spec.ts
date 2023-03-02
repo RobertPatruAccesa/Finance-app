@@ -34,5 +34,11 @@ fdescribe('LoginComponent', () => {
     it('should have username and password inputs', () => {
         const usernameInput = el.query(By.css('.username'));
         expect(usernameInput).toBeTruthy("Could find username input");
+        
+        const passwordInput = el.query(By.css('.password'));
+        expect(passwordInput).toBeTruthy("Could find password input");
+
+        const loginButton = el.query(By.css('.login-button'));
+        expect(loginButton).toBeTruthy("Could find login-button input");
     })
 });
