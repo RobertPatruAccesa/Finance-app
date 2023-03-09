@@ -14,7 +14,7 @@ const routes: Routes = [
 	{ path: 'transactions', component: TransactionsComponent, canActivate: [AuthGuard]  },
 	{ path: 'transactions/:id', component: TransactionDetailsComponent, canActivate: [AuthGuard]  },
 	{ path: 'create-transaction', component: CreateTransactionComponent, canActivate: [AuthGuard]  },
-	{ path: 'RCA/1', component: RcaPageOneComponent  },
+	// { path: 'RCA/1', component: RcaPageOneComponent  },
 	{ path: '**', redirectTo: 'login' }
 ];
 
