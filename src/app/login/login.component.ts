@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { LoginUser } from '../store/user/user.actions';
-// import { loginUser, loadUsers } from '../store/user/user.actions';
-// import { altCeva, selectCeva, selectIsUserValid } from '../store/user/user.selector';
-import { User } from '../core/interfaces/user.interface';
+
 import { UserService } from '../core/services/user.service';
 import { selectIsUserValid } from '../store/user/user.selector';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 @Component({
 	selector: 'app-login',
@@ -16,11 +15,9 @@ export class LoginComponent implements OnInit {
 	userIsloggedin: boolean = false;
 	showToaster: boolean = false;
 
-	username: string = '';
-	password: string = '';
 	user = {
-		username: 'Robert',
-		password: '1234'
+		email: '',
+		password: ''
 	};
 
 	constructor(private store: Store, private userService: UserService) {}
@@ -30,10 +27,20 @@ export class LoginComponent implements OnInit {
 	}
 
 	onLogin() {
-		this.user.username = this.username;
-		this.user.password = this.password;
+		const auth = getAuth();
+		signInWithEmailAndPassword(auth, this.user.email, this.user.password)
+			.then(userCredential => {
+				const user = userCredential.user;
+                
+                if (!!user) {
+                    this.store.dispatch(LoginUser())
+                }
+			})
+			.catch(error => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+			});
 
-		this.store.dispatch(LoginUser({ user: this.user }));
 
 		setTimeout(() => {
 			this.showToaster = true;

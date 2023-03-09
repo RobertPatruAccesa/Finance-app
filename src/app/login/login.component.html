@@ -3,12 +3,12 @@
 
 <form>
 	<div class="group">
-		<label for="username">Username</label>
-		<input type="text" name="username" [(ngModel)]="username">
+		<label for="email">Email</label>
+		<input type="text" name="email" [(ngModel)]="user.email">
 	</div>
 	<div class="group">
 		<label for="password">Password</label>
-		<input type="password" name="password" [(ngModel)]="password">
+		<input type="password" name="password" [(ngModel)]="user.password">
 	</div>
 
 	<app-button text="LOGIN" (click)="onLogin()"></app-button>
