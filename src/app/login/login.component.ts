@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { LoginUser } from '../store/user/user.actions';
 
-import { UserService } from '../core/services/user.service';
 import { selectIsUserValid } from '../store/user/user.selector';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { Router } from '@angular/router';

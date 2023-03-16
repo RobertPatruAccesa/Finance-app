@@ -1,0 +1,44 @@
+:host {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	form {
+		.group {
+			display: flex;
+			justify-content: space-between;
+			font-size: 30px;
+			margin-bottom: 20px;
+
+			input {
+				margin-left: 20px;
+			}
+		}
+
+        .invalid-message {
+            color: red;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+		app-button {
+			display: block;
+			text-align: center;
+			background: var(--black);
+			color: var(--white);
+			font-size: 20px;
+		}
+	}
+
+	
+}
+app-toaster {
+	position: absolute;
+	top: 15%;
+	left: calc(50% - 250px);
+
+	width: 500px;
+	height: 100px;
+}
