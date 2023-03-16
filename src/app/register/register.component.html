@@ -1,6 +1,7 @@
 <app-toaster message="Registration completed" type="success" *ngIf="successfulyRegistered && showToaster"></app-toaster>
 <app-toaster message="Registration failed" type="danger" *ngIf="!successfulyRegistered && showToaster"></app-toaster>
 
+
 <form [formGroup]="registrationForm">
 	<!-- EMAIL -->
 	<div class="group">
@@ -47,7 +48,7 @@
 	</div>
 	<span
 		class="invalid-message registration-error-message"
-		*ngIf="!registrationForm.get('repeat_password')?.valid && registrationForm.get('repeat_password')?.touched"
+		*ngIf="!registrationForm.get('repeat_password')?.valid && registrationForm.get('repeat_password')?.touched || user.password !== user.repeatPassword"
 	>
 		The password and repeat password must be the same
 	</span>

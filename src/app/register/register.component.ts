@@ -3,6 +3,8 @@ import { Store } from '@ngrx/store';
 
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { LoginUser } from '../store/user/user.actions';
 
 @Component({
 	selector: 'app-register',
@@ -12,34 +14,52 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 	successfulyRegistered: boolean = false;
 	showToaster: boolean = false;
+	count: number = 0;
 
-    registrationForm!: FormGroup;
+	registrationForm!: FormGroup;
 
 	user = {
 		email: '',
 		password: '',
-        repeatPassword: ''
+		repeatPassword: ''
 	};
 
-	constructor(private router: Router) {}
+	constructor(private router: Router, private store: Store) {}
 
-    ngOnInit(): void {
-        this.registrationForm = new FormGroup({
-            email: new FormControl(null, [Validators.required, Validators.email]),
-            password: new FormControl(null, [Validators.required] ),
-            repeat_password: new FormControl(null, [Validators.required] )
-        })
-    }
+	ngOnInit(): void {
+		this.registrationForm = new FormGroup({
+			email: new FormControl(null, [Validators.required, Validators.email]),
+			password: new FormControl(null, [Validators.required]),
+			repeat_password: new FormControl(null, [Validators.required])
+		});
+	}
 
 	onRegister() {
-        console.log(this.registrationForm);
+		if (this.registrationForm.status === 'VALID' && this.user.password === this.user.repeatPassword) {
+			const auth = getAuth();
+
+			createUserWithEmailAndPassword(auth, this.user.email, this.user.password)
+				.then(userCredential => {
+					const user = userCredential.user;
+					this.successfulyRegistered = true;
+				})
+				.catch(error => {
+					const errorCode = error.code;
+					const errorMessage = error.message;
+
+					if (errorCode || errorMessage) {
+						this.successfulyRegistered = false;
+					}
+				});
+		}
 
 		setTimeout(() => {
 			this.showToaster = true;
-		}, 100);
+		}, 500);
 
 		setTimeout(() => {
 			this.showToaster = false;
-		}, 2000);
+            this.router.navigate(['/login'])
+		}, 3000);
 	}
 }
