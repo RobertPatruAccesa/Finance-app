@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
 
 				if (!!user) {
 					this.store.dispatch(LoginUser());
-                    console.log(user)
 
 					setTimeout(() => {
 						this.router.navigate(['home']);
