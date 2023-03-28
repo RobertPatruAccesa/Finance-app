@@ -1,0 +1,57 @@
+<app-toaster message="Registration completed" type="success" *ngIf="successfulyRegistered && showToaster"></app-toaster>
+<app-toaster message="Registration failed" type="danger" *ngIf="!successfulyRegistered && showToaster"></app-toaster>
+
+
+<form [formGroup]="registrationForm">
+	<!-- EMAIL -->
+	<div class="group">
+		<label for="email">Email</label>
+		<input type="text" name="email" [(ngModel)]="user.email" formControlName="email" required />
+	</div>
+	<span
+		class="invalid-message registration-error-message"
+		*ngIf="!registrationForm.get('email')?.valid && registrationForm.get('email')?.touched"
+	>
+		Please enter a valid email address
+	</span>
+
+	<!-- PASSWORD -->
+	<div class="group">
+		<label for="password">Password</label>
+		<input
+			type="password"
+			name="password"
+			[(ngModel)]="user.password"
+			formControlName="password"
+			required
+			minlength="6"
+		/>
+	</div>
+	<span
+		class="invalid-message registration-error-message"
+		*ngIf="!registrationForm.get('password')?.valid && registrationForm.get('password')?.touched"
+	>
+		The password must be at least 6 characters long
+	</span>
+
+	<!-- REPEAT PASSWORD -->
+	<div class="group">
+		<label for="repeat_password">Repeat password</label>
+		<input
+			type="password"
+			name="password"
+			[(ngModel)]="user.repeatPassword"
+			formControlName="repeat_password"
+			required
+			minlength="6"
+		/>
+	</div>
+	<span
+		class="invalid-message registration-error-message"
+		*ngIf="!registrationForm.get('repeat_password')?.valid && registrationForm.get('repeat_password')?.touched || user.password !== user.repeatPassword"
+	>
+		The password and repeat password must be the same
+	</span>
+
+	<app-button text="REGISTER" (click)="onRegister()"></app-button>
+</form>

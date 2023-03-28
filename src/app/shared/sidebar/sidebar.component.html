@@ -1,4 +1,4 @@
-<h1 class="logo align-center-x-Y-flexStart" routerLink="">Finnace App</h1>
+<h1 class="logo align-center-x-Y-flexStart" routerLink="">FN App</h1>
 
 <div class="main-buttons align-center-x-Y-flexStart">
 	<app-button
@@ -9,14 +9,17 @@
 	></app-button>
 	<app-button text="Transactions" routerLink="transactions" routerLinkActive="active"></app-button>
 	<app-button text="Create Transaction" routerLink="create-transaction" routerLinkActive="active"></app-button>
-	<app-button text="RCA" routerLink="RCA/1" routerLinkActive="active"></app-button>
+	<!-- <app-button text="RCA" routerLink="RCA/1" routerLinkActive="active"></app-button> -->
 </div>
 
 <div>
-	<h1>Is user loggedin: {{ userIsLoggedin }}</h1>
+	<h3>Is user loggedin: {{ userIsLoggedin }}</h3>
 </div>
 
 <div class="secondary-buttons align-center-x-Y-flexStart">
 	<app-button text="Log In" routerLink="login" routerLinkActive="active" *ngIf="!userIsLoggedin"></app-button>
+	<small *ngIf="!userIsLoggedin">or</small>
+	<app-button text="Register" routerLink="register" routerLinkActive="active" *ngIf="!userIsLoggedin"></app-button>
+
 	<app-button text="Log Out" routerLink="login" *ngIf="userIsLoggedin" (click)="onLogout()"></app-button>
 </div>

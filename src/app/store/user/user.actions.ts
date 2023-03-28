@@ -2,8 +2,7 @@ import { createAction, props } from '@ngrx/store';
 import { User } from '../../core/interfaces/user.interface';
 
 export const LoginUser = createAction(
-	'[Login Page] Login User',
-	props<{ user: User }>()
+	'[Login Page] Login User'
 )
 
 export const LogoutUser = createAction(
