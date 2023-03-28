@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 		password: '1234'
 	};
 
-	constructor(private store: Store, private userService: UserService) {}
+	constructor(private store: Store) {}
 
 	ngOnInit(): void {
 		this.store.pipe(select(selectIsUserValid)).subscribe(res => (this.userIsloggedin = res));
