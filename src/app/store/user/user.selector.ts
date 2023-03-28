@@ -7,3 +7,7 @@ export const selectUserState = createFeatureSelector<UsersState>('usersReducer')
 export const selectIsUserValid = createSelector(selectUserState, user => {
 	return user.userIsValid;
 });
+
+export const selectUserId = createSelector(selectUserState, user => {
+	return user.userId;
+});

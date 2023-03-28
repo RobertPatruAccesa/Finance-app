@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { LoginUser } from '../store/user/user.actions';
+import { LoginUser, SetUserId } from '../store/user/user.actions';
 
 import { selectIsUserValid } from '../store/user/user.selector';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
 				const user = userCredential.user;
 
 				if (!!user) {
+					this.store.dispatch(SetUserId({ userId: user.uid }));
 					this.store.dispatch(LoginUser());
 
 					setTimeout(() => {

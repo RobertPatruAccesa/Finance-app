@@ -1,5 +1,4 @@
 import { createAction, props } from '@ngrx/store';
-import { User } from '../../core/interfaces/user.interface';
 
 export const LoginUser = createAction(
 	'[Login Page] Login User'
@@ -12,4 +11,9 @@ export const LogoutUser = createAction(
 export const UserIsValid = createAction(
 	'[Login Page] User is valid',
 	props<{ isValid: boolean }>()
+)
+
+export const SetUserId = createAction(
+    '[Login Page] Set user Id',
+    props<{ userId: string }>()
 )
